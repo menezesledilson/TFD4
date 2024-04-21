@@ -12,7 +12,7 @@ class UnidadeDAO
     // Criar unidades
     public function postUnidade($nome)
     {
-        $stmt = $this->conexao->prepare("INSERT INTO unidades(`nome_usf`) VALUES (?)");
+        $stmt = $this->conexao->getConexao()->prepare("INSERT INTO unidades(`nome_usf`) VALUES (?)");
         $stmt->bind_param("s", $nome);
         if ($stmt->execute() == true) {
             return true;
@@ -33,22 +33,8 @@ class UnidadeDAO
          }
          return $unidades;
      }
-     /*
-      *    //Lista de todas unidades e limitar a quantidade na pagina
-     public function getUnidade( )
-     {
-         $stmt = $this->conexao->getConexao()->prepare("SELECT nome_usf FROM unidades order by id desc LIMIT 3");
-         $unidades = [];
-         $stmt->execute();
-         $result = $stmt->get_result();
-         while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
-             $unidades[] = $row;
-         }
-         return $unidades;
-     }
 
-      * */
-    public function pesquisaUnidade($id)
+    public function pesquisaLivro($id)
     {
         $stmt = $this->conexao->getConexao()->prepare("SELECT * FROM unidades WHERE id = ?");
         $stmt->bind_param("i", $id);
@@ -56,17 +42,7 @@ class UnidadeDAO
         $result = $stmt->get_result();
         return $result->fetch_array(MYSQLI_ASSOC);
     }
-    //Atualizar unidade
-    public function putUnidade($nome,$id)
-    {
-       $stmt = $this->conexao->prepare("UPDATE unidades SET nome_usf = ? where id = ?");
-       $stmt->bind_param("si", $nome,$id);
-       if ($stmt->execute() == true) {
-           return true;
-       }else{
-           return false;
-       }
-    }
+
     //Deletar as unidade
      public function deleteUnidade($id)
     {
@@ -80,24 +56,17 @@ class UnidadeDAO
              return false;
          }
     }
-
-    // Listar unidade por ID
-   /* public function listaUnidadePorId($id)
+    //Atualizar unidade
+    public function putUnidade($nome,$id)
     {
-        $result = $this->mysqli->query("SELECT * FROM unidades WHERE id = '$id'");
-        return $row = $result->fetch_array(MYSQLI_ASSOC);
-    }*/
-
-    /*// Editar unidade
-    public function editarUnidade($nome_usf, $created, $modified, $id)
-    {
-        $stmt = $this->mysqli->prepare("UPDATE `unidades` SET `nome_usf` = ?, `created`=?, `modified`=? WHERE `id` = ?");
-        $stmt->bind_param("ssss", $nome_usf, $created, $modified, $id);
-        if ($stmt->execute() == TRUE) {
+        $stmt = $this->conexao->prepare("UPDATE unidades SET nome_usf = ? where id = ?");
+        $stmt->bind_param("si", $nome,$id);
+        if ($stmt->execute() == true) {
             return true;
-        } else {
+        }else{
             return false;
         }
-    }*/
+    }
+
 }
 ?>

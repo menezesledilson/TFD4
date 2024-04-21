@@ -62,13 +62,16 @@ class Unidade
     }
 
     //Atualizar o nome da unidade
-    public function putSituacao($nome,$id)
+    public function atualizaUnidade($nome,$id)
     {
         return $this->unidadeDAO->putUnidade($nome,$id);
     }
 
-    public function consultaUnidade($id ){
-        return $this->unidadeDAO->pesquisaUnidade($id );
+    public function pesquisaLivro($id ){
+        return $this->unidadeDAO->pesquisaLivro($id );
+
+
+
     }
     //Métdo para deletar unidadde da lista
     public function excluirUnidade($id){

@@ -42,9 +42,8 @@ $row = $controller->listarTodos();
                     <div class="col-md-3 text-center">
                         <div class="btn-group justify-content-between">
 
-                            <a href="../../View/UnidadeView/editarUnidade.php?id= " class="btn btn-primary"
-                               style="margin-left: 5px; margin-right: 5px;">Editar</a>
-                            <a class='btn btn-danger' href='../../Controller/Unidade/UnidadeDeletarController.php?id=<?php echo $value['id']; ?>'>Excluir</a>
+                            <a class="btn btn-primary" style="margin-left: 5px; margin-right: 5px;" href="../../View/UnidadeView/editarUnidade.php?id=<?php echo $value['id']; ?>">Editar</a>
+                            <a class="btn btn-danger" href="../../Controller/Unidade/UnidadeDeletarController.php?id=<?php echo $value['id']; ?>">Excluir</a>
 
                         </div>
                     </div>

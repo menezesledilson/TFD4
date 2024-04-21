@@ -10,6 +10,7 @@
     <title>Pacientes</title>
 </head>
 <body>
+<?php require_once("../../Controller/Unidade/UnidadeEditarController.php");?>
 <div class="container">
     <header class="d-flex justify-content-between- my-4">
         <div class="ms-auto">
@@ -23,17 +24,15 @@
                 <div class="row mb-3">
                     <div class="col-md-3">
                         <label>Nome:</label>
-                        <input type="text" class="form-control form-control-sm" name="nome"
-
-                               value="<?php echo isset($dados_paciente['nome']) ? $dados_paciente['nome'] : ''; ?>">
+                        <input type="text" class="form-control form-control-sm" name="nome" value="<?php echo !empty($editar->getNome()) ? $editar->getNome() : ''; ?>">
                     </div>
                 </div>
             </div>
         </div>
         <div class="mt-3">
-            <input type="hidden" name="id"
-            <a class='btn btn-warning' href='editarUnidade.php?id=".$value['id']."'>
-            <input type="submit" name="edit" value="Confirma" class="btn btn-primary">
+            <input type="hidden" name="id" value="<?php echo !empty($editar->getId()) ? $editar->getId() : ''; ?>">
+
+            <button type="submit" class="btn btn-primary id="editar" name="submit" value="editar">Editar</button>
         </div>
     </form>
 </div>

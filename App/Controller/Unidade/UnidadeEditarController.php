@@ -17,18 +17,20 @@ class editarUnidade
 
     public function criarFormulario($id)
     {
-        $row = $this->editar->consultaUnidade($id);
+        $row = $this->editar->pesquisaLivro($id);
         if ($row) {
-            $this->nome = $row['nome'];
+            //Localizar nome da coluna no banco de dados
+            $this->nome = $row['nome_usf'];
         } else {
-            // Tratar o caso em que a pesquisa do livro não retornou resultados
-            echo "Registro não encontrado.";
+            // Tratar o caso em que a pesquisa da unidade não retornou resultados ou 'nome' não está definido
+            echo "Registro não encontrado ou nome não está definido.";
         }
     }
 
-    public function editarFormulario($nome, $id) {
-        if ($this->editar->putSituacao($nome, $id) == TRUE) {
-            echo "<script>alert('Registro incluído com sucesso!');document.location='../../view/UnidadeView/indexUnidade.php'</script>";
+    public function editarFormulario($nome, $id)
+    {
+        if ($this->editar->atualizaUnidade($nome, $id) == TRUE) {
+            echo "<script>alert('Registro atualizado com sucesso!');document.location='../../view/UnidadeView/indexUnidade.php'</script>";
         } else {
             echo "<script>alert('Erro ao gravar registro!');history.back()</script>";
         }
@@ -46,7 +48,7 @@ class editarUnidade
 }
 
 $id = filter_input(INPUT_GET, 'id');
-$editar = new editarController($id);
+$editar = new editarUnidade($id);
 if (isset($_POST['submit'])) {
     $editar->editarFormulario($_POST['nome'], $_POST['id']);
 }
