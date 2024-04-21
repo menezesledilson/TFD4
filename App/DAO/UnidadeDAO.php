@@ -48,14 +48,25 @@ class UnidadeDAO
      }
 
       * */
-    public function pesquisaUnidade($id){
-        $stmt = $this->conexao->prepare("SELECT * FROM unidades WHERE id = ?");
+    public function pesquisaUnidade($id)
+    {
+        $stmt = $this->conexao->getConexao()->prepare("SELECT * FROM unidades WHERE id = ?");
         $stmt->bind_param("i", $id);
         $stmt->execute();
         $result = $stmt->get_result();
         return $result->fetch_array(MYSQLI_ASSOC);
     }
-
+    //Atualizar unidade
+    public function putUnidade($nome,$id)
+    {
+       $stmt = $this->conexao->prepare("UPDATE unidades SET nome_usf = ? where id = ?");
+       $stmt->bind_param("si", $nome,$id);
+       if ($stmt->execute() == true) {
+           return true;
+       }else{
+           return false;
+       }
+    }
     //Deletar as unidade
      public function deleteUnidade($id)
     {

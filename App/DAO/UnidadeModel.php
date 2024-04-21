@@ -61,12 +61,19 @@ class Unidade
         return $this->unidadeDAO->getUnidade();
     }
 
+    //Atualizar o nome da unidade
+    public function putSituacao($nome,$id)
+    {
+        return $this->unidadeDAO->putUnidade($nome,$id);
+    }
+
+    public function consultaUnidade($id ){
+        return $this->unidadeDAO->pesquisaUnidade($id );
+    }
     //Métdo para deletar unidadde da lista
     public function excluirUnidade($id){
         return $this->unidadeDAO->deleteUnidade($id);
     }
-
-
 
 }
 ?>
