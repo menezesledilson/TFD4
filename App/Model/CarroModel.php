@@ -20,9 +20,7 @@ class Carro extends Banco {
         return $this->id;
     }
 
-    /**
-     * @param mixed $id
-     */
+
     public function setId($id)
     {
         $this->id = $id;
@@ -174,6 +172,16 @@ class Carro extends Banco {
     public  function listarCarros()
     {
         return $this->carroDAO->getCarro();
+    }
+    //Atualizar a informação do veículo
+    public  function atualizaCarro($modelo,$placa,$renavam,$ano,$cor,$combustivel,$vagas,$id)
+    {
+        return $this->carroDAO->putCarro($modelo,$placa,$renavam,$ano,$cor,$combustivel,$vagas,$id);
+    }
+    //pesquisa veiculo
+    public  function pesquisaCarro($id)
+    {
+        return $this->carroDAO->localizarCarro($id);
     }
 }
 ?>

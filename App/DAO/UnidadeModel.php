@@ -67,8 +67,8 @@ class Unidade
         return $this->unidadeDAO->putUnidade($nome,$id);
     }
 
-    public function pesquisaLivro($id ){
-        return $this->unidadeDAO->pesquisaLivro($id );
+    public function pesquisaUnidade($id ){
+        return $this->unidadeDAO->localizarUnidade($id );
 
 
 

@@ -17,7 +17,7 @@ class editarUnidade
 
     public function criarFormulario($id)
     {
-        $row = $this->editar->pesquisaLivro($id);
+        $row = $this->editar->pesquisaUnidade($id);
         if ($row) {
             //Localizar nome da coluna no banco de dados
             $this->nome = $row['nome_usf'];

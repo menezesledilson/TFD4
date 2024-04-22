@@ -34,7 +34,7 @@ class UnidadeDAO
          return $unidades;
      }
 
-    public function pesquisaLivro($id)
+    public function localizarUnidade($id)
     {
         $stmt = $this->conexao->getConexao()->prepare("SELECT * FROM unidades WHERE id = ?");
         $stmt->bind_param("i", $id);
@@ -59,7 +59,7 @@ class UnidadeDAO
     //Atualizar unidade
     public function putUnidade($nome,$id)
     {
-        $stmt = $this->conexao->prepare("UPDATE unidades SET nome_usf = ? where id = ?");
+        $stmt = $this->conexao->getConexao()->prepare("UPDATE unidades SET nome_usf = ? where id = ?");
         $stmt->bind_param("si", $nome,$id);
         if ($stmt->execute() == true) {
             return true;

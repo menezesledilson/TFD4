@@ -34,5 +34,27 @@ class CarroDAO
         }
         return $carros;
     }
+//Localizar o carro
+    public function localizarCarro($id)
+    {
+        $stmt = $this->conexao->getConexao()->prepare("SELECT * FROM carros WHERE id=?");
+        $stmt->bind_param("i", $id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_array(MYSQLI_ASSOC);
+
+    }
+    //Atualizar o carro
+    public function putCarro($modelo, $placa, $renavam, $ano, $cor, $combustivel, $vagas, $id)
+    {
+        $stmt = $this->conexao->getConexao()->prepare("UPDATE carros SET modelo=?, placa=?, renavam=?, ano=?, cor=?, combustivel=?, vagas=? WHERE id=?");
+        $stmt->bind_param("sssssssi", $modelo, $placa, $renavam, $ano, $cor, $combustivel, $vagas, $id);
+        if ($stmt->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 }
 ?>
