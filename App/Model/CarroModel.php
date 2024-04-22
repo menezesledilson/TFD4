@@ -183,5 +183,10 @@ class Carro extends Banco {
     {
         return $this->carroDAO->localizarCarro($id);
     }
+
+    //Método para deletar veiculo
+    public  function excluirCarro($id){
+        return $this->carroDAO->deleteVeiculo($id);
+    }
 }
 ?>

@@ -34,6 +34,7 @@ class CarroDAO
         }
         return $carros;
     }
+
 //Localizar o carro
     public function localizarCarro($id)
     {
@@ -44,6 +45,7 @@ class CarroDAO
         return $result->fetch_array(MYSQLI_ASSOC);
 
     }
+
     //Atualizar o carro
     public function putCarro($modelo, $placa, $renavam, $ano, $cor, $combustivel, $vagas, $id)
     {
@@ -56,5 +58,19 @@ class CarroDAO
         }
     }
 
+
+    //deletar veiculo
+    public function deleteVeiculo($id)
+    {
+        $tmt = $this->conexao->getConexao()->prepare("DELETE FROM `carros` WHERE id=?");
+        $tmt->bind_param("i", $id);
+        $tmt->execute();
+        if ($tmt->affected_rows > 0) {
+            return true;
+        }else{
+            return false;
+        }
+    }
 }
+
 ?>

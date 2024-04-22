@@ -48,7 +48,7 @@ $row = $controller->listarTodos();
                     <div class="btn-group">
                             <a class="btn btn-primary" style="margin-left: 5px; margin-right: 5px;" href="../../View/CarroView/editarCarro.php?id=<?php echo $value['id']; ?>">Editar</a>
 
-                            <a class="btn btn-danger" href="../../Controller/Unidade/UnidadeDeletarController.php?id=<?php echo $value['id']; ?>">Excluir</a>
+                            <a class="btn btn-danger" href="../../Controller/Carro/CarroDeletarController.php?id=<?php echo $value['id']; ?>">Excluir</a>
                         </div>
                     </div>
                 </div>
