@@ -1,5 +1,5 @@
 <?php
-require_once("../Config/conexao.php");
+require_once("../DAO/conexao.php");
 
 class Paciente extends Banco {
 

@@ -1,16 +1,14 @@
 <?php
 // Incluir o arquivo ControllerListar.php para acessar a classe listaDeUnidade
-require_once("../../Controller/Unidade/UnidadeListarController.php");
-
+require_once("../../Controller/Carro/CarroListarController.php");
 
 // Criar uma instância da classe listaDeUnidade para acessar os métodos
-$controller = new listarUnidade();
+$controller = new listarCarro();
 
 // Chamar o método listarTodos para obter os dados das unidades
 $row = $controller->listarTodos();
 
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,25 +17,35 @@ $row = $controller->listarTodos();
     <link rel="shortcut icon" href="../favicon.ico"/>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-    <title>Unidades USF </title>
+    <title>Frota de veículos </title>
 </head>
 <body>
 <div class="container">
     <header class="d-flex justify-content-between my-4">
-        <p class="text-right"><a href="criarUnidade.php" class="btn btn-success">+ Novo Cadastro</a></p>
+        <p class="text-right"><a href="criarCarro.php" class="btn btn-success">+ Novo Cadastro</a></p>
         <a href="../home.php" class="btn btn-primary" style="margin-bottom: 25px;">Fechar</a>
     </header>
+
     <!-- Loop para cada paciente -->
     <?php foreach ($row as $value): ?>
         <div class="card">
-            <div class="card-header">Unidade</div>
+            <div class="card-header">Carro</div>
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-3">
-                        <p><strong>Nome:</strong> <?php echo $value['nome_usf']; ?></p>
+                        <p><strong>Nome:</strong> <?php echo $value['modelo']; ?></p>
+                        <p><strong>Placa:</strong> <?php echo $value['placa']; ?></p>
+                        <p><strong>Renavam:</strong> <?php echo $value['renavam']; ?></p>
+                        <p><strong>Ano:</strong> <?php echo $value['ano']; ?></p>
+                        <p><strong>Cor:</strong> <?php echo $value['cor']; ?></p>
+                        <p><strong>Combustivel:</strong> <?php echo $value['combustivel']; ?></p>
+                        <p><strong>Vagas:</strong> <?php echo $value['vagas']; ?></p>
+
                     </div>
-                    <div class="col-md-9 text-right   "> <!-- Coluna adicional para os botões -->
-                        <div class="btn-group">
+                </div>
+                <div class="row">
+                    <div class="col-md-9 text-right">
+                    <div class="btn-group">
                             <a class="btn btn-primary" style="margin-left: 5px; margin-right: 5px;" href="../../View/UnidadeView/editarUnidade.php?id=<?php echo $value['id']; ?>">Editar</a>
                             <a class="btn btn-danger" href="../../Controller/Unidade/UnidadeDeletarController.php?id=<?php echo $value['id']; ?>">Excluir</a>
                         </div>
