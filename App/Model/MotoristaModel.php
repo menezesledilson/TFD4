@@ -74,29 +74,29 @@ class Motorista extends  Banco
     }
 
    //Construtor da classe
-    private $MotoristaDAO;
+    private $motoristaDAO;
     public function __construct(){
-        $this->MotoristaDAO = new MotoristaDAO();
+        $this->motoristaDAO = new MotoristaDAO();
     }
     //método para cadastrar os motorista
     public function cadastrarMotorista($nome,$telefone){
-        return $this->MotoristaDAO->postMotorista($nome,$telefone);
+        return $this->motoristaDAO->postMotorista($nome,$telefone);
     }
     //Método para listar os motorista
     public function listarMotoristas(){
-        return $this->MotoristaDAO->getMotoristas();
+        return $this->motoristaDAO->getMotoristas();
     }
     //Atualizar a informação do motorista
     public function atualizarMotorista($nome,$telefone,$id){
-        return $this->MotoristaDAO->putMotorista($nome,$telefone,$id);
+        return $this->motoristaDAO->putMotorista($nome,$telefone,$id);
     }
     //pesquisa motorista
     public function pesquisarMotorista($id){
-        return $this->MotoristaDAO->localizarMotorista($id);
+        return $this->motoristaDAO->localizarMotorista($id);
     }
     //Método para deletar veículo
     public function excluirMotorista($id){
-        return $this->MotoristaDAO->deleteMotorista($id);
+        return $this->motoristaDAO->deleteMotorista($id);
     }
 }
 ?>
