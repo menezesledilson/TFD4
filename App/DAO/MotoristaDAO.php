@@ -24,16 +24,16 @@ class MotoristaDAO
     }
 
     //Listar os Carros
-    public function getMotoristas()
+    public function getMotorista()
     {
-        $stmt = $this->conexao->getConexao()->prepare("SELECT * FROM motoristas");
-        $motorista = [];
+        $stmt = $this->conexao->getConexao()->prepare("SELECT * FROM motoristas ORDER BY id DESC ");
+        $motoristas = [];
         $stmt->execute();
         $result = $stmt->get_result();
         while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
-            $motorista[] = $row;
+            $motoristas[] = $row;
         }
-        return $motorista;
+        return $motoristas;
     }
 
     //Localizar o motorista
@@ -43,10 +43,10 @@ class MotoristaDAO
         $stmt->bind_param("i", $id);
         $stmt->execute();
         $result = $stmt->get_result();
-        $row = $result->fetch_array(MYSQLI_ASSOC);
+        return $result->fetch_array(MYSQLI_ASSOC);
 
     }
-
+   
     //Atualizar o motorista
     public function putMotorista($nome, $telefone, $id)
     {
@@ -69,7 +69,5 @@ class MotoristaDAO
             return false;
         }
     }
-
 }
-
 ?>

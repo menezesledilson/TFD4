@@ -15,4 +15,10 @@ class deletaMotorista
         }
     }
 }
+if(isset($_GET['id'])){
+   new deletaMotorista($_GET['id']);
+} else {
+    // Lidar com o caso em que o parâmetro id não está presente na URL
+    echo "<scritp> alert ( 'Parâmetro ID não encontrado na URL'); history.back()</scritp>";
+}
 ?>

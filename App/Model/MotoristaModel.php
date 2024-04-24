@@ -73,12 +73,12 @@ class Motorista extends  Banco
     //método para cadastrar os motorista
     public function cadastrarMotorista($nome,$telefone)
     {
-        return $this->motoristaDAO->postMotorista($nome,$telefone);
+        return $this->motoristaDAO->postMotorista($nome,$telefone,date('Y-m-d H:i:s'));
     }
     //Método para listar os motorista
     public function listarMotoristas()
     {
-        return $this->motoristaDAO->getMotoristas();
+        return $this->motoristaDAO->getMotorista();
     }
     //Atualizar a informação do motorista
     public function atualizarMotorista($nome,$telefone,$id)

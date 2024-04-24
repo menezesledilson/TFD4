@@ -10,34 +10,42 @@
     <title>Atualizar Motorista</title>
 </head>
 <body>
-<?php require_once("../../Controller/Motorista/MotoristaEditarController.php"); ?>
+<?php
+// Incluir o arquivo do controlador
+require_once("../../Controller/Motorista/MotoristaEditarController.php");
+?>
 <div class="container">
     <header class="d-flex justify-content-between- my-4">
         <div class="ms-auto">
             <a href="indexMotorista.php" class="btn btn-primary">Voltar</a>
         </div>
     </header>
-    <form action=" " method="post" enctype="multipart/form-data">
+    <form action="" method="post" enctype="multipart/form-data">
         <div class="card">
-            <div class="card-header">Atualizar informaçao do motorista</div>
+            <div class="card-header">Atualizar informação do motorista</div>
             <div class="card-body">
                 <div class="row mb-3">
                     <div class="col-md-3">
-                        <label>Modelo:</label>
-                        <input type="text" class="form-control form-control-sm" name="motorista"
-                               value="<?php echo !empty($editaMotorista->getNome()) ? $editaMotorista ->getNome() : ''; ?>">
+                        <label>Nome:</label>
+                        <input type="text" class="form-control form-control-sm" name="nome"
+                               value="<?php echo !empty($editaMotorista->getNome()) ? $editaMotorista->getNome() : ''; ?>">
                     </div>
                     <div class="col-md-3">
                         <label>Telefone:</label>
                         <input type="text" class="form-control form-control-sm" name="telefone"
                                value="<?php echo !empty($editaMotorista->getTelefone()) ? $editaMotorista->getTelefone() : ''; ?>">
                     </div>
+                    <!-- Adicione mais campos conforme necessário -->
 
+                </div>
                 <div class="mt-3">
+                    <!-- Adicione o campo de ID -->
                     <input type="hidden" name="id" value="<?php echo !empty($editaMotorista->getId()) ? $editaMotorista->getId() : ''; ?>">
-                    <button type="submit" class="btn btn-primary" id="editaMotorista" name="submit" value="editaMotorista">Editar</button>
+                    <!-- Adicione o botão de editar -->
+                    <button type="submit" class="btn btn-primary" id="editarMotorista" name="submit" value="editarMotorista">Editar</button>
                 </div>
             </div>
+        </div>
     </form>
 </div>
 </body>
