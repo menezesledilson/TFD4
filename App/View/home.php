@@ -42,7 +42,7 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         <a class="dropdown-item" href="../View/UnidadeView/indexUnidade.php">Unidade</a>
-                        <a class="dropdown-item" href="#">Outra ação</a>
+                        <a class="dropdown-item" href="../View/HospitalView/indexHospital.php">Hospital</a>
                         <a class="dropdown-item" href="#">Algo mais aqui</a>
                     </div>
                 </li>

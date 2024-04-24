@@ -46,7 +46,7 @@ class MotoristaDAO
         return $result->fetch_array(MYSQLI_ASSOC);
 
     }
-   
+
     //Atualizar o motorista
     public function putMotorista($nome, $telefone, $id)
     {

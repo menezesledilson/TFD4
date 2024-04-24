@@ -25,7 +25,7 @@ class cadastrarCarro
 
 
         if ($result >= 1) {
-            echo "<script> alert('Registro incluído com sucesso!');document.location='../../View/CarroView/indexCarro.php' </script>";
+            echo "<script> alert('Registro incluído com sucesso!');document.location='../../View/CarroView/indexHospital.php' </script>";
         } else {
             echo "<script> alert('Erro ao gravar registro');history.back() </script>)";
         }

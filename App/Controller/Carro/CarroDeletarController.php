@@ -8,7 +8,7 @@ class deletaCarro
     {
         $this->deleta = new Carro();
         if ($this->deleta->excluirCarro($id) == TRUE) {
-            echo "<script> alert('Deletado com sucesso!'); document.location='../../View/CarroView/indexCarro.php' </script>";
+            echo "<script> alert('Deletado com sucesso!'); document.location='../../View/CarroView/indexHospital.php' </script>";
         } else {
             echo "<script> alert('Erro ao deletar registro!');history.back()  </script>";
         }

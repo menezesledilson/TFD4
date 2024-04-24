@@ -41,7 +41,7 @@ class editarVeiculo
     public function editarFormulario($modelo, $placa, $renavam, $ano, $cor, $combustivel, $vagas, $id)
     {
         if ($this->editar->atualizaCarro($modelo, $placa, $renavam, $ano, $cor, $combustivel, $vagas, $id) == TRUE) {
-            echo "<script>alert('Registro atualizado com sucesso!');document.location='../../view/CarroView/indexCarro.php'</script>";
+            echo "<script>alert('Registro atualizado com sucesso!');document.location='../../view/CarroView/indexHospital.php'</script>";
         } else {
             echo "<script>alert('Erro ao gravar registro!');history.back()</script>";
         }

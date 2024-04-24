@@ -9,9 +9,6 @@ class Motorista extends  Banco
 
     private $created;
 
-    /**
-     * @return mixed
-     */
     public function getId()
     {
         return $this->id;

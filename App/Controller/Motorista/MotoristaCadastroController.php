@@ -4,7 +4,8 @@ require_once ("../../Model/MotoristaModel.php");
 class cadastrarMotorista
 {
     private $cadastro;
-    public function __construct(){
+    public function __construct()
+    {
         $this->cadastro = new Motorista();
         $this->cadastrarMotorista();
     }
