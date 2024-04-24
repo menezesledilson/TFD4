@@ -29,17 +29,14 @@ class editarMotorista
             echo "Registro não encontrado ou nome não está definido.";
         }
     }
-
     public function editarFormulario($nome, $telefone, $id)
     {
-
-        if ($this->editar->atualizaUnidade($nome, $telefone, $id) == TRUE) {
+        if ($this->editar->atualizarMotorista($nome, $telefone, $id) == TRUE) {
             echo "<script>alert('Registro atualizado com sucesso!');document.location='../../view/MotoristaView/indexMotorista.php'</script>";
         } else {
             echo "<script>alert('Erro ao gravar registro!');history.back()</script>";
         }
     }
-
     public function getId()
     {
         return $this->id;
@@ -56,8 +53,8 @@ class editarMotorista
     }
 }
     $id = filter_input(INPUT_GET, 'id');
-    $editar = new editarMotorista($id);
+    $editaMotorista = new editarMotorista($id);
     if(isset($_POST['submit'])){
-        $editar->editarMotorista($_POST['nome'],$_POST['telefone'],$_POST['id']);
+        $editaMotorista->editarFormulario($_POST['nome'],$_POST['telefone'],$_POST['id']);
 }
 ?>

@@ -58,7 +58,6 @@ class CarroDAO
         }
     }
 
-
     //deletar veiculo
     public function deleteVeiculo($id)
     {

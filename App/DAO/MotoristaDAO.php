@@ -50,7 +50,7 @@ class MotoristaDAO
     //Atualizar o motorista
     public function putMotorista($nome, $telefone, $id)
     {
-        $stmt = $this->conexao->getConexao("UPDATE motorista SET nome=?, telefone =? WHERE id=?");
+        $stmt = $this->conexao->getConexao()->prepare("UPDATE motoristas SET nome=?, telefone =? WHERE id=?");
         $stmt->bind_param("ssi", $nome, $telefone, $id);
         if($stmt->execute()){
             return true;
@@ -60,8 +60,8 @@ class MotoristaDAO
     }
   //Deletar o motorista
     public function deleteMotorista($id){
-        $stmt = $this->conexao->getConexao()->prepare("DELETE FROM motoristas WHERE id=?");
-        $stmt->bind_param("i", $id);
+        $stmt = $this->conexao->getConexao()->prepare("DELETE FROM `motoristas` WHERE id=?");
+        $stmt->bind_param("i",$id);
         $stmt->execute();
         if($stmt->affected_rows > 0){
             return true;
@@ -69,6 +69,7 @@ class MotoristaDAO
             return false;
         }
     }
+
 }
 
 ?>

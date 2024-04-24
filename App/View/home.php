@@ -57,6 +57,17 @@
                         <a class="dropdown-item" href="#">Algo mais aqui</a>
                     </div>
                 </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Motoristas
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="../View/MotoristaView/indexMotorista.php">Motorista</a>
+                        <a class="dropdown-item" href="#">Outra ação</a>
+                        <a class="dropdown-item" href="#">Algo mais aqui</a>
+                    </div>
+                </li>
             </ul>
         </div>
     </div>

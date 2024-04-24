@@ -49,25 +49,16 @@ class Motorista extends  Banco
         return $this->telefone;
     }
 
-    /**
-     * @param mixed $telefone
-     */
     public function setTelefone($telefone)
     {
         $this->telefone = $telefone;
     }
 
-    /**
-     * @return mixed
-     */
     public function getCreated()
     {
         return $this->created;
     }
 
-    /**
-     * @param mixed $created
-     */
     public function setCreated($created)
     {
         $this->created = $created;
@@ -75,19 +66,23 @@ class Motorista extends  Banco
 
    //Construtor da classe
     private $motoristaDAO;
-    public function __construct(){
+    public function __construct()
+    {
         $this->motoristaDAO = new MotoristaDAO();
     }
     //método para cadastrar os motorista
-    public function cadastrarMotorista($nome,$telefone){
+    public function cadastrarMotorista($nome,$telefone)
+    {
         return $this->motoristaDAO->postMotorista($nome,$telefone);
     }
     //Método para listar os motorista
-    public function listarMotoristas(){
+    public function listarMotoristas()
+    {
         return $this->motoristaDAO->getMotoristas();
     }
     //Atualizar a informação do motorista
-    public function atualizarMotorista($nome,$telefone,$id){
+    public function atualizarMotorista($nome,$telefone,$id)
+    {
         return $this->motoristaDAO->putMotorista($nome,$telefone,$id);
     }
     //pesquisa motorista
