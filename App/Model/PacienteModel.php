@@ -131,5 +131,10 @@ class Paciente extends Banco {
     {
         return $this->pacienteDAO->getPaciente();
     }
+
+    //Método para deletar paciente
+    public function excluirPaciente($id){
+        return $this->pacienteDAO->deletePaciente($id);
+    }
 }
 ?>

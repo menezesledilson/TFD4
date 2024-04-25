@@ -36,8 +36,9 @@ foreach ($row_unidades as $unidade) {
             <a href="indexPaciente.php" class="btn btn-primary">Voltar</a>
         </div>
     </header>
-    <form method="post" action="../../Controller/Paciente/PacienteCadastroController.php" id="form"
-          enctype="multipart/form-data">
+    <form method="post" action="../../Controller/Paciente/PacienteCadastroController.php" id="form" enctype="multipart/form-data">
+        <!-- Seu código HTML existente... -->
+
         <div class="card">
             <div class="card-header">Cadastro Paciente</div>
             <div class="card-body">
@@ -93,14 +94,14 @@ foreach ($row_unidades as $unidade) {
                     </div>
                     <div class="col-md-3">
                         <label>Unidade de Saúde:</label>
-                        <select class="form-control" name="select_unidade">
+                        <select class="form-control" name="id_unidade_usf">
                             <option>Selecione</option>
                             <?php echo $optionsUnidade_html; ?>
                         </select>
                     </div>
                     <div class="col-md-3">
                         <label>Situação:</label>
-                        <select class="form-control" name="select_situacao">
+                        <select class="form-control" name="id_situacao">
                             <option>Selecione</option>
                             <?php echo $optionsSituacao_html; ?>
                         </select>

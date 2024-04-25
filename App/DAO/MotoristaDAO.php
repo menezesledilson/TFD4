@@ -58,7 +58,7 @@ class MotoristaDAO
             return false;
         }
     }
-  //Deletar o motorista
+   //Deletar o motorista
     public function deleteMotorista($id){
         $stmt = $this->conexao->getConexao()->prepare("DELETE FROM `motoristas` WHERE id=?");
         $stmt->bind_param("i",$id);
