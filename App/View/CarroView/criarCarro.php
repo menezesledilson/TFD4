@@ -20,7 +20,7 @@
           enctype="multipart/form-data">
 
         <div class="card">
-            <div class="card-header">Cadastra veículo</div>
+            <div class="card-header">Cadastro de veículo</div>
             <div class="card-body">
 
                 <div class="row mb-3">
@@ -48,11 +48,11 @@
                                placeholder="Vagas">
                     </div>
                 </div>
-                <div class="row mt-3">
-                    <div class="col-md-6">
-                        <input type="submit" name="create" value="Confirma" class="btn btn-primary">
-                    </div>
-                </div>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-md-6">
+                <input type="submit" name="create" value="Confirma" class="btn btn-primary">
             </div>
         </div>
     </form>

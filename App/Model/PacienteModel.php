@@ -1,11 +1,10 @@
 <?php
-require_once("../DAO/conexao.php");
+require_once("../../DAO/PacienteDAO.php");
 
 class Paciente extends Banco {
 
     private $id;
-    private $foto;
-    private $nome;
+     private $nome;
     private $rg;
     private $cpf;
     private $cns;
@@ -29,9 +28,7 @@ class Paciente extends Banco {
     }
 
     // Métodos Set
-    public function setFoto($blob){
-        $this->foto = $blob;
-    }
+
     public function setNome($string){
         $this->nome = $string;
     }
@@ -76,9 +73,7 @@ class Paciente extends Banco {
     }
 
     // Métodos Get
-    public function getFoto(){
-        return $this->foto;
-    }
+
     public function getNome(){
         return $this->nome;
     }
@@ -124,10 +119,14 @@ class Paciente extends Banco {
     }
 
     //método para cadastrar o paciente
-    public  function cadastrarPaciente($foto, $nome, $rg, $cpf, $cns, $celular, $endereco, $numero, $bairro, $cidade, $cep,$id_situacao,$id_unidade_usf)
+    public  function cadastrarPaciente($nome, $rg, $cpf, $cns, $celular, $endereco, $numero, $bairro, $cidade, $cep,$id_situacao,$id_unidade_usf)
     {
-    return $this->pacienteDAO->postPaciente($foto, $nome, $rg, $cpf, $cns, $celular, $endereco, $numero, $bairro, $cidade, $cep,$id_situacao,$id_unidade_usf,date('Y-m-d H:i:s'));
+    return $this->pacienteDAO->postPaciente($nome, $rg, $cpf, $cns, $celular, $endereco, $numero, $bairro, $cidade, $cep,$id_situacao,$id_unidade_usf,date('Y-m-d H:i:s'));
     }
-
+    //método para listar o paciente
+    public function listarPacientes()
+    {
+        return $this->pacienteDAO->getPaciente();
+    }
 }
 ?>

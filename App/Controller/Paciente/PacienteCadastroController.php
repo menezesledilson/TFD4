@@ -1,5 +1,5 @@
 <?php
-require_once("/../../Model/PacienteModel.php");
+require_once("../../Model/PacienteModel.php");
 class CadastrarPaciente
 {
     private $cadastro;
@@ -11,7 +11,6 @@ class CadastrarPaciente
     }
     public function cadastrarPaciente()
     {
-        $foto = $_POST['foto'];
         $nome = $_POST ['nome'];
         $rg =$_POST['rg'];
         $cpf=$_POST['cpf'];
@@ -25,7 +24,8 @@ class CadastrarPaciente
         $id_unidade_usf=$_POST['id_unidade_usf'];
         $id_situacao=$_POST['id_situacao'];
 
-        $result=$this->cadastro->cadastrarPaciente($foto, $nome, $rg, $cpf, $cns, $celular, $endereco, $numero, $bairro, $cidade, $cep,$id_situacao,$id_unidade_usf);
+        $result=$this->cadastro->cadastrarPaciente( $nome, $rg, $cpf, $cns, $celular, $endereco, $numero, $bairro, $cidade, $cep,$id_situacao,$id_unidade_usf);
+
         if($result >= 1){
             echo "<script>alert('Registro incluído com sucesso!');document.location='../../view/PacienteView/indexPaciente.php'</script>";
         }else{

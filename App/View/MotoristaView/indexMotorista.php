@@ -1,5 +1,5 @@
 <?php
-// Incluir o arquivo ControllerListar.php para acessar a classe listaDeUnidade
+// Incluir o arquivo PacienteListarController.php para acessar a classe listaDeUnidade
 require_once("../../Controller/Motorista/MotoristaListarController.php");
 
 // Criar uma instância da classe listaDeUnidade para acessar os métodos
@@ -40,7 +40,6 @@ $row = $controller->listarTodos();
                     <div class="col-md-9 text-right">
                         <div class="btn-group">
                             <a class="btn btn-primary" style="margin-left: 5px; margin-right: 5px;" href="../../View/MotoristaView/editarMotorista.php?id=<?php echo $value['id']; ?>">Editar</a>
-
                             <a class="btn btn-danger" href="../../Controller/Motorista/MotoristaDeletarController.php?id=<?php echo $value['id']; ?>">Excluir</a>
                         </div>
                     </div>

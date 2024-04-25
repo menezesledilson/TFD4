@@ -1,28 +1,26 @@
 <?php
-
-
-require_once("../Config/conexao.php");
-
+require_once("conexao.php");
 class situacaoDAO
 {
-    protected $mysqli;
+    protected $conexao;
 
     public function __construct()
     {
-
-        $banco = new Banco(); // Cria uma instância da classe Banco para estabelecer a conexão com o banco de dados
-        $this->mysqli = $banco->getConexao(); // Atribui a conexão estabelecida à propriedade $mysqli da classe PacienteDAO
+        $this->conexao = new Banco();
     }
 
 //Listar todos
     public function getSituacao()
     {
-        $result = $this->mysqli->query("SELECT * FROM situacoes");
+        $stmt = $this->conexao->getConexao()->prepare("SELECT * FROM situacoes");
+        $situacao = [];
+        $stmt->execute();
+        $result = $stmt->get_result();
 
         while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
-            $array[] = $row;
+            $situacao[] = $row;
         }
-        return $array;
+        return $situacao;
     }
 
     public function getPacientePorId($idSituacao) {

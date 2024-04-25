@@ -1,5 +1,5 @@
 <?php
-require_once("../Config/conexao.php");
+require_once("../../DAO/SituacaoDAO.php");
 
 class Situacao extends Banco
 {
@@ -41,39 +41,35 @@ class Situacao extends Banco
         $this->nome = $nome;
     }
 
-    /**
-     * @return mixed
-     */
     public function getCreated()
     {
         return $this->created;
     }
 
-    /**
-     * @param mixed $created
-     */
     public function setCreated($created)
     {
         $this->created = $created;
     }
 
-    /**
-     * @return mixed
-     */
     public function getModified()
     {
         return $this->modified;
     }
 
-    /**
-     * @param mixed $modified
-     */
     public function setModified($modified)
     {
         $this->modified = $modified;
     }
 
+    private $situacaoDAO;
+
+    public function __construct()
+    {
+        $this->situacaoDAO= new SituacaoDAO();
+    }
+    // Método para lista todas unidades no banco de dados
+    public function listarSituacoes(){
+        return $this->situacaoDAO->getSituacao();
+    }
 }
-
-
 ?>

@@ -1,5 +1,5 @@
 <?php
-// Incluir o arquivo ControllerListar.php para acessar a classe listaDeUnidade
+// Incluir o arquivo PacienteListarController.php para acessar a classe listaDeUnidade
 require_once("../../Controller/Unidade/UnidadeListarController.php");
 
 

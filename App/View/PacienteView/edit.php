@@ -1,70 +1,4 @@
-<?php
-require_once("../Controller/Paciente/ControllerEditar.php");
 
-$erro = ""; // Variável para armazenar mensagens de erro
-$success = ""; // Variável para armazenar mensagens de sucesso
-
-$dados_paciente = array(); // Array para armazenar os dados do paciente
-
-$id_paciente = isset($_GET['id']) ? $_GET['id'] : null;
-
-if (!isset($id_paciente)) {
-    $erro = "ID do paciente não especificado.";
-}
-
-// Verifica se foi passado um ID de paciente na URL
-if (isset($_GET['id']) && !empty($_GET['id'])) {
-    $id_paciente = $_GET['id'];
-
-    $controller = new editarUnidade();
-    $dados_paciente = $controller->buscarPacientePorId($id_paciente);
-
-// Verifica se o paciente foi encontrado
-    if (!$dados_paciente) {
-        $erro = "Paciente não encontrado.";
-    }
-}
-// Verifica se o formulário foi submetido
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-// Obtém os dados do formulário
-    $foto = $_FILES['arquivo']['name']; // Nome do arquivo da foto
-    $nome = $_POST['nome'];
-    $rg = $_POST['rg'];
-    $cpf = $_POST['cpf'];
-    $cns = $_POST['cns'];
-    $celular = $_POST['celular'];
-    $endereco = $_POST['endereco'];
-    $numero = $_POST['numero'];
-    $bairro = $_POST['bairro'];
-    $cidade = $_POST['cidade'];
-    $cep = $_POST['cep'];
-    $id_unidade_usf = $_POST['select_unidade'];
-    $id_situacao = $_POST['select_situacao'];
-
-// Verifica se todos os campos estão preenchidos
-    if (empty($nome) || empty($rg) || empty($cpf) || empty($cns) || empty($celular) || empty($endereco) || empty($numero) || empty($bairro) || empty($cidade) || empty($cep) || empty($id_unidade_usf) || empty($id_situacao)) {
-        $erro = "Por favor, preencha todos os campos do formulário.";
-    } else {
-        // Define os valores para $created e $modified
-        $created = date('Y-m-d H:i:s');
-        $modified = date('Y-m-d H:i:s');
-
-       // Chama o método editarTodos do EditarController
-        $editarController = new editarUnidade();
-        $resultado = $editarController->editarTodos($id_paciente,$foto, $nome, $rg, $cpf, $cns, $celular, $endereco, $numero, $bairro, $cidade, $cep, $id_unidade_usf, $id_situacao, $created, $modified);
-
-        // Verifica se o paciente foi editado com sucesso
-        if ($resultado) {
-            $success = "Paciente editado com sucesso!";
-            // Redireciona para a tela inicial após o sucesso
-            header("Location: novo.php");
-            exit();
-        } else {
-            $erro = "Ocorreu um erro ao editar o paciente.";
-        }
-    }
-}
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -80,7 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <div class="container">
     <header class="d-flex justify-content-between- my-4">
         <div class="ms-auto">
-            <a href="novo.php" class="btn btn-primary">Voltar</a>
+            <a href="indexPaciente.php" class="btn btn-primary">Voltar</a>
         </div>
     </header>
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" enctype="multipart/form-data">
@@ -186,7 +120,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <select class="form-control" name="select_situacao">
                             <option>Selecione</option>
                             <?php
-                            require_once("../Controller/Situacao/ControllerListarSituacao.php");
+                            require_once("../Controller/Situacao/SituacaoListarController.php");
                             $controller = new listarControllerSituacao();
                             $row_situacoes = $controller->getRows();
                             foreach ($row_situacoes as $situacao) {

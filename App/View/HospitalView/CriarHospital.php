@@ -48,11 +48,11 @@
                                placeholder="Celular">
                     </div>
                 </div>
-                <div class="row mt-3">
-                    <div class="col-md-6">
-                        <input type="submit" name="create" value="Confirma" class="btn btn-primary">
-                    </div>
-                </div>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-md-6">
+                <input type="submit" name="create" value="Confirma" class="btn btn-primary">
             </div>
         </div>
     </form>

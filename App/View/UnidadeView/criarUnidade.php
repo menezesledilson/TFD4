@@ -28,7 +28,9 @@
                     <input class="form-control form-control-sm" type="text" id="nome" name="nome"
                                placeholder="Nome da unidade">
                     </div>
-
+                </div>
+            </div>
+        </div>
         <div class="row mt-3">
             <div class="col-md-6">
                 <input type="submit" name="create" value="Confirma" class="btn btn-primary">
