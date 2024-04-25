@@ -1,6 +1,6 @@
 <?php
 require_once("../../Model/PacienteModel.php");
-class CadastrarPaciente
+class cadastrarPaciente
 {
     private $cadastro;
 
@@ -9,23 +9,24 @@ class CadastrarPaciente
         $this->cadastro = new Paciente();
         $this->cadastrarPaciente();
     }
-    public function cadastrarPaciente()
-    {
-        $nome = $_POST ['nome'];
-        $rg =$_POST['rg'];
-        $cpf=$_POST['cpf'];
-        $cns=$_POST['cns'];
-        $celular=$_POST['celular'];
-        $endereco=$_POST['endereco'];
-        $numero=$_POST['numero'];
-        $bairro=$_POST['bairro'];
-        $cidade=$_POST['cidade'];
-        $cep= $_POST['cep'];
-        $id_unidade_usf=$_POST['id_unidade_usf'];
-        $id_situacao=$_POST['id_situacao'];
+   public function cadastrarPaciente()
+{
+    $nome = isset($_POST['nome']) ? $_POST['nome'] : '';
+    $rg = isset($_POST['rg']) ? $_POST['rg'] : '';
+    $cpf = isset($_POST['cpf']) ? $_POST['cpf'] : '';
+    $cns = isset($_POST['cns']) ? $_POST['cns'] : '';
+    $celular = isset($_POST['celular']) ? $_POST['celular'] : '';
+    $endereco = isset($_POST['endereco']) ? $_POST['endereco'] : '';
+    $numero = isset($_POST['numero']) ? $_POST['numero'] : '';
+    $bairro = isset($_POST['bairro']) ? $_POST['bairro'] : '';
+    $cidade = isset($_POST['cidade']) ? $_POST['cidade'] : '';
+    $cep = isset($_POST['cep']) ? $_POST['cep'] : '';
+    $id_unidade_usf = isset($_POST['id_unidade_usf']) ? $_POST['id_unidade_usf'] : null;
+    $id_situacao = isset($_POST['id_situacao']) ? $_POST['id_situacao'] : null;
 
-        $result=$this->cadastro->cadastrarPaciente( $nome, $rg, $cpf, $cns, $celular, $endereco, $numero, $bairro, $cidade, $cep,$id_situacao,$id_unidade_usf);
+    // Validação dos dados, se necessário...
 
+    $result = $this->cadastro->cadastrarPaciente($nome, $rg, $cpf, $cns, $celular, $endereco, $numero, $bairro, $cidade, $cep, $id_situacao, $id_unidade_usf);
         if($result >= 1){
             echo "<script>alert('Registro incluído com sucesso!');document.location='../../view/PacienteView/indexPaciente.php'</script>";
         }else{

@@ -49,6 +49,7 @@ class Motorista extends  Banco
 
    //Construtor da classe
     private $motoristaDAO;
+
     public function __construct()
     {
         $this->motoristaDAO = new MotoristaDAO();

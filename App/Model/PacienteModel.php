@@ -113,6 +113,9 @@ class Paciente extends Banco {
     public function getCreated(){
         return $this->created;
     }
+
+    // declaração explícita da propriedade
+    private $pacienteDAO;
     public function __construct()
     {
         $this->pacienteDAO = new PacienteDAO();
