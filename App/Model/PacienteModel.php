@@ -3,7 +3,7 @@ require_once("../DAO/conexao.php");
 
 class Paciente extends Banco {
 
-    private $id_paciente;
+    private $id;
     private $foto;
     private $nome;
     private $rg;
@@ -18,22 +18,14 @@ class Paciente extends Banco {
     private $id_situacao;
     private $id_unidade_usf;
     private $created;
-    private $modified;
-
-    /**
-     * @return mixed
-     */
-    public function getIdPaciente()
+     public function getId()
     {
-        return $this->id_paciente;
+        return $this->id;
     }
 
-    /**
-     * @param mixed $id_paciente
-     */
-    public function setIdPaciente($id_paciente)
+    public function setId($id)
     {
-        $this->id_paciente = $id_paciente;
+        $this->id = $id;
     }
 
     // Métodos Set
@@ -126,11 +118,16 @@ class Paciente extends Banco {
     public function getCreated(){
         return $this->created;
     }
-    public function getModified(){
-        return $this->modified;
+    public function __construct()
+    {
+        $this->pacienteDAO = new PacienteDAO();
     }
-    public function incluir(){
-        return $this->setPaciente($this->getFoto(), $this->getNome(), $this->getRG(), $this->getCPF(), $this->getCNS(), $this->getCelular(), $this->getEndereco(), $this->getNumero(), $this->getBairro(), $this->getCidade(), $this->getCEP(),  $this->getIdUnidadeUSF(),$this->getIdSituacao(), $this->getCreated(), $this->getModified());
+
+    //método para cadastrar o paciente
+    public  function cadastrarPaciente($foto, $nome, $rg, $cpf, $cns, $celular, $endereco, $numero, $bairro, $cidade, $cep,$id_situacao,$id_unidade_usf)
+    {
+    return $this->pacienteDAO->postPaciente($foto, $nome, $rg, $cpf, $cns, $celular, $endereco, $numero, $bairro, $cidade, $cep,$id_situacao,$id_unidade_usf,date('Y-m-d H:i:s'));
     }
+
 }
 ?>

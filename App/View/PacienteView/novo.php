@@ -18,7 +18,7 @@ $rows = $controller->getRows();
 <body>
 <div class="container">
     <header class="d-flex justify-content-between my-4">
-        <p class="text-right"><a href="Create.php" class="btn btn-success">+ Novo Cadastro</a></p>
+        <p class="text-right"><a href="criarPaciente.php" class="btn btn-success">+ Novo Cadastro</a></p>
         <a href="../home.php" class="btn btn-primary" style="margin-bottom: 25px;">Fechar</a>
     </header>
 
