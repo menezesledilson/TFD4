@@ -32,7 +32,7 @@ class editarMotorista
     public function editarFormulario($nome, $telefone, $id)
     {
         if ($this->editar->atualizarMotorista($nome, $telefone, $id) == TRUE) {
-            echo "<script>alert('Registro atualizado com sucesso!');document.location='../../view/MotoristaView/indexDiaria.php'</script>";
+            echo "<script>alert('Registro atualizado com sucesso!');document.location='../../view/MotoristaView/indexMotorista.php'</script>";
         } else {
             echo "<script>alert('Erro ao gravar registro!');history.back()</script>";
         }
