@@ -41,6 +41,38 @@ class pacienteDAO
         return $pacientes;
     }
 
+    //listar paciente por ID
+    public function getPacienteId($id)
+    {
+        // Consulta preparada para evitar SQL Injection
+        $stmt = $this->conexao->getConexao()->prepare("SELECT p.*, s.nome_situacao, u.nome_usf
+                                                   FROM pacientes p
+                                                   INNER JOIN situacoes s ON p.id_situacao = s.id
+                                                   INNER JOIN unidades u ON p.id_unidade_usf = u.id
+                                                   WHERE p.id = ?");
+        // Verifica se a preparação da consulta foi bem-sucedida
+        if ($stmt) {
+            // Vincula o parâmetro e executa a consulta
+            $stmt->bind_param("i", $id);
+            $stmt->execute();
+
+            // Obtém o resultado da consulta
+            $result = $stmt->get_result();
+
+            // Verifica se há resultados
+            if ($result && $result->num_rows > 0) {
+                // Retorna o paciente encontrado
+                return $result->fetch_assoc();
+            } else {
+                // Retorna null se o paciente não for encontrado
+                return null;
+            }
+        } else {
+            // Retorna false se houver um erro na preparação da consulta
+            return false;
+        }
+    }
+
     //Deletar o motorista
     public function deletePaciente($id){
         $stmt = $this->conexao->getConexao()->prepare("DELETE FROM `pacientes` WHERE id=?");

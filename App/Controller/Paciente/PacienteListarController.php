@@ -1,17 +1,25 @@
 <?php
-require_once ("../../Model/PacienteModel.php");
+require_once("../../Model/PacienteModel.php");
 
 class listarPaciente
 {
     private $listar;
 
-    public function __construct(){
+    public function __construct()
+    {
         $this->listar = new Paciente();
-        $this->listarTodos();
+
     }
+
     // Armazena todos os dados na propriedade $rows
-    public function listarTodos(){
+    public function listarTodos()
+    {
         return $this->listar->listarPacientes();
+    }
+
+    public function listarTodosPorId($id)
+    {
+        return $this->listar->listarPacientePorId($id);
     }
 }
 

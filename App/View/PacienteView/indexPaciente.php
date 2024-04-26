@@ -31,26 +31,24 @@ if ($rows)
             <div class="card-header">Paciente</div>
             <div class="card-body">
                 <div class="row">
-                    <div class="col-md-3">
-                        <p><strong>ID:</strong> <?php echo $row['id']; ?></p>
+                    <div class="col-md-4">
                         <p><strong>Nome:</strong> <?php echo $row['nome']; ?></p>
                         <p><strong>CNS:</strong> <?php echo $row['cns']; ?></p>
                         <p><strong>Celular:</strong> <?php echo $row['celular']; ?></p>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-4">
                         <p><strong>USF:</strong> <?php echo $row['nome_usf']; ?></p>
                         <p><strong>Situação:</strong> <?php echo $row['nome_situacao']; ?></p>
                     </div>
                     <div class="col-md-3">
                         <div style="text-align: center; margin-bottom: 15px;">
                         </div>
-                        <div class="col-md-3 text-center">
-                            <div class="btn-group justify-content-between-end">
+                        <div class="col-md-3">
+                            <div class="btn-group">
                                 <a href="visualizarPaciente.php?id=<?php echo $row['id']; ?>" class="btn btn-info">Visualizar</a>
                                 <a href="edit.php?id=<?php echo $row['id']; ?>" class="btn btn-primary"
                                    style="margin-left: 5px; margin-right: 5px;">Editar</a>
                                 <a class="btn btn-danger" href="../../Controller/Paciente/PacienteDeletarController.php?id=<?php echo $row['id']; ?>">Excluir</a>
-
                             </div>
                         </div>
                     </div>

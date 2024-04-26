@@ -132,6 +132,12 @@ class Paciente extends Banco {
         return $this->pacienteDAO->getPaciente();
     }
 
+    //Método parar listar paciente por id
+    public function listarPacientePorId($id)
+    {
+      return $this->pacienteDAO->getPacienteId($id);
+    }
+
     //Método para deletar paciente
     public function excluirPaciente($id){
         return $this->pacienteDAO->deletePaciente($id);
