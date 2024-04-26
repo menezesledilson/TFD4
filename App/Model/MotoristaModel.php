@@ -6,14 +6,11 @@ class Motorista extends  Banco
     private $id;
     private $nome;
     private $telefone;
-
     private $created;
-
     public function getId()
     {
         return $this->id;
     }
-
     public function setId($id)
     {
         $this->id = $id;
@@ -36,20 +33,16 @@ class Motorista extends  Banco
     {
         $this->telefone = $telefone;
     }
-
     public function getCreated()
     {
         return $this->created;
     }
-
     public function setCreated($created)
     {
         $this->created = $created;
     }
-
    //Construtor da classe
     private $motoristaDAO;
-
     public function __construct()
     {
         $this->motoristaDAO = new MotoristaDAO();

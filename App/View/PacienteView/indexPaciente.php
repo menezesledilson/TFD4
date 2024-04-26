@@ -46,7 +46,7 @@ if ($rows)
                         <div class="col-md-3">
                             <div class="btn-group">
                                 <a href="visualizarPaciente.php?id=<?php echo $row['id']; ?>" class="btn btn-info">Visualizar</a>
-                                <a href="edit.php?id=<?php echo $row['id']; ?>" class="btn btn-primary"
+                                <a href="editarPaciente.php?id=<?php echo $row['id']; ?>" class="btn btn-primary"
                                    style="margin-left: 5px; margin-right: 5px;">Editar</a>
                                 <a class="btn btn-danger" href="../../Controller/Paciente/PacienteDeletarController.php?id=<?php echo $row['id']; ?>">Excluir</a>
                             </div>
