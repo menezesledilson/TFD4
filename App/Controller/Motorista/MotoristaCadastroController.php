@@ -16,7 +16,7 @@ class cadastrarMotorista
         $result=$this->cadastro->cadastrarMotorista($nome,$telefone);
 
         if($result >= 1){
-            echo "<script>alert('Registro incluído com sucesso!');document.location='../../view/MotoristaView/indexMotorista.php'</script>";
+            echo "<script>alert('Registro incluído com sucesso!');document.location='../../view/MotoristaView/indexDiaria.php'</script>";
         }else{
             echo "<script>alert('Erro ao gravar registro!');history.back()</script>";
         }
