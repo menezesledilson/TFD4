@@ -32,9 +32,6 @@ class editarVeiculo
             $this->cor = $row['cor'];
             $this->combustivel = $row['combustivel'];
             $this->vagas = $row['vagas'];
-        } else {
-            // Tratar o caso em que a pesquisa da unidade não retornou resultados ou 'nome' não está definido
-            echo "Registro não encontrado ou nome não está definido.";
         }
     }
 

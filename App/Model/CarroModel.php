@@ -109,15 +109,17 @@ class Carro extends Banco {
     {
         return $this->carroDAO->putCarro($modelo,$placa,$renavam,$ano,$cor,$combustivel,$vagas,$id);
     }
-    //pesquisa veiculo
-    public  function pesquisaCarro($id)
-    {
-        return $this->carroDAO->localizarCarro($id);
-    }
 
     //Método para deletar veiculo
     public  function excluirCarro($id){
         return $this->carroDAO->deleteVeiculo($id);
     }
+
+    //pesquisa paciente
+    public  function pesquisaCarro($id)
+    {
+        return $this->carroDAO->localizarCarro($id);
+    }
+
 }
 ?>

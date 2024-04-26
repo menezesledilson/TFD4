@@ -7,7 +7,7 @@ $row_unidades = $controller->listarTodos();
 $optionsUnidade_html = "";
 
 foreach ($row_unidades as $unidade) {
-    $optionsUnidade_html .= '<option value="' . $unidade['id'] . '">' . $unidade['nome_usf'] . '</option>';
+    $optionsUnidade_html .= '<option value="' . (!empty($editaPaciente) && !empty($editaPaciente->getIdUnidadeUsf($unidade['id'])) ? $editaPaciente->getIdUnidadeUsf($unidade['id']) : '') . '">' . $unidade['nome_usf'] . '</option>';
 
     require_once("../../Controller/Situacao/SituacaoListarController.php");
 
@@ -16,7 +16,8 @@ foreach ($row_unidades as $unidade) {
     $optionsSituacao_html = ""; // Variável para armazenar o HTML das opções
 
     foreach ($row_situacao as $situacao) {
-        $optionsSituacao_html .= '<option value="' . $situacao['id'] . '">' . $situacao['nome_situacao'] . '</option>';
+       $optionsSituacao_html .= '<option value="' . (!empty($editaPaciente) && !empty($editaPaciente->getIdSituacao($situacao['id'])) ? $editaPaciente->getIdSituacao($situacao['id']) : '') . '">' . $situacao['nome_situacao'] . '</option>';
+
     }
 }
 ?>
@@ -32,13 +33,17 @@ foreach ($row_unidades as $unidade) {
     <title>Atualizar informação Pacientes</title>
 </head>
 <body>
+<?php
+// Incluir o arquivo do controlador
+require_once("../../Controller/Paciente/PacienteEditarController.php");
+?>
 <div class="container">
     <header class="d-flex justify-content-between- my-4">
         <div class="ms-auto">
             <a href="indexPaciente.php" class="btn btn-primary">Voltar</a>
         </div>
     </header>
-    <form method="post" action="../../Controller/Paciente/PacienteCadastroController.php" id="form" enctype="multipart/form-data">
+    <form action="" method="post" enctype="multipart/form-data">
         <!-- Seu código HTML existente... -->
         <div class="card">
             <div class="card-header">Atualizar informação Pacientes</div>
@@ -46,63 +51,65 @@ foreach ($row_unidades as $unidade) {
                 <div class="row mb-3">
                     <div class="col-md-3">
                         <label>Nome:</label>
-                        <input type="text" class="form-control form-control-sm" name="nome" placeholder="Nome completo">
+                        <input type="text" class="form-control form-control-sm" name="nome"  value="<?php echo !empty($editaPaciente->getNome()) ? $editaPaciente->getNome() : ''; ?>">
                     </div>
                     <div class="col-md-3">
                         <label>RG:</label>
-                        <input type="text" class="form-control form-control-sm" name="rg" placeholder="RG">
+                        <input type="text" class="form-control form-control-sm" name="rg" value="<?php echo !empty($editaPaciente->getRg())? $editaPaciente->getRg() : ''; ?>">
                     </div>
                     <div class="col-md-3">
                         <label>CPF:</label>
-                        <input type="text" class="form-control form-control-sm" name="cpf" placeholder="CPF">
+                        <input type="text" class="form-control form-control-sm" name="cpf" value="<?php echo !empty($editaPaciente->getCpf())? $editaPaciente->getCpf() : ''; ?>">
                     </div>
                     <div class="col-md-3">
                         <label>CNS:</label>
-                        <input type="text" class="form-control form-control-sm" name="cns" placeholder="CNS">
+                        <input type="text" class="form-control form-control-sm" name="cns" value="<?php echo isset($editaPaciente) ? $editaPaciente->getCns() : ''; ?>">
+
                     </div>
                 </div>
                 <!--Segunda coluna-->
                 <div class="row mb-3">
                     <div class="col-md-3">
                         <label>Celular:</label>
-                        <input type="text" class="form-control form-control-sm" name="celular"
-                               placeholder="Celular">
+                        <input type="text" class="form-control form-control-sm" name="celular" value="<?php echo !empty($editaPaciente->getCelular())? $editaPaciente->getCelular() : ''; ?>">
+
                     </div>
                     <div class="col-md-3">
                         <label>Endereço:</label>
-                        <input type="text" class="form-control form-control-sm" name="endereco"
-                               placeholder="Endereço">
+                        <input type="text" class="form-control form-control-sm" name="endereco" value="<?php echo !empty($editaPaciente->getEndereco())? $editaPaciente->getEndereco() : ''; ?>">
+
                     </div>
                     <div class="col-md-3">
                         <label>Número:</label>
-                        <input type="text" class="form-control form-control-sm" name="numero" placeholder="Número">
+                        <input type="text" class="form-control form-control-sm" name="numero" value="<?php echo !empty($editaPaciente->getNumero())? $editaPaciente->getNumero() : ''; ?>">
                     </div>
                     <div class="col-md-3">
                         <label>Bairro:</label>
-                        <input type="text" class="form-control form-control-sm" name="bairro" placeholder="Bairro">
+                        <input type="text" class="form-control form-control-sm" name="bairro" value="<?php echo !empty($editaPaciente->getBairro())?$editaPaciente->getBairro():'';?>">
                     </div>
                 </div>
                 <!--Terceira coluna-->
                 <div class="row mb-3">
                     <div class="col-md-3">
                         <label>Cidade:</label>
-                        <input type="text" class="form-control form-control-sm" name="cidade" placeholder="Cidade">
+                        <input type="text" class="form-control form-control-sm" name="cidade" value="<?php echo !empty($editaPaciente->getCidade())?$editaPaciente->getCidade():'';?>">
                     </div>
                     <div class="col-md-3">
                         <label>CEP:</label>
-                        <input type="text" class="form-control form-control-sm" name="cep" placeholder="CEP">
+                        <input type="text" class="form-control form-control-sm" name="cep" value="<?php echo !empty($editaPaciente->getCep())?$editaPaciente->getCep():'';?>">
                     </div>
                     <div class="col-md-3">
                         <label>Unidade de Saúde:</label>
                         <select class="form-control" name="id_unidade_usf">
-                            <option>Selecione</option>
+                            <option value="">Selecione</option>
                             <?php echo $optionsUnidade_html; ?>
                         </select>
+
                     </div>
                     <div class="col-md-3">
                         <label>Situação:</label>
                         <select class="form-control" name="id_situacao">
-                            <option>Selecione</option>
+                            <option value="">Selecione</option>
                             <?php echo $optionsSituacao_html; ?>
                         </select>
                     </div>
@@ -112,8 +119,12 @@ foreach ($row_unidades as $unidade) {
         </div>
         <div class="row mt-3">
             <div class="col-md-6">
-                <input type="submit" name="create" value="Confirma" class="btn btn-primary">
+                <!-- Adicione o campo de ID -->
+                <input type="hidden" name="id" value="<?php echo !empty($editaPaciente->getId()) ? $editaPaciente->getId() : ''; ?>">
+                <!-- Adicione o botão de editar -->
+                <button type="submit" class="btn btn-primary" id="$editaPaciente" name="submit" value="$editaPaciente">Editar</button>
             </div>
+        </div>
     </form>
 </div>
 </body>

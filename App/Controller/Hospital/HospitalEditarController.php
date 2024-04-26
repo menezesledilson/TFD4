@@ -48,7 +48,6 @@ class editarHospital
             echo "<script>alert('Erro ao gravar registro!');history.back()</script>";
         }
     }
-
     public function getId()
     {
         return $this->id;

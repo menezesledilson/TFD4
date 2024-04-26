@@ -72,7 +72,17 @@ class pacienteDAO
             return false;
         }
     }
-
+public function putPaciente($nome, $rg, $cpf, $cns, $celular, $endereco, $numero, $bairro, $cidade, $cep, $id_situacao, $id_unidade_usf,$id)
+{
+    $stmt = $this->conexao->getConexao()->prepare("UPDATE `pacientes` SET `nome`=?, `rg`=?, `cpf`=?, `cns`=?, `celular`=?, `endereco`=?, `numero`=? ,`bairro`=?, `cidade`=?, `cep`=?,`id_situacao`=?,`id_unidade_usf` =? WHERE `id`=?");
+    $stmt->bind_param("ssssssssssssi",$nome, $rg, $cpf, $cns, $celular, $endereco, $numero, $bairro, $cidade, $cep, $id_situacao, $id_unidade_usf,$id);
+    if ($stmt->execute() == true) {
+        return true;
+    } else {
+        echo "Erro ao executar a consulta: " . $stmt->error;
+        return false;
+    }
+}
     //Deletar o motorista
     public function deletePaciente($id){
         $stmt = $this->conexao->getConexao()->prepare("DELETE FROM `pacientes` WHERE id=?");
@@ -84,6 +94,18 @@ class pacienteDAO
             return false;
         }
     }
+
+
+    public function localizarPaciente($id)
+    {
+        $stmt = $this->conexao->getConexao()->prepare("SELECT * FROM pacientes WHERE id=?");
+        $stmt->bind_param("i", $id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_array(MYSQLI_ASSOC);
+
+    }
+
 }
 
 ?>
