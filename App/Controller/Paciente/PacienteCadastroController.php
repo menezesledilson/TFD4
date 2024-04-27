@@ -1,7 +1,7 @@
 <?php
 require_once("../../Model/PacienteModel.php");
 
-class CadastrarPacienteController
+class cadastrarPacienteController
 {
     private $cadastro;
 

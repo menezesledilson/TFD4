@@ -1,12 +1,11 @@
 <?php
-require_once("../../DAO/AcompanhanteDAO.php.php");
+require_once("../../DAO/AcompanhanteDAO.php");
 class Acompanhante extends Banco
 {
     private $id;
     private $nome;
     private $rg;
     private $cpf;
-    private $cns;
     private $celular;
     private $endereco;
     private $numero;
@@ -80,21 +79,6 @@ class Acompanhante extends Banco
         $this->cpf = $cpf;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getCns()
-    {
-        return $this->cns;
-    }
-
-    /**
-     * @param mixed $cns
-     */
-    public function setCns($cns)
-    {
-        $this->cns = $cns;
-    }
 
     /**
      * @return mixed
@@ -224,51 +208,24 @@ class Acompanhante extends Banco
         $this->created = $created;
     }
 
-
-
     // declaração explícita da propriedade
-    private $AcompanhanteDAO;
+    private $acompanhanteDAO;
 
     public function __construct()
     {
         $this->acompanhanteDAO = new AcompanhanteDAO();
     }
-
-    //método para cadastrar o paciente
-    public function cadastrarAcompanhante($nome, $rg, $cpf, $cns, $celular, $endereco, $numero, $bairro, $cidade, $cep, $id_situacao)
-    {
-        return $this->acompanhanteDAO->postAcompanhante($nome, $rg, $cpf, $cns, $celular, $endereco, $numero, $bairro, $cidade, $cep, $id_situacao, date('Y-m-d H:i:s'));
-    }
-
     //método para listar o paciente
     public function listarAcompanhante()
     {
         return $this->acompanhanteDAO->getAcompanhante();
     }
+   //método para cadastrar
+    public function  cadastrarAcompanhante($nome, $rg, $cpf,$celular, $endereco, $numero, $bairro, $cidade, $cep){
+        return $this->acompanhanteDAO->postAcompanhante($nome, $rg, $cpf,$celular, $endereco, $numero, $bairro, $cidade, $cep);
+   }
 
-    //Método parar listar paciente por id
-    public function listarAcompanhantePorId($id)
-    {
-        return $this->acompanhanteDAO->getAcompanhanteId($id);
-    }
 
-    //Método para deletar paciente
-    public function excluirAcompanhante($id)
-    {
-        return $this->acompanhanteDAO->deleteAcompanhante($id);
-    }
-
-    //Atualizar a informação do motorista
-    public function atualizarAcompanhante($nome, $rg, $cpf, $cns, $celular, $endereco, $numero, $bairro, $cidade, $cep, $id_situacao,$id)
-    {
-        return $this->acompanhanteDAO->putAcompanhante($nome, $rg, $cpf, $cns, $celular, $endereco, $numero, $bairro, $cidade, $cep, $id_situacao,$id);
-    }
-
-    //pesquisa paciente
-    public function pesquisaAcompanhante($id)
-    {
-        return $this->acompanhanteDAO->localizarAcompanhante($id);
-    }
 }
 
 
