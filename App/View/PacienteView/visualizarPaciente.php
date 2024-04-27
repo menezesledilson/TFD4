@@ -45,16 +45,16 @@ if (isset($_GET['id'])) {
                         <!--Segundo bloco-->
                         <div class="row mb-4">
                             <div class="col-md-3">
-                                <span><label>RG: </label> <?php echo $rows['rg']; ?></span>
-                            </div>
-                            <div class="col-md-3">
-                                <span><label>CPF: </label> <?php echo $rows['cpf']; ?></span>
+                                <span><label>Situação: </label> <?php echo $rows['nome_situacao']; ?></span>
                             </div>
                             <div class="col-md-3">
                                 <span><label>CNS: </label> <?php echo $rows['cns']; ?></span>
                             </div>
                             <div class="col-md-3">
-                                <span><label>Situação: </label> <?php echo $rows['nome_situacao']; ?></span>
+                                <span><label>CPF: </label> <?php echo $rows['cpf']; ?></span>
+                            </div>
+                            <div class="col-md-3">
+                                <span><label>RG: </label> <?php echo $rows['rg']; ?></span>
                             </div>
                         </div>
 

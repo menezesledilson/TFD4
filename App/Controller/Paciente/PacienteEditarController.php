@@ -41,12 +41,12 @@ class editarPaciente
             $this->bairro = $row['bairro'];
             $this->cidade = $row['cidade'];
             $this->cep = $row['cep'];
-            $this->id_situacao = $row['id_unidade_usf'];
+            $this->id_situacao = $row['id_situacao'];
             $this->id_unidade_usf = $row['id_unidade_usf'];
         }
     }
 
-    public function editarFormulario($nome, $rg, $cpf, $cns, $celular, $endereco, $numero, $bairro, $cidade, $cep, $id_unidade_usf, $id_situacao,$id)
+    public function editarFormulario($nome, $rg, $cpf, $cns, $celular, $endereco, $numero, $bairro, $cidade, $cep, $id_unidade_usf, $id_situacao, $id)
     {
         // Chama a função da classe de modelo para atualizar os dados do paciente no banco de dados
         if ($this->editar->atualizarPaciente($nome, $rg, $cpf, $cns, $celular, $endereco, $numero, $bairro, $cidade, $cep, $id_situacao, $id_unidade_usf, $id)== TRUE) {
@@ -55,7 +55,8 @@ class editarPaciente
             echo "<script>alert('Erro ao gravar registro!');history.back()</script>";
         }
     }
-     public function getId()
+
+    public function getId()
     {
         return $this->id;
     }

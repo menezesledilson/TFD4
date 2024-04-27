@@ -72,17 +72,48 @@ class pacienteDAO
             return false;
         }
     }
-public function putPaciente($nome, $rg, $cpf, $cns, $celular, $endereco, $numero, $bairro, $cidade, $cep, $id_situacao, $id_unidade_usf,$id)
-{
-    $stmt = $this->conexao->getConexao()->prepare("UPDATE `pacientes` SET `nome`=?, `rg`=?, `cpf`=?, `cns`=?, `celular`=?, `endereco`=?, `numero`=? ,`bairro`=?, `cidade`=?, `cep`=?,`id_situacao`=?,`id_unidade_usf` =? WHERE `id`=?");
-    $stmt->bind_param("ssssssssssssi",$nome, $rg, $cpf, $cns, $celular, $endereco, $numero, $bairro, $cidade, $cep, $id_situacao, $id_unidade_usf,$id);
-    if ($stmt->execute() == true) {
-        return true;
-    } else {
-        echo "Erro ao executar a consulta: " . $stmt->error;
-        return false;
+    public function putPaciente($nome, $rg, $cpf, $cns, $celular, $endereco, $numero, $bairro, $cidade, $cep, $id_situacao, $id_unidade_usf, $id)
+    {
+        // Prepare a consulta com INNER JOINs
+        $stmt = $this->conexao->getConexao()->prepare("
+        UPDATE pacientes AS p
+        INNER JOIN situacoes AS s ON p.id_situacao = s.id
+        INNER JOIN unidades AS u ON p.id_unidade_usf = u.id
+        SET
+            p.nome = ?,
+            p.rg = ?,
+            p.cpf = ?,
+            p.cns = ?,
+            p.celular = ?,
+            p.endereco = ?,
+            p.numero = ?,
+            p.bairro = ?,
+            p.cidade = ?,
+            p.cep = ?,
+            p.id_situacao = ?,
+            p.id_unidade_usf = ?
+        WHERE p.id = ?
+    ");
+
+        // Verificar se a preparação da consulta foi bem-sucedida
+        if (!$stmt) {
+            echo "Erro ao preparar a consulta: " . $this->conexao->getConexao()->error;
+            return false;
+        }
+
+        // Vincular os parâmetros à consulta
+        $stmt->bind_param("ssssssssssssi", $nome, $rg, $cpf, $cns, $celular, $endereco, $numero, $bairro, $cidade, $cep, $id_situacao, $id_unidade_usf, $id);
+
+        // Executar a consulta
+        if ($stmt->execute()) {
+            return true;
+        } else {
+            echo "Erro ao executar a consulta: " . $stmt->error;
+            return false;
+        }
     }
-}
+
+
     //Deletar o motorista
     public function deletePaciente($id){
         $stmt = $this->conexao->getConexao()->prepare("DELETE FROM `pacientes` WHERE id=?");
