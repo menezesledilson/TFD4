@@ -1,7 +1,7 @@
 <?php
 require_once("../../Model/AcompanhanteModel.php");
 
-class EditarAcompanhante
+class editarAcompanhante
 {
     // Propriedades da classe
     private $editar;
@@ -47,7 +47,7 @@ class EditarAcompanhante
         // Chama a função da classe de modelo para atualizar os dados do paciente no banco de dados
         if ($this->editar->atualizarAcompanhante($nome, $rg, $cpf, $celular, $endereco, $numero, $bairro, $cidade, $cep,  $id)) {
             // Redirecionamento após a atualização bem-sucedida
-            header("Location: ../../view/AcompanhanteView/indexPaciente.php");
+            header("Location: ../../view/AcompanhanteView/indexAcompanhante.php");
             exit(); // Certifique-se de que nenhum código adicional seja executado após o redirecionamento
         } else {
             echo "<script>alert('Erro ao gravar registro!');history.back()</script>";
@@ -107,9 +107,9 @@ class EditarAcompanhante
 }
 
 // Processamento do formulário quando enviado
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $id = filter_input(INPUT_POST, 'id');
-    $editaAcompanhante = new EditarAcompanhante($id);
+$id = filter_input(INPUT_GET,'id');
+     $editaAcompanhante = new EditarAcompanhante($id);
+     if(isset($_POST['submit'])){
     $editaAcompanhante->editarFormulario($_POST['nome'], $_POST['rg'], $_POST['cpf'], $_POST['celular'], $_POST['endereco'], $_POST['numero'], $_POST['bairro'], $_POST['cidade'], $_POST['cep'], $_POST['id']);
 }
 ?>

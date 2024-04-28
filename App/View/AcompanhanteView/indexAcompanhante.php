@@ -49,7 +49,7 @@ if ($rows)
                         </div>
                        <div class="col-md-3 text-right">
                             <div class="btn-group">
-                                <a href="../../Controller/Acompanhate/AcompanhanteEditarController.php?id=<?php echo $row['id']; ?>" class="btn btn-primary"
+                                <a href="editarAcompanhante.php?id=<?php echo $row['id']; ?>" class="btn btn-primary"
                                    style="margin-left: 5px; margin-right: 5px;">Editar</a>
                                 <a class="btn btn-danger" href="../../Controller/Acompanhate/AcompanhanteDeletarController.php?id=<?php echo $row['id']; ?>">Excluir</a>
                             </div>

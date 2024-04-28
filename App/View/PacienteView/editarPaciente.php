@@ -1,26 +1,4 @@
-<?php
-require_once("../../Controller/Unidade/UnidadeListarController.php");
-$controller = new listarUnidade();
-$row_unidades = $controller->listarTodos();
 
-//Variável para armazenar o HTML das opções
-$optionsUnidade_html = "";
-
-foreach ($row_unidades as $unidade) {
-    $optionsUnidade_html .= '<option value="' . (!empty($editaPaciente) && !empty($editaPaciente->getIdUnidadeUsf($unidade['id'])) ? $editaPaciente->getIdUnidadeUsf($unidade['id']) : '') . '">' . $unidade['nome_usf'] . '</option>';
-
-    require_once("../../Controller/Situacao/SituacaoListarController.php");
-
-    $controllerSituacao = new listarSituacao();
-    $row_situacao = $controllerSituacao->listarTodos();
-    $optionsSituacao_html = ""; // Variável para armazenar o HTML das opções
-
-    foreach ($row_situacao as $situacao) {
-       $optionsSituacao_html .= '<option value="' . (!empty($editaPaciente) && !empty($editaPaciente->getIdSituacao($situacao['id'])) ? $editaPaciente->getIdSituacao($situacao['id']) : '') . '">' . $situacao['nome_situacao'] . '</option>';
-
-    }
-}
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
