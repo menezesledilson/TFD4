@@ -50,19 +50,24 @@
                     <div class="col-md-3">
                         <label>Cidade:</label>
                         <input type="text" class="form-control form-control-sm" name="cidade"
-                               value="<?php echo !empty($editaHospital->getCidade()) ? $editaHospital->getCidade(): ''; ?>">
+                               value="<?php echo !empty($editaHospital->getCidade()) ? $editaHospital->getCidade() : ''; ?>">
                     </div>
                     <div class="col-md-3">
                         <label>Telefone:</label>
                         <input type="text" class="form-control form-control-sm" name="telefone"
-                               value="<?php echo !empty($editaHospital->getTelefone()) ? $editaHospital->getTelefone(): ''; ?>">
+                               value="<?php echo !empty($editaHospital->getTelefone()) ? $editaHospital->getTelefone() : ''; ?>">
                     </div>
                 </div>
-                <div class="mt-3">
-                    <input type="hidden" name="id" value="<?php echo !empty($editaHospital->getId()) ? $editaHospital->getId() : ''; ?>">
-                    <button type="submit" class="btn btn-primary" id="editarHospital" name="submit" value="editarHospital">Editar</button>
-                </div>
             </div>
+        </div>
+            <div class="mt-3">
+                <input type="hidden" name="id"
+                       value="<?php echo !empty($editaHospital->getId()) ? $editaHospital->getId() : ''; ?>">
+                <button type="submit" class="btn btn-primary" id="editarHospital" name="submit" value="editarHospital">
+                    Editar
+                </button>
+            </div>
+
     </form>
 </div>
 </body>

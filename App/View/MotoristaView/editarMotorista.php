@@ -38,13 +38,14 @@ require_once("../../Controller/Motorista/MotoristaEditarController.php");
                     <!-- Adicione mais campos conforme necessário -->
 
                 </div>
-                <div class="mt-3">
-                    <!-- Adicione o campo de ID -->
-                    <input type="hidden" name="id" value="<?php echo !empty($editaMotorista->getId()) ? $editaMotorista->getId() : ''; ?>">
-                    <!-- Adicione o botão de editar -->
-                    <button type="submit" class="btn btn-primary" id="editarMotorista" name="submit" value="editarMotorista">Editar</button>
-                </div>
             </div>
+        </div>
+        <div class="mt-3">
+            <!-- Adicione o campo de ID -->
+            <input type="hidden" name="id" value="<?php echo !empty($editaMotorista->getId()) ? $editaMotorista->getId() : ''; ?>">
+            <!-- Adicione o botão de editar -->
+            <button type="submit" class="btn btn-primary" id="editarMotorista" name="submit" value="editarMotorista">Editar</button>
+        </div>
         </div>
     </form>
 </div>

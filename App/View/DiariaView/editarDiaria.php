@@ -32,13 +32,15 @@ require_once("../../Controller/Diaria/DiariaEditarController.php");
                     </div>
 
                 </div>
-                <div class="mt-3">
-                    <!-- Adicione o campo de ID -->
-                    <input type="hidden" name="id" value="<?php echo !empty($editarDiaria->getId()) ? $editarDiaria->getId() : ''; ?>">
-                    <!-- Adicione o botão de editar -->
-                    <button type="submit" class="btn btn-primary" id="editarDiaria" name="submit" value="editarDiaria">Editar</button>
-                </div>
             </div>
+        </div>
+            <div class="mt-3">
+                <!-- Adicione o campo de ID -->
+                <input type="hidden" name="id" value="<?php echo !empty($editarDiaria->getId()) ? $editarDiaria->getId() : ''; ?>">
+                <!-- Adicione o botão de editar -->
+                <button type="submit" class="btn btn-primary" id="editarDiaria" name="submit" value="editarDiaria">Editar</button>
+            </div>
+
         </div>
     </form>
 </div>

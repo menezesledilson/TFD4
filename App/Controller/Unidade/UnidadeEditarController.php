@@ -1,5 +1,5 @@
 <?php
-require_once("../../DAO/UnidadeModel.php");
+require_once("../../Model/UnidadeModel.php");
 
 class editarUnidade
 {
