@@ -1,7 +1,9 @@
 <?php
+//
 require_once("../../../controllers/Unidade/UnidadeListarController.php");
 $controller = new listarUnidade();
 $row_unidades = $controller->listarTodos();
+
 $optionsUnidade_html = ""; // Variável para armazenar o HTML das opções
 
 foreach ($row_unidades as $unidade) {
@@ -36,8 +38,8 @@ foreach ($row_unidades as $unidade) {
             <a href="indexPaciente.php" class="btn btn-primary">Voltar</a>
         </div>
     </header>
+    <!--Controllrs para cadastrar o paciente -->
     <form method="post" action="../../../controllers/Paciente/PacienteCadastroController.php" id="form" enctype="multipart/form-data">
-        <!-- Seu código HTML existente... -->
 
         <div class="card">
             <div class="card-header">Cadastro Paciente</div>

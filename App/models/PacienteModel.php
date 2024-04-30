@@ -196,9 +196,9 @@ class Paciente extends Banco
         return $this->pacienteDAO->deletePaciente($id);
     }
     //Atualizar a informação do motorista
-    public function atualizarPaciente($nome, $rg, $cpf, $cns, $celular, $endereco, $numero, $bairro, $cidade, $cep, $id_situacao,$id)
+    public function atualizarPaciente($nome, $rg, $cpf, $cns, $celular, $endereco, $numero, $bairro, $cidade, $cep, $id_situacao,$id_unidade_usf, $id)
     {
-        return $this->pacienteDAO->putPaciente($nome, $rg, $cpf, $cns, $celular, $endereco, $numero, $bairro, $cidade, $cep, $id_situacao,$id);
+        return $this->pacienteDAO->putPaciente($nome, $rg, $cpf, $cns, $celular, $endereco, $numero, $bairro, $cidade, $cep, $id_situacao,$id_unidade_usf,$id);
     }
 
     //pesquisa paciente
