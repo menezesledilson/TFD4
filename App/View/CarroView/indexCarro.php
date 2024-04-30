@@ -28,20 +28,56 @@ $row = $controller->listarTodos();
 
     <!-- Loop para cada paciente -->
     <?php foreach ($row as $value): ?>
-        <div class="card">
-            <div class="card-header">Carro</div>
-            <div class="card-body">
-                <div class="row">
+        <div class="card mb-4">
+            <div class="card">
+            <div class="card-header">Automovél</div>
+                <div class="card-body">
+                    <div class="row mb-3">
                     <div class="col-md-3">
-                        <p><strong>Nome:</strong> <?php echo $value['modelo']; ?></p>
-                        <p><strong>Placa:</strong> <?php echo $value['placa']; ?></p>
-                        <p><strong>Renavam:</strong> <?php echo $value['renavam']; ?></p>
-                        <p><strong>Ano:</strong> <?php echo $value['ano']; ?></p>
-                        <p><strong>Cor:</strong> <?php echo $value['cor']; ?></p>
-                        <p><strong>Combustivel:</strong> <?php echo $value['combustivel']; ?></p>
-                        <p><strong>Vagas:</strong> <?php echo $value['vagas']; ?></p>
-
+                        <p><strong>Marca:</strong> </p>
                     </div>
+                       <div class="col-md-3">
+                        <p><strong>Veículo:</strong> <?php echo $value['modelo']; ?></p>
+                        </div>
+                        <div class="col-md-3">
+                            <p><strong>Placa:</strong> <?php echo $value['placa']; ?></p>
+                        </div>
+                        <div class="col-md-3">
+                            <p><strong>Ano:</strong> <?php echo $value['ano']; ?></p>
+                        </div>
+                    </div>
+                    <!--Segundo Bloco-->
+                    <div class="row mb-3">
+                        <div class="col-md-3">
+                          <p><strong>Combustível:</strong> <?php echo $value['combustivel']; ?></p>
+                        </div>
+                       <div class="col-md-3">
+                          <p><strong>Renavam:</strong> <?php echo $value['renavam']; ?></p>
+                       </div>
+                        <div class="col-md-3">
+                            <p><strong>Tipo Carro:</strong> </p>
+                        </div>
+                        <div class="col-md-3">
+                            <p><strong>Seguradora:</strong> </p>
+                        </div>
+                    </div>
+                    <!--Terceiro Bloco-->
+                    <div class="row mb-3">
+                        <div class="col-md-3">
+                            <p><strong>Vencimento:</strong> </p>
+                        </div>
+                        <div class="col-md-3">
+                            <p><strong>Acionamento Seguro:</strong> </p>
+                        </div>
+                        <div class="col-md-3">
+                            <p><strong>Cor:</strong> <?php echo $value['cor']; ?></p>
+                        </div>
+                        <div class="col-md-3">
+                            <p><strong>Vagas:</strong> <?php echo $value['vagas']; ?></p>
+                        </div>
+                    </div>
+                </div>
+              </div>
                 </div>
                 <div class="row">
                     <div class="col-md-9 text-right">
@@ -52,8 +88,6 @@ $row = $controller->listarTodos();
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
         <br>
     <?php endforeach; ?>
 </div>

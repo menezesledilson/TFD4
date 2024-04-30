@@ -50,7 +50,6 @@ require_once("../../Controller/Paciente/PacienteEditarController.php");
                     <div class="col-md-3">
                         <label>Celular:</label>
                         <input type="text" class="form-control form-control-sm" name="celular" value="<?php echo !empty($editaPaciente->getCelular())? $editaPaciente->getCelular() : ''; ?>">
-
                     </div>
                     <div class="col-md-3">
                         <label>Endereço:</label>

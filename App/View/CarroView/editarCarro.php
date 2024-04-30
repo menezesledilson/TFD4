@@ -23,7 +23,12 @@
             <div class="card-body">
                 <div class="row mb-3">
                     <div class="col-md-3">
-                        <label>Modelo:</label>
+                        <label>Marca:</label>
+                        <input type="text" class="form-control form-control-sm" name=" "
+                               value=" ">
+                    </div>
+                    <div class="col-md-3">
+                        <label>Marca:</label>
                         <input type="text" class="form-control form-control-sm" name="modelo"
                                value="<?php echo !empty($editarCarro->getModelo()) ? $editarCarro->getModelo() : ''; ?>">
                     </div>
@@ -33,25 +38,47 @@
                                value="<?php echo !empty($editarCarro->getPlaca()) ? $editarCarro->getPlaca() : ''; ?>">
                     </div>
                     <div class="col-md-3">
-                        <label>Renavam:</label>
-                        <input type="text" class="form-control form-control-sm" name="renavam"
-                               value="<?php echo !empty($editarCarro->getRenavam()) ? $editarCarro->getRenavam() : ''; ?>">
-                    </div>
-                    <div class="col-md-3">
                         <label>Ano:</label>
                         <input type="text" class="form-control form-control-sm" name="ano"
                                value="<?php echo !empty($editarCarro->getAno()) ? $editarCarro->getAno() : ''; ?>">
-                    </div>
-                    <div class="col-md-3">
-                        <label>Cor:</label>
-                        <input type="text" class="form-control form-control-sm" name="cor"
-                               value="<?php echo !empty($editarCarro->getCor()) ? $editarCarro->getCor() : ''; ?>">
                     </div>
                     <div class="col-md-3">
                         <label>Combustível:</label>
                         <input type="text" class="form-control form-control-sm" name="combustivel"
                                value="<?php echo !empty($editarCarro->getCombustivel()) ? $editarCarro->getCombustivel(): ''; ?>">
                     </div>
+                    <div class="col-md-3">
+                        <label>Renavam:</label>
+                        <input type="text" class="form-control form-control-sm" name="renavam"
+                               value="<?php echo !empty($editarCarro->getRenavam()) ? $editarCarro->getRenavam() : ''; ?>">
+                    </div>
+                    <div class="col-md-3">
+                        <label>Tipo Carro:</label>
+                        <input type="text" class="form-control form-control-sm" name=" "
+                               value=" ">
+                    </div>
+                    <div class="col-md-3">
+                        <label>Seguradora:</label>
+                        <input type="text" class="form-control form-control-sm" name=" "
+                               value=" ">
+                    </div>
+                    <div class="col-md-3">
+                        <label>Vencimento:</label>
+                        <input type="text" class="form-control form-control-sm" name=" "
+                               value=" ">
+                    </div>
+                    <div class="col-md-3">
+                        <label>Acionamento Seguro:</label>
+                        <input type="text" class="form-control form-control-sm" name=" "
+                               value=" ">
+                    </div>
+
+                    <div class="col-md-3">
+                        <label>Cor:</label>
+                        <input type="text" class="form-control form-control-sm" name="cor"
+                               value="<?php echo !empty($editarCarro->getCor()) ? $editarCarro->getCor() : ''; ?>">
+                    </div>
+
                     <div class="col-md-3">
                         <label>Vagas:</label>
                         <input type="text" class="form-control form-control-sm" name="vagas"
