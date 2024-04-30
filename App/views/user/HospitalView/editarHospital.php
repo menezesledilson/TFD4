@@ -64,7 +64,7 @@
                 <input type="hidden" name="id"
                        value="<?php echo !empty($editaHospital->getId()) ? $editaHospital->getId() : ''; ?>">
                 <button type="submit" class="btn btn-primary" id="editarHospital" name="submit" value="editarHospital">
-                    Editar
+                    Confirma
                 </button>
             </div>
 

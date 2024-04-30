@@ -36,7 +36,7 @@ $row = $controller->listarTodos();
                     <div class="col-md-3">
                         <p><strong>Nome:</strong> <?php echo $value['nome_usf']; ?></p>
                     </div>
-                    <div class="col-md-9 text-right   "> <!-- Coluna adicional para os botões -->
+                    <div class="col-md-9 text-right   ">
                         <div class="btn-group">
                             <a class="btn btn-primary" style="margin-left: 5px; margin-right: 5px;" href="../../user/UnidadeView/editarUnidade.php?id=<?php echo $value['id']; ?>">Editar</a>
                             <a class="btn btn-danger" href="../../../controllers/Unidade/UnidadeDeletarController.php?id=<?php echo $value['id']; ?>">Excluir</a>

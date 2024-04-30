@@ -20,29 +20,40 @@
           enctype="multipart/form-data">
 
         <div class="card">
-            <div class="card-header">Cadastra Hospital</div>
+            <div class="card-header">Cadastro de  Hospital</div>
             <div class="card-body">
-
                 <div class="row mb-3">
                     <div class="col-md-3">
                         <label>Nome:</label>
                         <input class="form-control form-control-sm" type="text" id="nome" name="nome"
                                placeholder="Nome do Hospital">
+                    </div>
+                    <div class="col-md-3">
                         <label>Endereço:</label>
                         <input class="form-control form-control-sm" type="text" id="endereco" name="endereco"
                                placeholder="Endereço">
+                    </div>
+                    <div class="col-md-3">
                         <label>Número:</label>
                         <input class="form-control form-control-sm" type="text" id="numero" name="numero"
                                placeholder="Número">
+                    </div>
+                    <div class="col-md-3">
                         <label>Bairro:</label>
                         <input class="form-control form-control-sm" type="text" id="bairro" name="bairro"
                                placeholder="Bairro">
+                    </div>
+                    <div class="col-md-3">
                         <label>Cep:</label>
                         <input class="form-control form-control-sm" type="text" id="cep" name="cep"
                                placeholder="Cep">
+                    </div>
+                    <div class="col-md-3">
                         <label>Cidade:</label>
                         <input class="form-control form-control-sm" type="text" id="cidade" name="cidade"
                                placeholder="Cidade">
+                    </div>
+                        <div class="col-md-3">
                         <label>Celular:</label>
                         <input class="form-control form-control-sm" type="text" id="telefone" name="telefone"
                                placeholder="Celular">

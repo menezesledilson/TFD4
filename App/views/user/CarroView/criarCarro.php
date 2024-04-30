@@ -19,48 +19,53 @@
     <form method="post" action="../../../controllers/Carro/CarroCadastroController.php" id="form"
           enctype="multipart/form-data">
         <div class="card mb-4">
-        <div class="card">
-            <div class="card-header">Cadastro de veículo</div>
-            <div class="card-body">
-                <div class="row mb-3">
-                    <div class="col-md-3">
-                        <label>Marca:</label>
-                        <input class="form-control form-control-sm" type="text" id=" " name=" "
-                               placeholder="Marcala do carro">
-                    </div>
-                    <div class="col-md-3">
-                        <label>Veículo:</label>
-                        <input class="form-control form-control-sm" type="text" id="modelo" name="modelo"
-                               placeholder="Modelo do carro">
-                    </div>
-                    <div class="col-md-3">
-                        <label>Placa:</label>
-                        <input class="form-control form-control-sm" type="text" id="placa" name="placa"
-                               placeholder="Placa do carro">
-                    </div>
-                    <div class="col-md-3">
-                    <label>Ano:</label>
-                    <input class="form-control form-control-sm" type="text" id="ano" name="ano"
-                           placeholder="Ano do carro">
-                    </div>
-                    <!--Segundo Bloco-->
+            <div class="card">
+                <div class="card-header">Cadastro de veículo</div>
+                <div class="card-body">
                     <div class="row mb-3">
-                    <div class="col-md-3">
-                        <label>Combustível:</label>
-                        <input class="form-control form-control-sm" type="text" id="combustivel" name="combustivel"
-                               placeholder="Combustível">
+                        <div class="col-md-3">
+                            <label>Marca:</label>
+                            <input class="form-control form-control-sm" type="text" id="" name=""
+                                   placeholder="Marca do carro">
+                        </div>
+                        <div class="col-md-3">
+                            <label>Veículo:</label>
+                            <input class="form-control form-control-sm" type="text" id="modelo" name="modelo"
+                                   placeholder="Modelo do carro">
+                        </div>
+                        <div class="col-md-3">
+                            <label>Placa:</label>
+                            <input class="form-control form-control-sm" type="text" id="placa" name="placa"
+                                   placeholder="Placa do carro">
+                        </div>
+                        <div class="col-md-3">
+                            <label>Ano:</label>
+                            <input class="form-control form-control-sm" type="text" id="ano" name="ano"
+                                   placeholder="Ano do carro">
+                        </div>
                     </div>
-                        <label>Renavam:</label>
-                        <input class="form-control form-control-sm" type="text" id="renavam" name="renavam"
-                               placeholder="Renavam do carro">
-
-                        <label>Cor:</label>
-                        <input class="form-control form-control-sm" type="text" id="cor" name="cor"
-                               placeholder="Cor do carro">
-
-                        <label>Vagas:</label>
-                        <input class="form-control form-control-sm" type="text" id="vagas" name="vagas"
-                               placeholder="Vagas">
+                    <!-- Segundo Bloco -->
+                    <div class="row mb-3">
+                        <div class="col-md-3">
+                            <label>Combustível:</label>
+                            <input class="form-control form-control-sm" type="text" id="combustivel" name="combustivel"
+                                   placeholder="Combustível">
+                        </div>
+                        <div class="col-md-3">
+                            <label>Renavam:</label>
+                            <input class="form-control form-control-sm" type="text" id="renavam" name="renavam"
+                                   placeholder="Renavam do carro">
+                        </div>
+                        <div class="col-md-3">
+                            <label>Cor:</label>
+                            <input class="form-control form-control-sm" type="text" id="cor" name="cor"
+                                   placeholder="Cor do carro">
+                        </div>
+                        <div class="col-md-3">
+                            <label>Vagas:</label>
+                            <input class="form-control form-control-sm" type="text" id="vagas" name="vagas"
+                                   placeholder="Vagas">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -70,6 +75,7 @@
                 <input type="submit" name="create" value="Confirma" class="btn btn-primary">
             </div>
         </div>
+
     </form>
 </div>
 </body>
