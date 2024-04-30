@@ -47,13 +47,20 @@ class editarPaciente
 
     public function editarFormulario($nome, $rg, $cpf, $cns, $celular, $endereco, $numero, $bairro, $cidade, $cep, $id_unidade_usf, $id_situacao, $id)
     {
-        // Chama a função da classe de modelo para atualizar os dados do paciente no banco de dados
-        if ($this->editar->atualizarPaciente($nome, $rg, $cpf, $cns, $celular, $endereco, $numero, $bairro, $cidade, $cep, $id_situacao, $id_unidade_usf, $id)== TRUE) {
-            echo "<script>alert('Registro atualizado com sucesso!');document.location='./indexPaciente.php'</script>";
+        // Verifica se o ID da unidade de saúde e da situação não está vazio
+        if (!empty($id_unidade_usf) && !empty($id_situacao)) {
+            // Chama a função da classe de modelo para atualizar os dados do paciente no banco de dados
+            if ($this->editar->atualizarPaciente($nome, $rg, $cpf, $cns, $celular, $endereco, $numero, $bairro, $cidade, $cep, $id_situacao, $id_unidade_usf, $id) == TRUE) {
+                echo "<script>alert('Registro atualizado com sucesso!');document.location='./indexPaciente.php'</script>";
+            } else {
+                echo "<script>alert('Erro ao gravar registro!');history.back()</script>";
+            }
         } else {
-            echo "<script>alert('Erro ao gravar registro!');history.back()</script>";
+            // Se o ID da unidade de saúde ou da situação estiver vazio, exiba uma mensagem de erro
+            echo "<script>alert('Por favor, selecione a unidade de saúde e a situação!');history.back()</script>";
         }
     }
+
 
     public function getId()
     {

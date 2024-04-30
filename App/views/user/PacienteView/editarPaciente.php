@@ -1,23 +1,28 @@
 <?php
-//Atualizar a lista de unidades
+require_once("../../../controllers/Paciente/PacienteEditarController.php");
 
+// Atualizar a lista de unidades
 require_once("../../../controllers/Unidade/UnidadeListarController.php");
 $controllerUnidade = new listarUnidade();
 $rowUnidade = $controllerUnidade->listarTodos();
-//armazenar o html da opcao
+
+// Armazenar o HTML das opções de unidade
 $optionsUnidadeHtml = "";
 foreach ($rowUnidade as $unidade) {
-    $optionsUnidadeHtml .= '<option value="' . $unidade['id'] . '">' . $unidade['nome_usf'] . '</option>';
+    $selected = ($editaPaciente->getIdUnidadeUsf() == $unidade['id']) ? 'selected' : '';
+    $optionsUnidadeHtml .= '<option value="' . $unidade['id'] . '" ' . $selected . '>' . $unidade['nome_usf'] . '</option>';
+}
 
-//Atualizar a situacao
-    require_once("../../../controllers/Situacao/SituacaoListarController.php");
-    $controllerSituacao = new listarSituacao();
-    $rowSituacao = $controllerSituacao->listarTodos();
-    $optionsSituacaoHtml = "";
-    foreach ($rowSituacao as $situacao) {
-        $optionsSituacaoHtml .= '<option value="' . $situacao['id'] . '">' . $situacao['nome_situacao'] . '</option>';
-    }
+// Atualizar a lista de situações
+require_once("../../../controllers/Situacao/SituacaoListarController.php");
+$controllerSituacao = new listarSituacao();
+$rowSituacao = $controllerSituacao->listarTodos();
 
+// Armazenar o HTML das opções de situação
+$optionsSituacaoHtml = "";
+foreach ($rowSituacao as $situacao) {
+    $selected = ($editaPaciente->getIdSituacao() == $situacao['id']) ? 'selected' : '';
+    $optionsSituacaoHtml .= '<option value="' . $situacao['id'] . '" ' . $selected . '>' . $situacao['nome_situacao'] . '</option>';
 }
 ?>
 <!DOCTYPE html>
@@ -32,9 +37,7 @@ foreach ($rowUnidade as $unidade) {
     <title>Atualizar informação Pacientes</title>
 </head>
 <body>
-<?php
-require_once("../../../controllers/Paciente/PacienteEditarController.php");
-?>
+
 <div class="container">
     <header class="d-flex justify-content-between- my-4">
         <div class="ms-auto">
@@ -109,7 +112,6 @@ require_once("../../../controllers/Paciente/PacienteEditarController.php");
                         <label>Unidade de Saúde:</label>
                         <select class="form-control" name="id_unidade_usf">
                             <option value="">Selecione</option>
-
                             <?php echo $optionsUnidadeHtml ?>
                         </select>
 
