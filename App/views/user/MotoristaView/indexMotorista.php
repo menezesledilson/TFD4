@@ -32,18 +32,32 @@ $row = $controller->listarTodos();
             <div class="card-header">Motorista</div>
             <div class="card-body">
                 <div class="row">
-                    <div class="col-md-3">
+                    <div class="col-md-4">
                         <p><strong>Nome:</strong> <?php echo $value['nome']; ?></p>
                         <p><strong>Telefone:</strong> <?php echo $value['telefone']; ?></p>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-9 text-right">
-                        <div class="btn-group">
-                            <a class="btn btn-primary" style="margin-left: 5px; margin-right: 5px;" href="../../user/MotoristaView/editarMotorista.php?id=<?php echo $value['id']; ?>">Editar</a>
-                            <a class="btn btn-danger" href="../../../controllers/Motorista/MotoristaDeletarController.php?id=<?php echo $value['id']; ?>">Excluir</a>
-                        </div>
+                    <div class="col-md-3">
+                        <p><strong>Endereço:</strong></p>
+                        <p><strong>Número:</strong></p>
                     </div>
+                    <div class="col-md-3">
+                        <p><strong>Bairro:</strong></p>
+                        <p><strong>Cidade:</strong></p>
+                    </div>
+                    <div class="col-md-3">
+                        <p><strong>CEP:</strong></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="col-md-4">
+            <div class="col-md-3">
+                <div class="btn-group" >
+                    <a class="btn btn-primary" style="margin-left: 5px; margin-right: 5px;"
+                       href="../../user/MotoristaView/editarMotorista.php?id=<?php echo $value['id']; ?>">Editar</a>
+                    <a class="btn btn-danger"
+                       href="../../../controllers/Motorista/MotoristaDeletarController.php?id=<?php echo $value['id']; ?>">Excluir</a>
                 </div>
             </div>
         </div>

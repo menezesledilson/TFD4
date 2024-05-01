@@ -85,10 +85,11 @@
                                value="<?php echo !empty($editarCarro->getVagas()) ? $editarCarro->getVagas(): ''; ?>">
                     </div>
                 </div>
-                <div class="mt-3">
-                    <input type="hidden" name="id" value="<?php echo !empty($editarCarro->getId()) ? $editarCarro->getId() : ''; ?>">
-                    <button type="submit" class="btn btn-primary" id="editarCarro" name="submit" value="editarCarro">Editar</button>
-                </div>
+            </div>
+            </div>
+            <div class="mt-3">
+                <input type="hidden" name="id" value="<?php echo !empty($editarCarro->getId()) ? $editarCarro->getId() : ''; ?>">
+                <button type="submit" class="btn btn-primary" id="editarCarro" name="submit" value="editarCarro">Confirma</button>
             </div>
     </form>
 </div>

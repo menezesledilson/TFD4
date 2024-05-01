@@ -35,8 +35,31 @@ require_once("../../../controllers/Motorista/MotoristaEditarController.php");
                         <input type="text" class="form-control form-control-sm" name="telefone"
                                value="<?php echo !empty($editaMotorista->getTelefone()) ? $editaMotorista->getTelefone() : ''; ?>">
                     </div>
-                    <!-- Adicione mais campos conforme necessário -->
-
+                    <div class="col-md-3">
+                        <label>Endereço:</label>
+                        <input type="text" class="form-control form-control-sm" name=" "
+                               value="">
+                    </div>
+                    <div class="col-md-3">
+                        <label>Número:</label>
+                        <input type="text" class="form-control form-control-sm" name=" "
+                               value="">
+                    </div>
+                    <div class="col-md-3">
+                        <label>Bairro:</label>
+                        <input type="text" class="form-control form-control-sm" name=" "
+                               value="">
+                    </div>
+                    <div class="col-md-3">
+                        <label>Cidade:</label>
+                        <input type="text" class="form-control form-control-sm" name=" "
+                               value="">
+                    </div>
+                    <div class="col-md-3">
+                        <label>CEP:</label>
+                        <input type="text" class="form-control form-control-sm" name=" "
+                               value="">
+                    </div>
                 </div>
             </div>
         </div>
@@ -44,7 +67,7 @@ require_once("../../../controllers/Motorista/MotoristaEditarController.php");
             <!-- Adicione o campo de ID -->
             <input type="hidden" name="id" value="<?php echo !empty($editaMotorista->getId()) ? $editaMotorista->getId() : ''; ?>">
             <!-- Adicione o botão de editar -->
-            <button type="submit" class="btn btn-primary" id="editarMotorista" name="submit" value="editarMotorista">Editar</button>
+            <button type="submit" class="btn btn-primary" id="editarMotorista" name="submit" value="editarMotorista">Confirma</button>
         </div>
         </div>
     </form>

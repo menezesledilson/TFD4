@@ -54,9 +54,10 @@ foreach ($row_unidades as $unidade) {
                         <label>RG:</label>
                         <input type="text" class="form-control form-control-sm" name="rg" placeholder="RG">
                     </div>
+
                     <div class="col-md-3">
                         <label>CPF:</label>
-                        <input type="text" class="form-control form-control-sm" name="cpf" placeholder="CPF">
+                        <input type="text" class="form-control form-control-sm" name="cpf" maxlength="14" placeholder="000.000.000-00">
                     </div>
                     <div class="col-md-3">
                         <label>CNS:</label>

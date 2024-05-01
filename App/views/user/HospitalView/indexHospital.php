@@ -17,7 +17,7 @@ $row = $controller->listarTodos();
     <link rel="shortcut icon" href="../../favicon.ico"/>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-    <title>Hospital </title>
+    <title>Hospitais </title>
 </head>
 <body>
 <div class="container">
@@ -27,45 +27,35 @@ $row = $controller->listarTodos();
     </header>
     <!-- Loop para cada paciente -->
     <?php foreach ($row as $value): ?>
-        <div class="card mb-4">
-            <div class="card">
-                <div class="card-header">Lista de Hospitais</div>
-                <div class="card-body">
-                    <div class="row mb-3">
-                        <div class="col-md-3">
-                            <p><strong>Nome:</strong> <?php echo $value['nome']; ?></p>
-                        </div>
-                        <div class="col-md-3">
-                            <p><strong>Endereço:</strong> <?php echo $value['endereco']; ?></p>
-                        </div>
-                        <div class="col-md-3">
-                            <p><strong>Número:</strong> <?php echo $value['numero']; ?></p>
-                        </div>
-                        <div class="col-md-3">
-                            <p><strong>Bairro:</strong> <?php echo $value['bairro']; ?></p>
-                        </div>
+        <div class="card">
+            <div class="card-header">Hospital</div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-5">
+                        <p><strong>Nome:</strong> <?php echo $value['nome']; ?></p>
+                        <p><strong>Endereço:</strong> <?php echo $value['endereco']; ?></p>
                     </div>
-                    <!-- Segundo Bloco -->
-                    <div class="row mb-3">
-                        <div class="col-md-3">
-                            <p><strong>Cep:</strong> <?php echo $value['cep']; ?></p>
-                        </div>
-                        <div class="col-md-3">
-                            <p><strong>Cidade:</strong> <?php echo $value['cidade']; ?></p>
-                        </div>
-                        <div class="col-md-3">
-                            <p><strong>Telefone:</strong> <?php echo $value['telefone']; ?></p>
-                        </div>
-                        <div class="col-md-1 text-right">
-                            <div class="btn-group">
-                                <a class="btn btn-primary" style="margin-left: 5px; margin-right: 5px;"
-                                   href="../../user/HospitalView/editarHospital.php?id=<?php echo $value['id']; ?>">Editar</a>
-                                <a class="btn btn-danger"
-                                   href="../../../controllers/Hospital/HospitalDeletarController.php?id=<?php echo $value['id']; ?>">Excluir</a>
-                            </div>
-                        </div>
+                    <div class="col-md-3">
+                        <p><strong>Bairro:</strong> <?php echo $value['bairro']; ?></p>
+                        <p><strong>Cep:</strong> <?php echo $value['cep']; ?></p>
+                    </div>
+                    <div class="col-md-3">
+                        <p><strong>Cidade:</strong> <?php echo $value['cidade']; ?></p>
+                        <p><strong>Telefone:</strong> <?php echo $value['telefone']; ?></p>
+                    </div>
+                    <div class="col-md-3">
+                        <p><strong>Número:</strong> <?php echo $value['numero']; ?></p>
                     </div>
                 </div>
+            </div>
+        </div>
+        <br>
+        <div class="col-md-3 text-right">
+            <div class="btn-group">
+                <a class="btn btn-primary" style="margin-left: 5px; margin-right: 5px;"
+                   href="../../user/HospitalView/editarHospital.php?id=<?php echo $value['id']; ?>">Editar</a>
+                <a class="btn btn-danger"
+                   href="../../../controllers/Hospital/HospitalDeletarController.php?id=<?php echo $value['id']; ?>">Excluir</a>
             </div>
         </div>
         <br>

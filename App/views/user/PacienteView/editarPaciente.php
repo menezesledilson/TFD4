@@ -34,7 +34,7 @@ foreach ($rowSituacao as $situacao) {
     <link rel="shortcut icon" href="favicon.ico"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
           integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-    <title>Atualizar informação Pacientes</title>
+    <title>Atualizar o Paciente</title>
 </head>
 <body>
 
@@ -47,7 +47,7 @@ foreach ($rowSituacao as $situacao) {
     <form action="" method="post" enctype="multipart/form-data">
         <!-- Seu código HTML existente... -->
         <div class="card">
-            <div class="card-header">Atualizar informação Pacientes</div>
+            <div class="card-header">Atualizar informação do Paciente</div>
             <div class="card-body">
                 <div class="row mb-3">
                     <div class="col-md-3">
@@ -134,7 +134,7 @@ foreach ($rowSituacao as $situacao) {
                        value="<?php echo !empty($editaPaciente->getId()) ? $editaPaciente->getId() : ''; ?>">
                 <!-- Adicione o botão de editar -->
                 <button type="submit" class="btn btn-primary" id="$editaPaciente" name="submit" value="$editaPaciente">
-                    Editar
+                    Confirma
                 </button>
             </div>
         </div>

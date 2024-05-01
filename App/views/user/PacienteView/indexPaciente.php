@@ -37,22 +37,28 @@ if ($rows)
                         <p><strong>Celular:</strong> <?php echo $row['celular']; ?></p>
                     </div>
                     <div class="col-md-4">
+                        <p><strong>CPF:</strong> <?php echo $row['cpf']; ?></p>
+                        <p><strong>RG:</strong> <?php echo $row['rg']; ?></p>
+                    </div>
+                    <div class="col-md-4">
                         <p><strong>USF:</strong> <?php echo $row['nome_usf']; ?></p>
                         <p><strong>Situação:</strong> <?php echo $row['nome_situacao']; ?></p>
                     </div>
                     <div class="col-md-3">
                         <div style="text-align: center; margin-bottom: 15px;">
                         </div>
-                        <div class="col-md-3">
-                            <div class="btn-group">
-                                <a href="visualizarPaciente.php?id=<?php echo $row['id']; ?>" class="btn btn-info">Visualizar</a>
-                                <a href="editarPaciente.php?id=<?php echo $row['id']; ?>" class="btn btn-primary"
-                                   style="margin-left: 5px; margin-right: 5px;">Editar</a>
-                                <a class="btn btn-danger" href="../../../controllers/Paciente/PacienteDeletarController.php?id=<?php echo $row['id']; ?>">Excluir</a>
-                            </div>
-                        </div>
                     </div>
                 </div>
+            </div>
+        </div>
+        <br>
+        <div class="col-md-9 text-right ">
+            <div class="btn-group">
+                <a href="visualizarPaciente.php?id=<?php echo $row['id']; ?>" class="btn btn-info">Visualizar</a>
+                <a href="editarPaciente.php?id=<?php echo $row['id']; ?>" class="btn btn-primary"
+                   style="margin-left: 5px; margin-right: 5px;">Editar</a>
+                <a class="btn btn-danger"
+                   href="../../../controllers/Paciente/PacienteDeletarController.php?id=<?php echo $row['id']; ?>">Excluir</a>
             </div>
         </div>
         <br>

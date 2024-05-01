@@ -32,25 +32,25 @@ $row = $controller->listarTodos();
             <div class="card-header">Diária</div>
             <div class="card-body">
                 <div class="row">
-                    <div class="col-md-3">
+                    <div class="col-md-4">
                         <p><strong>Motorista:</strong>  </p>
                     </div>
 
-                    <div class="col-md-3">
+                    <div class="col-md-5">
                         <p><strong>Local:</strong> <?php echo $value['diaria']; ?></p>
                     </div>
                     <div class="col-md-3">
                         <p><strong>Data:</strong>  </p>
                     </div>
-
                 </div>
-                <div class="row">
-                    <div class="col-md-9 text-right">
-                        <div class="btn-group">
-                            <a class="btn btn-primary" style="margin-left: 5px; margin-right: 5px;" href="../../user/DiariaView/editarDiaria.php?id=<?php echo $value['id']; ?>">Editar</a>
-                            <a class="btn btn-danger" href="../../../controllers/Diaria/DiariaDeletarController.php?id=<?php echo $value['id']; ?>">Excluir</a>
-                        </div>
-                    </div>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-md-9 text-right">
+                <div class="btn-group">
+                    <a class="btn btn-primary" style="margin-left: 5px; margin-right: 5px;" href="../../user/DiariaView/editarDiaria.php?id=<?php echo $value['id']; ?>">Editar</a>
+                    <a class="btn btn-danger" href="../../../controllers/Diaria/DiariaDeletarController.php?id=<?php echo $value['id']; ?>">Excluir</a>
                 </div>
             </div>
         </div>

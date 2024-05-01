@@ -35,34 +35,33 @@ if ($rows)
                         <p><strong>Nome:</strong> <?php echo $row['nome']; ?></p>
                         <p><strong>RG:</strong> <?php echo $row['rg']; ?></p>
                         <p><strong>CPF:</strong> <?php echo $row['cpf']; ?></p>
-                        <p><strong>Celular:</strong> <?php echo $row['telefone']; ?></p>
                     </div>
-                    <div class="col-md-5">
+                    <div class="col-md-4">
+                        <p><strong>Celular:</strong> <?php echo $row['telefone']; ?></p>
                         <p><strong>Endereço:</strong> <?php echo $row['endereco']; ?></p>
                         <p><strong>Número:</strong> <?php echo $row['numero']; ?></p>
+                    </div>
+                    <div class="col-md-4">
                         <p><strong>Bairro:</strong> <?php echo $row['bairro']; ?></p>
                         <p><strong>Cidade:</strong> <?php echo $row['cidade']; ?></p>
                         <p><strong>Cep:</strong> <?php echo $row['cep']; ?></p>
                     </div>
-                    <div class="col-md-3">
-                        <div style="text-align: center; margin-bottom: 70px; margin-left: 10px">
-                        </div>
-                       <div class="col-md-3 text-right">
-                            <div class="btn-group">
-                                <a href="editarAcompanhante.php?id=<?php echo $row['id']; ?>" class="btn btn-primary"
-                                   style="margin-left: 5px; margin-right: 5px;">Editar</a>
-                                <a class="btn btn-danger" href="../../../controllers/Acompanhate/AcompanhanteDeletarController.php?id=<?php echo $row['id']; ?>">Excluir</a>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
-        <br>
+    <br>
+        <div class="col-md-3">
+            <div class="col-md-3 text-right">
+                <div class="btn-group">
+                    <a href="editarAcompanhante.php?id=<?php echo $row['id']; ?>" class="btn btn-primary"
+                       style="margin-left: 5px; margin-right: 5px;">Editar</a>
+                    <a class="btn btn-danger"
+                       href="../../../controllers/Acompanhate/AcompanhanteDeletarController.php?id=<?php echo $row['id']; ?>">Excluir</a>
+                </div>
+            </div>
+        </div>
     <?php endforeach; ?>
 </div>
-
-<br>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
