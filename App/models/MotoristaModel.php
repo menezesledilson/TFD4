@@ -1,20 +1,25 @@
 <?php
-require_once (__DIR__ ."/../dao/MotoristaDAO.php");
+require_once(__DIR__ . "/../dao/MotoristaDAO.php");
 
-class Motorista extends  Banco
+class Motorista extends Banco
 {
     private $id;
     private $nome;
     private $telefone;
     private $created;
+
+    private $modified;
+
     public function getId()
     {
         return $this->id;
     }
+
     public function setId($id)
     {
         $this->id = $id;
     }
+
     public function getNome()
     {
         return $this->nome;
@@ -24,6 +29,7 @@ class Motorista extends  Banco
     {
         $this->nome = $nome;
     }
+
     public function getTelefone()
     {
         return $this->telefone;
@@ -33,42 +39,70 @@ class Motorista extends  Banco
     {
         $this->telefone = $telefone;
     }
+
     public function getCreated()
     {
         return $this->created;
     }
+
     public function setCreated($created)
     {
         $this->created = $created;
     }
-   //Construtor da classe
+
+    public function getModified()
+    {
+        return $this->modified;
+    }
+
+    public function setModified($modified): void
+    {
+        $this->modified = $modified;
+    }
+
+
+    //Construtor da classe
     private $motoristaDAO;
+
     public function __construct()
     {
         $this->motoristaDAO = new MotoristaDAO();
     }
-    //método para cadastrar os motorista
-    public function cadastrarMotorista($nome,$telefone)
-    {
-        return $this->motoristaDAO->postMotorista($nome,$telefone,date('Y-m-d H:i:s'));
-    }
+
     //Método para listar os motorista
     public function listarMotoristas()
     {
         return $this->motoristaDAO->getMotorista();
     }
-    //Atualizar a informação do motorista
-    public function atualizarMotorista($nome,$telefone,$id)
+
+    //método para cadastrar os motorista
+    public function cadastrarMotorista($nome, $telefone)
     {
-        return $this->motoristaDAO->putMotorista($nome,$telefone,$id);
+        // Formate a data e hora no formato MySQL padrão
+        $dataHoraAtual = date('Y-m-d H:i:s');
+        return $this->motoristaDAO->postMotorista($nome, $telefone, $dataHoraAtual);
     }
+
+    //Atualizar a informação do motorista
+    public function atualizarMotorista($nome, $telefone, $id)
+    {
+        // Formate a data e hora no formato MySQL padrão
+        $dataHoraAtual = date('Y-m-d H:i:s');
+
+        return $this->motoristaDAO->putMotorista($nome, $telefone,$dataHoraAtual, $id);
+    }
+
     //pesquisa motorista
-    public function pesquisarMotorista($id){
+    public function pesquisarMotorista($id)
+    {
         return $this->motoristaDAO->localizarMotorista($id);
     }
+
     //Método para deletar veículo
-    public function excluirMotorista($id){
+    public function excluirMotorista($id)
+    {
         return $this->motoristaDAO->deleteMotorista($id);
     }
 }
+
 ?>

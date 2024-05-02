@@ -35,7 +35,6 @@ $row = $controller->listarTodos();
                     <div class="col-md-4">
                         <p><strong>Motorista:</strong>  </p>
                     </div>
-
                     <div class="col-md-5">
                         <p><strong>Local:</strong> <?php echo $value['diaria']; ?></p>
                     </div>

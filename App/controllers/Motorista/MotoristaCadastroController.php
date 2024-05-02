@@ -13,6 +13,7 @@ class cadastrarMotorista
         $nome = $_POST['nome'];
         $telefone = $_POST['telefone'];
 
+
         $result=$this->cadastro->cadastrarMotorista($nome,$telefone);
 
         if($result >= 1){

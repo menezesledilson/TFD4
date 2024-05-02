@@ -10,29 +10,11 @@ class MotoristaDAO
     {
         $this->conexao = new Banco();
     }
-
-    // Cadastrar os motoristas
-    public function postMotorista($motorista, $telefone)
-    {
-        try {
-            $stmt = $this->conexao->getConexao()->prepare("INSERT INTO motoristas(`nome`,`telefone`) VALUES(?,?)");
-            $stmt->bind_param("ss", $motorista, $telefone);
-            if ($stmt->execute()) {
-                return true;
-            } else {
-                return false;
-            }
-        } catch (Exception $e) {
-            echo "Erro ao cadastrar motorista: " . $e->getMessage();
-            return false;
-        }
-    }
-
     // Listar os Carros
     public function getMotorista()
     {
         try {
-            $stmt = $this->conexao->getConexao()->prepare("SELECT * FROM motoristas ORDER BY id DESC ");
+            $stmt = $this->conexao->getConexao()->prepare("SELECT id,nome,telefone, created FROM motoristas ORDER BY id DESC ");
             $motoristas = [];
             $stmt->execute();
             $result = $stmt->get_result();
@@ -61,12 +43,33 @@ class MotoristaDAO
         }
     }
 
-    // Atualizar o motorista
-    public function putMotorista($nome, $telefone, $id)
+    // Cadastrar os motoristas
+    public function postMotorista($motorista, $telefone, $created,$modified)
     {
         try {
-            $stmt = $this->conexao->getConexao()->prepare("UPDATE motoristas SET nome=?, telefone =? WHERE id=?");
-            $stmt->bind_param("ssi", $nome, $telefone, $id);
+            $stmt = $this->conexao->getConexao()->prepare("INSERT INTO motoristas(`nome`, `telefone`, `created`,`modified`) VALUES (?,?, ?,?)");
+
+            // Ajuste para o tipo de dados do campo 'created' e 'modified'
+            $stmt->bind_param("ssss", $motorista, $telefone, $created,$modified);
+
+            if ($stmt->execute()) {
+                return true;
+            } else {
+                return false;
+            }
+        } catch (Exception $e) {
+            echo "Erro ao cadastrar motorista: " . $e->getMessage();
+            return false;
+        }
+    }
+
+    // Atualizar o motorista
+    public function putMotorista($nome, $telefone,$modified, $id)
+    {
+        try {
+
+            $stmt = $this->conexao->getConexao()->prepare("UPDATE motoristas SET nome=?, telefone =?, modified=? WHERE id=?");
+            $stmt->bind_param("sssi", $nome, $telefone,$modified,$id);
             if($stmt->execute()){
                 return true;
             }else{
