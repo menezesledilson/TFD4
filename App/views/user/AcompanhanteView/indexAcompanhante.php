@@ -32,11 +32,33 @@ if ($rows)
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-4">
+                        <!--Verifica se $row['created'] está definido e não é nulo-->
+                        <strong>Data do
+                            cadrastro:</strong> <?php if (isset($row ['created']) && $row['created'] !== null) {
+                            // Converte a data para o formato brasileiro
+                            $dataFormatadaCadastro = date('d/m/y H:i', strtotime($row['created']));
+                            // Exibe a data formatada
+                            echo $dataFormatadaCadastro;
+                        } else {
+                            echo "Data não disponível";
+                        } ?> </p>
                         <p><strong>Nome:</strong> <?php echo $row['nome']; ?></p>
                         <p><strong>RG:</strong> <?php echo $row['rg']; ?></p>
                         <p><strong>CPF:</strong> <?php echo $row['cpf']; ?></p>
                     </div>
                     <div class="col-md-4">
+                        <!--Verifica se $row['modified'] está definido e não é nulo-->
+                        <p><strong>Data de
+                                alteração:</strong> <?php if (isset($row['modified']) && $row['modified'] !== null) {
+
+                                // Converte a data para o formato brasileiro
+                                $dataFormatada = date('d/m/y H:i', strtotime($row['modified']));
+
+                                // Exibe a data formatada
+                                echo $dataFormatada;
+                            } else {
+                                echo "Data não disponível";
+                            } ?></p>
                         <p><strong>Celular:</strong> <?php echo $row['celular']; ?></p>
                         <p><strong>Endereço:</strong> <?php echo $row['endereco']; ?></p>
                         <p><strong>Número:</strong> <?php echo $row['numero']; ?></p>

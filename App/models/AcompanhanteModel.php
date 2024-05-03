@@ -12,6 +12,9 @@ class Acompanhante extends Banco
     private $bairro;
     private $cidade;
     private $cep;
+
+    private $created;
+    private $modified;
     public function getId()
     {
         return $this->id;
@@ -94,7 +97,25 @@ class Acompanhante extends Banco
     {
         $this->cep = $cep;
     }
+       public function getCreated()
+    {
+        return $this->created;
+    }
 
+    public function setCreated($created): void
+    {
+        $this->created = $created;
+    }
+
+    public function getModified()
+    {
+        return $this->modified;
+    }
+
+    public function setModified($modified): void
+    {
+        $this->modified = $modified;
+    }
 
     // declaração explícita da propriedade
     private $acompanhanteDAO;
@@ -108,15 +129,20 @@ class Acompanhante extends Banco
     {
         return $this->acompanhanteDAO->getAcompanhante();
     }
-    public function cadastrarAcompanhante($nome, $rg, $cpf, $celular, $endereco, $numero, $bairro, $cidade, $cep) {
+    public function cadastrarAcompanhante($nome, $rg, $cpf, $celular, $endereco, $numero, $bairro, $cidade, $cep ) {
       //  var_dump($nome, $rg, $cpf, $celular, $endereco, $numero, $bairro, $cidade, $cep);
-        return $this->acompanhanteDAO->postAcompanhante($nome, $rg, $cpf, $celular, $endereco, $numero, $bairro, $cidade, $cep);
+
+        // Formate a data e hora no formato MySQL padrão
+        $dataHoraAtual = date('Y-m-d H:i:s');
+        return $this->acompanhanteDAO->postAcompanhante($nome, $rg, $cpf, $celular, $endereco, $numero, $bairro, $cidade, $cep,$dataHoraAtual);
     }
 
     //Atualizar a informação
     public function atualizarAcompanhante($nome, $rg, $cpf,$celular, $endereco, $numero, $bairro, $cidade, $cep,$id)
     {
-        return $this->acompanhanteDAO->putAcompanhante($nome, $rg, $cpf, $celular, $endereco, $numero, $bairro, $cidade, $cep,$id);
+        // Formate a data e hora no formato MySQL padrão
+        $dataHoraAtual = date('Y-m-d H:i:s');
+        return $this->acompanhanteDAO->putAcompanhante($nome, $rg, $cpf, $celular, $endereco, $numero, $bairro, $cidade, $cep, $dataHoraAtual,$id);
     }
 
     //pesquisa paciente

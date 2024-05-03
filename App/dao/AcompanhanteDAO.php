@@ -29,11 +29,11 @@ class AcompanhanteDAO
     }
 
     // Cadastrar acompanhante
-    public function postAcompanhante($nome, $rg, $cpf, $telefone, $endereco, $numero, $bairro, $cidade, $cep)
+    public function postAcompanhante($nome, $rg, $cpf, $telefone, $endereco, $numero, $bairro, $cidade, $cep,$created,$modified)
     {
         try {
-            $stmt = $this->conexao->getConexao()->prepare("INSERT INTO acompanhantes (`nome`, `rg`, `cpf`, `celular`, `endereco`, `numero`, `bairro`, `cidade`, `cep`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
-            $stmt->bind_param("sssssssss", $nome, $rg, $cpf, $telefone, $endereco, $numero, $bairro, $cidade, $cep);
+            $stmt = $this->conexao->getConexao()->prepare("INSERT INTO acompanhantes (`nome`, `rg`, `cpf`, `celular`, `endereco`, `numero`, `bairro`, `cidade`, `cep`,`created`,`modified`) VALUES (?,?, ?, ?, ?, ?, ?, ?, ?, ?,?)");
+            $stmt->bind_param("sssssssssss", $nome, $rg, $cpf, $telefone, $endereco, $numero, $bairro, $cidade, $cep,$created,$modified);
             if ($stmt->execute()) {
                 return true;
             } else {
@@ -61,11 +61,11 @@ class AcompanhanteDAO
     }
 
     // Atualizar acompanhante
-    public function putAcompanhante($nome, $rg, $cpf, $celular, $endereco, $numero, $bairro, $cidade, $cep, $id)
+    public function putAcompanhante($nome, $rg, $cpf, $celular, $endereco, $numero, $bairro, $cidade, $cep,$modified, $id)
     {
         try {
-            $stmt = $this->conexao->getConexao()->prepare("UPDATE acompanhantes SET nome=?, rg=?, cpf=?, celular=?, endereco=?,numero=?, bairro=?, cidade =?, cep=?  WHERE id=?");
-            $stmt->bind_param("sssssssssi", $nome, $rg, $cpf, $celular, $endereco, $numero, $bairro, $cidade, $cep, $id);
+            $stmt = $this->conexao->getConexao()->prepare("UPDATE acompanhantes SET nome=?, rg=?, cpf=?, celular=?, endereco=?,numero=?, bairro=?, cidade =?, cep=?, modified=?  WHERE id=?");
+            $stmt->bind_param("ssssssssssi", $nome, $rg, $cpf, $celular, $endereco, $numero, $bairro, $cidade, $cep,$modified, $id);
             if ($stmt->execute()) {
                 return true;
             } else {
