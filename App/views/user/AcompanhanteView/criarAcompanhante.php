@@ -16,7 +16,7 @@
             <a href="indexAcompanhante.php" class="btn btn-primary">Voltar</a>
         </div>
     </header>
-    <form method="post" action="../../../controllers/Acompanhate/AcompanhanteCadastroController.php" id="form" enctype="multipart/form-data">
+    <form method="post" action="../../../controllers/Acompanhante/AcompanhanteCadastroController.php" id="form" enctype="multipart/form-data">
         <div class="card">
             <div class="card-header">Cadastro Acompanhante</div>
             <div class="card-body">

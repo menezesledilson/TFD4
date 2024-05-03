@@ -1,6 +1,6 @@
 <?php
 // Incluir o arquivo PacienteListarController.php para acessar a classe listaDeUnidade
-require_once("../../../controllers/Acompanhate/AcompanhanteListarController.php");
+require_once("../../../controllers/Acompanhante/AcompanhanteListarController.php");
 
 // Criar uma instância da classe listaDeUnidade para acessar os métodos
 $controller = new AcompanhanteListarController();

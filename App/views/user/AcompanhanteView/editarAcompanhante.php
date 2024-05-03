@@ -10,7 +10,7 @@
     <title>Atualizar Acompanhante</title>
 </head>
 <body>
-<?php require_once("../../../controllers/Acompanhate/AcompanhanteEditarController.php"); ?>
+<?php require_once("../../../controllers/Acompanhante/AcompanhanteEditarController.php"); ?>
 <div class="container">
     <header class="d-flex justify-content-between- my-4">
         <div class="ms-auto">
