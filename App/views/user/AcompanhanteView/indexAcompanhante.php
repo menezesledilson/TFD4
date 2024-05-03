@@ -64,6 +64,7 @@ if ($rows)
                         <p><strong>Número:</strong> <?php echo $row['numero']; ?></p>
                     </div>
                     <div class="col-md-4">
+                        <p><strong>Situação:</strong> <?php echo $row['nome_situacao']; ?></p>
                         <p><strong>Bairro:</strong> <?php echo $row['bairro']; ?></p>
                         <p><strong>Cidade:</strong> <?php echo $row['cidade']; ?></p>
                         <p><strong>Cep:</strong> <?php echo $row['cep']; ?></p>
@@ -85,7 +86,7 @@ if ($rows)
                     <a href="editarAcompanhante.php?id=<?php echo $row['id']; ?>" class="btn btn-primary"
                        style="margin-left: 5px; margin-right: 5px;">Editar</a>
                     <a class="btn btn-danger"
-                       href="../../../controllers/Acompanhate/AcompanhanteDeletarController.php?id=<?php echo $row['id']; ?>">Excluir</a>
+                       href="../../../controllers/Acompanhante/AcompanhanteDeletarController.php?id=<?php echo $row['id']; ?>">Excluir</a>
                 </div>
             </div>
         </div>

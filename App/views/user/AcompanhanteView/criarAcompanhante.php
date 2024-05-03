@@ -1,3 +1,15 @@
+<?php
+require_once("../../../controllers/Situacao/SituacaoListarController.php");
+
+$controllerSituacao = new listarSituacao();
+$row_situacao = $controllerSituacao->listarTodos();
+$optionsSituacao_html = ""; // Variável para armazenar o HTML das opções
+
+foreach ($row_situacao as $situacao) {
+    $optionsSituacao_html .= '<option value="' . $situacao['id'] . '">' . $situacao['nome_situacao'] . '</option>';
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -34,12 +46,19 @@
                         <input type="text" class="form-control form-control-sm" name="cpf" placeholder="CPF">
                     </div>
                     <div class="col-md-3">
+                        <label>Situação:</label>
+                        <select class="form-control" name="id_situacao">
+                            <option>Selecione</option>
+                            <?php echo $optionsSituacao_html; ?>
+                        </select>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-3">
                         <label>Celular:</label>
                         <input type="text" class="form-control form-control-sm" name="celular"
                                placeholder="Celular">
                     </div>
-                </div>
-                <div class="row mb-3">
                     <div class="col-md-3">
                         <label>Endereço:</label>
                         <input type="text" class="form-control form-control-sm" name="endereco"
@@ -57,8 +76,6 @@
                         <label>Cidade:</label>
                         <input type="text" class="form-control form-control-sm" name="cidade" placeholder="Cidade">
                     </div>
-                </div>
-                <div class="row mb-3">
                     <div class="col-md-3">
                         <label>CEP:</label>
                         <input type="text" class="form-control form-control-sm" name="cep" placeholder="CEP">
