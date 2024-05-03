@@ -8,7 +8,6 @@ $optionsSituacao_html = ""; // Variável para armazenar o HTML das opções
 foreach ($row_situacao as $situacao) {
     $optionsSituacao_html .= '<option value="' . $situacao['id'] . '">' . $situacao['nome_situacao'] . '</option>';
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -79,6 +78,14 @@ foreach ($row_situacao as $situacao) {
                     <div class="col-md-3">
                         <label>CEP:</label>
                         <input type="text" class="form-control form-control-sm" name="cep" placeholder="CEP">
+                    </div>
+                    <div class="col-md-3">
+                        <label>Ponto de embarque:</label>
+                        <input type="text" class="form-control form-control-sm" name="embarque" placeholder="Ponto de embarque">
+                    </div>
+                    <div class="col-md-3">
+                        <label>Referência:</label>
+                        <input type="text" class="form-control form-control-sm" name="referencia" placeholder="Referência">
                     </div>
                 </div>
             </div>

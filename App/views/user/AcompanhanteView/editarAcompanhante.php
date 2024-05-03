@@ -91,6 +91,16 @@ foreach ($rowSituacao as $situacao) {
                         <input type="text" class="form-control form-control-sm" name="cep"
                                value="<?php echo !empty($editaAcompanhante->getCep()) ? $editaAcompanhante->getCep() : ''; ?>">
                     </div>
+                    <div class="col-md-3">
+                        <label>Embarque:</label>
+                        <input type="text" class="form-control form-control-sm" name="embarque"
+                               value="<?php echo !empty($editaAcompanhante->getEmbarque()) ? $editaAcompanhante->getEmbarque() : ''; ?>">
+                    </div>
+                    <div class="col-md-3">
+                        <label>Referência:</label>
+                        <input type="text" class="form-control form-control-sm" name="referencia"
+                               value="<?php echo !empty($editaAcompanhante->getReferencia()) ? $editaAcompanhante->getReferencia() : ''; ?>">
+                    </div>
 
                 </div>
             </div>

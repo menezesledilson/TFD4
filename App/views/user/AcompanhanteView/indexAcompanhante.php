@@ -33,8 +33,7 @@ if ($rows)
                 <div class="row">
                     <div class="col-md-4">
                         <!--Verifica se $row['created'] está definido e não é nulo-->
-                        <strong>Data do
-                            cadrastro:</strong> <?php if (isset($row ['created']) && $row['created'] !== null) {
+                        <strong>Data do cadrastro:</strong> <?php if (isset($row ['created']) && $row['created'] !== null) {
                             // Converte a data para o formato brasileiro
                             $dataFormatadaCadastro = date('d/m/y H:i', strtotime($row['created']));
                             // Exibe a data formatada
@@ -42,14 +41,8 @@ if ($rows)
                         } else {
                             echo "Data não disponível";
                         } ?> </p>
-                        <p><strong>Nome:</strong> <?php echo $row['nome']; ?></p>
-                        <p><strong>RG:</strong> <?php echo $row['rg']; ?></p>
-                        <p><strong>CPF:</strong> <?php echo $row['cpf']; ?></p>
-                    </div>
-                    <div class="col-md-4">
                         <!--Verifica se $row['modified'] está definido e não é nulo-->
-                        <p><strong>Data de
-                                alteração:</strong> <?php if (isset($row['modified']) && $row['modified'] !== null) {
+                        <p><strong>Data de alteração:</strong> <?php if (isset($row['modified']) && $row['modified'] !== null) {
 
                                 // Converte a data para o formato brasileiro
                                 $dataFormatada = date('d/m/y H:i', strtotime($row['modified']));
@@ -59,9 +52,17 @@ if ($rows)
                             } else {
                                 echo "Data não disponível";
                             } ?></p>
+                        <p><strong>Nome:</strong> <?php echo $row['nome']; ?></p>
+                        <p><strong>RG:</strong> <?php echo $row['rg']; ?></p>
+                        <p><strong>CPF:</strong> <?php echo $row['cpf']; ?></p>
+                    </div>
+                    <div class="col-md-4">
+
                         <p><strong>Celular:</strong> <?php echo $row['celular']; ?></p>
                         <p><strong>Endereço:</strong> <?php echo $row['endereco']; ?></p>
                         <p><strong>Número:</strong> <?php echo $row['numero']; ?></p>
+                        <p><strong>Ponto de embarque: </strong><?php echo $row['embarque']; ?></p>
+                        <p><strong>Referência: </strong><?php echo $row['referencia']; ?></p>
                     </div>
                     <div class="col-md-4">
                         <p><strong>Situação:</strong> <?php echo $row['nome_situacao']; ?></p>
@@ -69,16 +70,9 @@ if ($rows)
                         <p><strong>Cidade:</strong> <?php echo $row['cidade']; ?></p>
                         <p><strong>Cep:</strong> <?php echo $row['cep']; ?></p>
                     </div>
-                    <div class="col-md-4">
-                        <p><strong>Ponto de embarque:</strong></p>
-                    </div>
-                    <div class="col-md-4">
-                        <p><strong>Referência:</strong></p>
-                    </div>
                 </div>
             </div>
         </div>
-
         <br>
         <div class="col-md-3">
             <div class="col-md-3 text-right">

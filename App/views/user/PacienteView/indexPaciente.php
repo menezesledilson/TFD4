@@ -33,6 +33,7 @@ if ($rows)
                 <div class="row">
                     <div class="col-md-4">
                         <p><strong>Data do cadastro: </strong>
+                        <p><strong>Data do alteração: </strong>
                         <p><strong>Nome:</strong> <?php echo $row['nome']; ?></p>
                         <p><strong>CNS:</strong> <?php echo $row['cns']; ?></p>
                         <p><strong>Celular:</strong> <?php echo $row['celular']; ?></p>
