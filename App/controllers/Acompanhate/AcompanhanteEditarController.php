@@ -32,7 +32,7 @@ class editarAcompanhante
             $this->nome = $row['nome'];
             $this->rg = $row['rg'];
             $this->cpf = $row['cpf'];
-            $this->celular = $row['telefone'];
+            $this->celular = $row['celular'];
             $this->endereco = $row['endereco'];
             $this->numero = $row['numero'];
             $this->bairro = $row['bairro'];
@@ -45,7 +45,7 @@ class editarAcompanhante
     public function editarFormulario($nome, $rg, $cpf, $celular, $endereco, $numero, $bairro, $cidade, $cep, $id)
     {
         // Chama a função da classe de modelo para atualizar os dados do paciente no banco de dados
-        if ($this->editar->atualizarAcompanhante($nome, $rg, $cpf, $celular, $endereco, $numero, $bairro, $cidade, $cep,  $id)) {
+        if ($this->editar->atualizarAcompanhante($nome, $rg, $cpf, $celular, $endereco, $numero, $bairro, $cidade, $cep,  $id) == TRUE) {
             // Redirecionamento após a atualização bem-sucedida
             header("Location: ./indexAcompanhante.php");
             exit(); // Certifique-se de que nenhum código adicional seja executado após o redirecionamento

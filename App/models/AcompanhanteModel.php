@@ -12,29 +12,29 @@ class Acompanhante extends Banco
     private $bairro;
     private $cidade;
     private $cep;
-    private $created;
-
     public function getId()
     {
         return $this->id;
     }
-    public function setId($id)
+    public function setId($id): void
     {
         $this->id = $id;
     }
+
     public function getNome()
     {
         return $this->nome;
     }
-    public function setNome($nome)
+
+    public function setNome($nome): void
     {
         $this->nome = $nome;
     }
-   public function getRg()
+    public function getRg()
     {
         return $this->rg;
     }
-    public function setRg($rg)
+    public function setRg($rg): void
     {
         $this->rg = $rg;
     }
@@ -42,7 +42,7 @@ class Acompanhante extends Banco
     {
         return $this->cpf;
     }
-    public function setCpf($cpf)
+    public function setCpf($cpf): void
     {
         $this->cpf = $cpf;
     }
@@ -50,7 +50,7 @@ class Acompanhante extends Banco
     {
         return $this->celular;
     }
-    public function setCelular($celular)
+    public function setCelular($celular): void
     {
         $this->celular = $celular;
     }
@@ -58,7 +58,7 @@ class Acompanhante extends Banco
     {
         return $this->endereco;
     }
-    public function setEndereco($endereco)
+    public function setEndereco($endereco): void
     {
         $this->endereco = $endereco;
     }
@@ -66,7 +66,7 @@ class Acompanhante extends Banco
     {
         return $this->numero;
     }
-    public function setNumero($numero)
+    public function setNumero($numero): void
     {
         $this->numero = $numero;
     }
@@ -74,7 +74,7 @@ class Acompanhante extends Banco
     {
         return $this->bairro;
     }
-    public function setBairro($bairro)
+    public function setBairro($bairro): void
     {
         $this->bairro = $bairro;
     }
@@ -82,7 +82,7 @@ class Acompanhante extends Banco
     {
         return $this->cidade;
     }
-    public function setCidade($cidade)
+    public function setCidade($cidade): void
     {
         $this->cidade = $cidade;
     }
@@ -90,18 +90,11 @@ class Acompanhante extends Banco
     {
         return $this->cep;
     }
-    public function setCep($cep)
+    public function setCep($cep): void
     {
         $this->cep = $cep;
     }
-    public function getCreated()
-    {
-        return $this->created;
-    }
-    public function setCreated($created)
-    {
-        $this->created = $created;
-    }
+
 
     // declaração explícita da propriedade
     private $acompanhanteDAO;
@@ -115,10 +108,10 @@ class Acompanhante extends Banco
     {
         return $this->acompanhanteDAO->getAcompanhante();
     }
-   //método para cadastrar
-    public function  cadastrarAcompanhante($nome, $rg, $cpf,$celular, $endereco, $numero, $bairro, $cidade, $cep){
-        return $this->acompanhanteDAO->postAcompanhante($nome, $rg, $cpf,$celular, $endereco, $numero, $bairro, $cidade, $cep);
-   }
+    public function cadastrarAcompanhante($nome, $rg, $cpf, $celular, $endereco, $numero, $bairro, $cidade, $cep) {
+      //  var_dump($nome, $rg, $cpf, $celular, $endereco, $numero, $bairro, $cidade, $cep);
+        return $this->acompanhanteDAO->postAcompanhante($nome, $rg, $cpf, $celular, $endereco, $numero, $bairro, $cidade, $cep);
+    }
 
     //Atualizar a informação
     public function atualizarAcompanhante($nome, $rg, $cpf,$celular, $endereco, $numero, $bairro, $cidade, $cep,$id)

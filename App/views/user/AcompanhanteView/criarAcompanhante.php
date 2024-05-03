@@ -35,7 +35,7 @@
                     </div>
                     <div class="col-md-3">
                         <label>Celular:</label>
-                        <input type="text" class="form-control form-control-sm" name="telefone"
+                        <input type="text" class="form-control form-control-sm" name="celular"
                                placeholder="Celular">
                     </div>
                 </div>

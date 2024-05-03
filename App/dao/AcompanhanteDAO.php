@@ -32,7 +32,7 @@ class AcompanhanteDAO
     public function postAcompanhante($nome, $rg, $cpf, $telefone, $endereco, $numero, $bairro, $cidade, $cep)
     {
         try {
-            $stmt = $this->conexao->getConexao()->prepare("INSERT INTO acompanhantes (`nome`, `rg`, `cpf`, `telefone`, `endereco`, `numero`, `bairro`, `cidade`, `cep`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+            $stmt = $this->conexao->getConexao()->prepare("INSERT INTO acompanhantes (`nome`, `rg`, `cpf`, `celular`, `endereco`, `numero`, `bairro`, `cidade`, `cep`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
             $stmt->bind_param("sssssssss", $nome, $rg, $cpf, $telefone, $endereco, $numero, $bairro, $cidade, $cep);
             if ($stmt->execute()) {
                 return true;
@@ -64,7 +64,7 @@ class AcompanhanteDAO
     public function putAcompanhante($nome, $rg, $cpf, $celular, $endereco, $numero, $bairro, $cidade, $cep, $id)
     {
         try {
-            $stmt = $this->conexao->getConexao()->prepare("UPDATE acompanhantes SET nome=?, rg=?, cpf=?, telefone=?, endereco=?,numero=?, bairro=?, cidade =?, cep=?  WHERE id=?");
+            $stmt = $this->conexao->getConexao()->prepare("UPDATE acompanhantes SET nome=?, rg=?, cpf=?, celular=?, endereco=?,numero=?, bairro=?, cidade =?, cep=?  WHERE id=?");
             $stmt->bind_param("sssssssssi", $nome, $rg, $cpf, $celular, $endereco, $numero, $bairro, $cidade, $cep, $id);
             if ($stmt->execute()) {
                 return true;

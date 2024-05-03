@@ -2,7 +2,6 @@
 require_once (__DIR__ ."/../../models/AcompanhanteModel.php");
 class CadastrarAcompanhanteController
 {
-
     private $cadastroAcompanhante;
 
     public function __construct()
@@ -35,7 +34,6 @@ class CadastrarAcompanhanteController
         }
     }
 }
-
 // Instanciar a classe dentro de uma função ou método, ou em outro contexto apropriado
 new CadastrarAcompanhanteController();
 

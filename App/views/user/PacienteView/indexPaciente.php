@@ -32,11 +32,13 @@ if ($rows)
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-4">
+                        <p><strong>Data do cadastro: </strong>
                         <p><strong>Nome:</strong> <?php echo $row['nome']; ?></p>
                         <p><strong>CNS:</strong> <?php echo $row['cns']; ?></p>
                         <p><strong>Celular:</strong> <?php echo $row['celular']; ?></p>
                     </div>
                     <div class="col-md-4">
+                        <p><strong>Data da alteração:</strong>
                         <p><strong>CPF:</strong> <?php echo $row['cpf']; ?></p>
                         <p><strong>RG:</strong> <?php echo $row['rg']; ?></p>
                     </div>

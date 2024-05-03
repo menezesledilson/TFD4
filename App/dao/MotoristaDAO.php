@@ -14,7 +14,7 @@ class MotoristaDAO
     public function getMotorista()
     {
         try {
-            $stmt = $this->conexao->getConexao()->prepare("SELECT id,nome,telefone, created FROM motoristas ORDER BY id DESC ");
+            $stmt = $this->conexao->getConexao()->prepare("SELECT id,nome,telefone, created FROM motoristas ORDER BY id DESC LIMIT 5 ");
             $motoristas = [];
             $stmt->execute();
             $result = $stmt->get_result();

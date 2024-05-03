@@ -37,7 +37,7 @@ if ($rows)
                         <p><strong>CPF:</strong> <?php echo $row['cpf']; ?></p>
                     </div>
                     <div class="col-md-4">
-                        <p><strong>Celular:</strong> <?php echo $row['telefone']; ?></p>
+                        <p><strong>Celular:</strong> <?php echo $row['celular']; ?></p>
                         <p><strong>Endereço:</strong> <?php echo $row['endereco']; ?></p>
                         <p><strong>Número:</strong> <?php echo $row['numero']; ?></p>
                     </div>
@@ -46,10 +46,17 @@ if ($rows)
                         <p><strong>Cidade:</strong> <?php echo $row['cidade']; ?></p>
                         <p><strong>Cep:</strong> <?php echo $row['cep']; ?></p>
                     </div>
+                    <div class="col-md-4">
+                        <p><strong>Ponto de embarque:</strong></p>
+                    </div>
+                    <div class="col-md-4">
+                        <p><strong>Referência:</strong></p>
+                    </div>
                 </div>
             </div>
         </div>
-    <br>
+
+        <br>
         <div class="col-md-3">
             <div class="col-md-3 text-right">
                 <div class="btn-group">
@@ -60,6 +67,7 @@ if ($rows)
                 </div>
             </div>
         </div>
+        <br>
     <?php endforeach; ?>
 </div>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

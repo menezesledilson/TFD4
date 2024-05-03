@@ -66,51 +66,51 @@ class editarPaciente
     {
         return $this->id;
     }
-     public function getNome()
+    public function getNome()
     {
         return $this->nome;
     }
-     public function getRg()
+    public function getRg()
     {
         return $this->rg;
     }
-     public function getCpf()
+    public function getCpf()
     {
         return $this->cpf;
     }
-     public function getCns()
+    public function getCns()
     {
         return $this->cns;
     }
-     public function getCelular()
+    public function getCelular()
     {
         return $this->celular;
     }
-     public function getEndereco()
+    public function getEndereco()
     {
         return $this->endereco;
     }
-     public function getNumero()
+    public function getNumero()
     {
         return $this->numero;
     }
-     public function getBairro()
+    public function getBairro()
     {
         return $this->bairro;
     }
-     public function getCidade()
+    public function getCidade()
     {
         return $this->cidade;
     }
-     public function getCep()
+    public function getCep()
     {
         return $this->cep;
     }
-     public function getIdSituacao()
+    public function getIdSituacao()
     {
         return $this->id_situacao;
     }
-     public function getIdUnidadeUsf()
+    public function getIdUnidadeUsf()
     {
         return $this->id_unidade_usf;
     }
@@ -121,6 +121,5 @@ if (isset($_POST['submit'])) {
     $editaPaciente->editarFormulario($_POST['nome'],$_POST['rg'], $_POST['cpf'] , $_POST['cns'],  $_POST['celular'], $_POST['endereco'], $_POST['numero'],  $_POST['bairro'], $_POST['cidade'],  $_POST['cep'], $_POST['id_unidade_usf'], $_POST['id_situacao'], $_POST['id']);
 
 }
-
 
 

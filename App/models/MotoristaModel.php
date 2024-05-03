@@ -80,7 +80,7 @@ class Motorista extends Banco
     {
         // Formate a data e hora no formato MySQL padrão
         $dataHoraAtual = date('Y-m-d H:i:s');
-        return $this->motoristaDAO->postMotorista($nome, $telefone, $dataHoraAtual);
+        return $this->motoristaDAO->postMotorista($nome, $telefone, $dataHoraAtual,$dataHoraAtual);
     }
 
     //Atualizar a informação do motorista

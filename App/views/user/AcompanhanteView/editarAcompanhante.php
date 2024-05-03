@@ -67,11 +67,22 @@
                         <input type="text" class="form-control form-control-sm" name="cep"
                                value="<?php echo !empty($editaAcompanhante->getCep()) ? $editaAcompanhante->getCep(): ''; ?>">
                     </div>
+                    <div class="col-md-3">
+                        <label>Ponto de embarque:</label>
+                        <input type="text" class="form-control form-control-sm" name=" "
+                               value="">
+                    </div>
+                    <div class="col-md-3">
+                        <label>Referência:</label>
+                        <input type="text" class="form-control form-control-sm" name=" "
+                               value="">
+                    </div>
                 </div>
-                <div class="mt-3">
-                    <input type="hidden" name="id" value="<?php echo !empty($editaAcompanhante->getId()) ? $editaAcompanhante->getId() : ''; ?>">
-                    <button type="submit" class="btn btn-primary" id="editarAcompanhante" name="submit" value="editarAcompanhante">Editar</button>
-                </div>
+            </div>
+            </div>
+            <div class="mt-3">
+                <input type="hidden" name="id" value="<?php echo !empty($editaAcompanhante->getId()) ? $editaAcompanhante->getId() : ''; ?>">
+                <button type="submit" class="btn btn-primary" id="editarAcompanhante" name="submit" value="editarAcompanhante">Editar</button>
             </div>
     </form>
 </div>

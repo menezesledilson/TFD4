@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Tempo de geração: 01/05/2024 às 18:41
+-- Tempo de geração: 03/05/2024 às 12:35
 -- Versão do servidor: 8.2.0
 -- Versão do PHP: 8.2.13
 
@@ -30,26 +30,32 @@ SET time_zone = "+00:00";
 DROP TABLE IF EXISTS `acompanhantes`;
 CREATE TABLE IF NOT EXISTS `acompanhantes` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `nome` varchar(200) NOT NULL,
-  `rg` varchar(20) NOT NULL,
-  `cpf` varchar(20) NOT NULL,
-  `endereco` varchar(200) NOT NULL,
-  `numero` varchar(5) NOT NULL,
-  `bairro` varchar(60) NOT NULL,
-  `cidade` varchar(60) NOT NULL,
-  `cep` varchar(10) NOT NULL,
-  `telefone` varchar(15) NOT NULL,
+  `nome` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `rg` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `cpf` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `endereco` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `numero` varchar(5) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `bairro` varchar(60) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `cidade` varchar(60) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `cep` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `celular` varchar(15) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `created` datetime NOT NULL,
   `modified` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Despejando dados para a tabela `acompanhantes`
 --
 
-INSERT INTO `acompanhantes` (`id`, `nome`, `rg`, `cpf`, `endereco`, `numero`, `bairro`, `cidade`, `cep`, `telefone`, `created`, `modified`) VALUES
-(4, 'Jones Silva', '117914666', '117914666', 'Rua Antonio Mello', '25', 'Baixada', 'Nova Friburgo', '445568-00', '22998141030', '0000-00-00 00:00:00', NULL);
+INSERT INTO `acompanhantes` (`id`, `nome`, `rg`, `cpf`, `endereco`, `numero`, `bairro`, `cidade`, `cep`, `celular`, `created`, `modified`) VALUES
+(4, 'Jones Silva', '117914666', '117914666', 'Rua Antonio Mello', '25', 'Baixada', 'Nova Friburgo', '445568-00', '22998141030', '0000-00-00 00:00:00', NULL),
+(5, 'Ana Maria Almeida', '12345678910', '12345678910', 'Rua Olindina Ferreira da Cunha Silva', '1', 'Centro', 'Nova Friburgo', '12345678', '123456789', '0000-00-00 00:00:00', NULL),
+(6, 'Ana Maria Almeida', '117914666', '123456', 'Rua Olindina Ferreira da Cunha Silva', '153', 'Centro', 'Nova Friburgo', '28605-030', '22 2555-4192', '0000-00-00 00:00:00', NULL),
+(7, 'Ana Maria Almeida2', '123456', '123457', 'Oscar', '01', 'Centro', 'Pirape', '', '123489', '0000-00-00 00:00:00', NULL),
+(8, 'Nikola Tesla Frauches', '123456', '123457', 'Oscar', '01', 'Centro', 'Pirapetinga', '', '', '0000-00-00 00:00:00', NULL),
+(9, 'Ledilson', '12345', '12324', 'Oscar', '12', 'Centro', 'Pirape', '12345678', '123456789', '0000-00-00 00:00:00', NULL),
+(10, 'Ana Maria Almeida Filha', '117914666', '12345678910', 'Rua Olindina Ferreira da Cunha Silva', '153', 'Centro', 'Belo Horizonte', '28605-030', '', '0000-00-00 00:00:00', NULL);
 
 -- --------------------------------------------------------
 
@@ -60,17 +66,17 @@ INSERT INTO `acompanhantes` (`id`, `nome`, `rg`, `cpf`, `endereco`, `numero`, `b
 DROP TABLE IF EXISTS `carros`;
 CREATE TABLE IF NOT EXISTS `carros` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `modelo` varchar(50) NOT NULL,
-  `placa` varchar(10) NOT NULL,
-  `renavam` varchar(15) NOT NULL,
+  `modelo` varchar(50) CHARACTER SET latin1 NOT NULL,
+  `placa` varchar(10) CHARACTER SET latin1 NOT NULL,
+  `renavam` varchar(15) CHARACTER SET latin1 NOT NULL,
   `ano` year NOT NULL,
-  `cor` varchar(10) NOT NULL,
-  `combustivel` varchar(15) NOT NULL,
+  `cor` varchar(10) CHARACTER SET latin1 NOT NULL,
+  `combustivel` varchar(15) CHARACTER SET latin1 NOT NULL,
   `vagas` int NOT NULL,
   `created` datetime NOT NULL,
   `modified` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Despejando dados para a tabela `carros`
@@ -90,21 +96,21 @@ INSERT INTO `carros` (`id`, `modelo`, `placa`, `renavam`, `ano`, `cor`, `combust
 DROP TABLE IF EXISTS `diarias`;
 CREATE TABLE IF NOT EXISTS `diarias` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `diaria` varchar(150) NOT NULL,
+  `diaria` varchar(150) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `created` datetime NOT NULL,
   `modified` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Despejando dados para a tabela `diarias`
 --
 
 INSERT INTO `diarias` (`id`, `diaria`, `created`, `modified`) VALUES
-(1, 'Diaria de alimentação fora de MG', '2016-08-09 16:32:21', '2016-08-09 16:32:41'),
-(6, 'Diaria de alimentação fora do limite do MG', '0000-00-00 00:00:00', NULL),
-(7, 'Diaria de alimentação fora do limite do SP', '0000-00-00 00:00:00', NULL),
-(9, 'Diaria de alimentação fora do limite do Padua', '0000-00-00 00:00:00', NULL);
+(1, 'Diaria de alimenta', '2016-08-09 16:32:21', '2016-08-09 16:32:41'),
+(6, 'Diaria de alimenta', '0000-00-00 00:00:00', NULL),
+(7, 'Diaria de alimenta', '0000-00-00 00:00:00', NULL),
+(9, 'Diaria de alimenta', '0000-00-00 00:00:00', NULL);
 
 -- --------------------------------------------------------
 
@@ -115,24 +121,25 @@ INSERT INTO `diarias` (`id`, `diaria`, `created`, `modified`) VALUES
 DROP TABLE IF EXISTS `hospitais`;
 CREATE TABLE IF NOT EXISTS `hospitais` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `nome` varchar(150) NOT NULL,
-  `endereco` varchar(150) NOT NULL,
+  `nome` varchar(150) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `endereco` varchar(150) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `numero` int NOT NULL,
-  `bairro` varchar(60) NOT NULL,
-  `cep` varchar(10) NOT NULL,
-  `cidade` varchar(220) NOT NULL,
-  `telefone` varchar(13) NOT NULL,
+  `bairro` varchar(60) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `cep` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `cidade` varchar(220) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `telefone` varchar(13) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `created` datetime NOT NULL,
+  `modified` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Despejando dados para a tabela `hospitais`
 --
 
-INSERT INTO `hospitais` (`id`, `nome`, `endereco`, `numero`, `bairro`, `cep`, `cidade`, `telefone`, `created`) VALUES
-(1, 'Hospital de Cantagalo', 'PraÃ§a Miguel Santos', 1, 'Centro', '28.500-000', '', '', '0000-00-00 00:00:00'),
-(4, 'Hospital de Cordeiro', 'Rua Olindina Ferreira da Cunha Silva', 25, 'Baixada', '28605-030', 'Paraná', '32123456789', '0000-00-00 00:00:00');
+INSERT INTO `hospitais` (`id`, `nome`, `endereco`, `numero`, `bairro`, `cep`, `cidade`, `telefone`, `created`, `modified`) VALUES
+(1, 'Hospital de Cantagalo', 'Praça Miguel Santos', 1, 'Centro', '28.500-000', '', '', '0000-00-00 00:00:00', NULL),
+(4, 'Hospital de Cordeiro', 'Rua Olindina Ferreira da Cunha Silva', 25, 'Baixada', '28605-030', 'Paran', '32123456789', '0000-00-00 00:00:00', NULL);
 
 -- --------------------------------------------------------
 
@@ -143,12 +150,12 @@ INSERT INTO `hospitais` (`id`, `nome`, `endereco`, `numero`, `bairro`, `cep`, `c
 DROP TABLE IF EXISTS `motoristas`;
 CREATE TABLE IF NOT EXISTS `motoristas` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `nome` varchar(150) NOT NULL,
-  `telefone` varchar(15) NOT NULL,
+  `nome` varchar(150) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `telefone` varchar(15) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `created` datetime NOT NULL,
   `modified` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Despejando dados para a tabela `motoristas`
@@ -185,15 +192,15 @@ CREATE TABLE IF NOT EXISTS `pacientes` (
   PRIMARY KEY (`id`),
   KEY `id_situacao` (`id_situacao`),
   KEY `id_unidade_usf` (`id_unidade_usf`)
-) ENGINE=InnoDB AUTO_INCREMENT=71 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Despejando dados para a tabela `pacientes`
 --
 
 INSERT INTO `pacientes` (`id`, `nome`, `rg`, `cpf`, `cns`, `celular`, `endereco`, `numero`, `bairro`, `cidade`, `cep`, `id_situacao`, `id_unidade_usf`, `created`) VALUES
-(61, 'Ana Maria Almeida', '117914666', '25461146970', '994257171030001', '343848262', 'Rua Olindina Ferreira da Cunha Silva', '12', 'Conjunto Uberaba', 'Rio de Janeiro', '38073153', 2, 11, '0000-00-00 00:00:00'),
-(68, 'Jones', '22334455667', '23456789', '994257171030001', '23 545934', 'Rua Antonio Mello', '123', 'Baixada', 'Paraná', '28605-03', 2, 14, '0000-00-00 00:00:00');
+(1, 'Ana Maria Almeida', '117914666', '12345678910', '994257171030001', '123456789', 'Rua Olindina Ferreira da Cunha Silva', '153', 'Centro', 'Nova Friburgo', '28605-03', 1, 15, '0000-00-00 00:00:00'),
+(2, 'Ledilson Menezes', '123456', '1234567', '994257171030001', '123456789', 'Oscar', '12', 'Centro', 'Pirape', '12345678', 1, 15, '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 

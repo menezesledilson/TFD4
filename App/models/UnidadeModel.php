@@ -6,6 +6,8 @@ class Unidade extends Banco
     private $nome;
     private $created;
 
+    private $modified;
+
     public function getId()
     {
         return $this->id;
@@ -26,20 +28,26 @@ class Unidade extends Banco
         $this->nome = $nome;
     }
 
-    /**
-     * @return mixed
-     */
     public function getCreated()
     {
         return $this->created;
     }
-
-    /**
-     * @param mixed $created
-     */
     public function setCreated($created)
     {
         $this->created = $created;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getModified()
+    {
+        return $this->modified;
+    }
+
+    public function setModified($modified): void
+    {
+        $this->modified = $modified;
     }
 
     private $unidadeDAO;
@@ -52,8 +60,11 @@ class Unidade extends Banco
    // Método para incluir uma unidade no banco de dados
     public function cadastrarUnidade($nome)
     {
+        // Formate a data e hora no formato MySQL padrão
+        $dataHoraAtual = date('Y-m-d H:i:s');
+
     // Aqui você pode chamar o método de inclusão da classe UnidadeDAO
-        return $this->unidadeDAO->postUnidade($nome, date('Y-m-d H:i:s'));
+        return $this->unidadeDAO->postUnidade($nome,$dataHoraAtual,$dataHoraAtual);
     }
 
     // Método para lista todas unidades no banco de dados
@@ -64,13 +75,14 @@ class Unidade extends Banco
     //Atualizar o nome da unidade
     public function atualizaUnidade($nome,$id)
     {
-        return $this->unidadeDAO->putUnidade($nome,$id);
+        // Formate a data e hora no formato MySQL padrão
+        $dataHoraAtual = date('Y-m-d H:i:s');
+
+        return $this->unidadeDAO->putUnidade($nome,$dataHoraAtual,$id);
     }
 
     public function pesquisaUnidade($id ){
         return $this->unidadeDAO->localizarUnidade($id );
-
-
 
     }
     //Métdo para deletar unidadde da lista

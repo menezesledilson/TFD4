@@ -1,0 +1,84 @@
+data automatica pra ser vista no index
+
+//método para cadastrar o paciente
+public function cadastrarPaciente($nome, $rg, $cpf, $cns, $celular, $endereco, $numero, $bairro, $cidade, $cep, $id_situacao, $id_unidade_usf)
+{
+    // Formate a data e hora no formato MySQL padrão
+    $dataHoraAtual = date('Y-m-d H:i:s');
+
+    // Definir a data de criação e modificação
+    $this->setCreated($dataHoraAtual);
+    $this->setModified($dataHoraAtual);
+
+    return $this->pacienteDAO->postPaciente($nome, $rg, $cpf, $cns, $celular, $endereco, $numero, $bairro, $cidade, $cep, $id_situacao, $id_unidade_usf, $this->getCreated(), $this->getModified());
+}
+
+//Atualizar a informação do paciente
+public function atualizarPaciente($nome, $rg, $cpf, $cns, $celular, $endereco, $numero, $bairro, $cidade, $cep, $id_situacao,$id_unidade_usf, $id)
+{
+    // Formate a data e hora no formato MySQL padrão
+    $dataHoraAtual = date('Y-m-d H:i:s');
+
+    // Definir a data de modificação
+    $this->setModified($dataHoraAtual);
+
+    return $this->pacienteDAO->putPaciente($nome, $rg, $cpf, $cns, $celular, $endereco, $numero, $bairro, $cidade, $cep, $id_situacao, $id_unidade_usf, $this->getModified(), $id);
+}
+
+
+//DAO 
+
+<?php
+require_once(__DIR__ . "/../config/conexao.php");
+
+class PacienteDAO
+{
+    protected $conexao;
+
+    public function __construct()
+    {
+        $this->conexao = new Banco();
+    }
+
+    // Cadastrar Paciente
+    public function postPaciente($nome, $rg, $cpf, $cns, $celular, $endereco, $numero, $bairro, $cidade, $cep, $id_situacao, $id_unidade_usf, $created, $modified)
+    {
+        try {
+            $stmt = $this->conexao->getConexao()->prepare("INSERT INTO pacientes (`nome`, `rg`, `cpf`, `cns`, `celular`, `endereco`, `numero`, `bairro`, `cidade`, `cep`, `id_situacao`, `id_unidade_usf`, `created`, `modified`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+            if (!$stmt) {
+                throw new Exception("Erro ao preparar a consulta: " . $this->conexao->getConexao()->error);
+            }
+            $stmt->bind_param("ssssssssssssss", $nome, $rg, $cpf, $cns, $celular, $endereco, $numero, $bairro, $cidade, $cep, $id_situacao, $id_unidade_usf, $created, $modified);
+            if ($stmt->execute()) {
+                return true;
+            } else {
+                return false;
+            }
+        } catch (Exception $e) {
+            echo "Erro ao cadastrar paciente: " . $e->getMessage();
+            return false;
+        }
+    }
+
+    // Atualizar paciente
+    public function putPaciente($nome, $rg, $cpf, $cns, $celular, $endereco, $numero, $bairro, $cidade, $cep, $id_situacao, $id_unidade_usf, $modified, $id)
+    {
+        try {
+            $stmt = $this->conexao->getConexao()->prepare("UPDATE pacientes SET nome = ?, rg = ?, cpf = ?, cns = ?, celular = ?, endereco = ?, numero = ?, bairro = ?, cidade = ?, cep = ?, id_situacao = ?, id_unidade_usf = ?, modified = ? WHERE id = ?");
+            if (!$stmt) {
+                throw new Exception("Erro ao preparar a consulta: " . $this->conexao->getConexao()->error);
+            }
+            $stmt->bind_param("sssssssssssssi", $nome, $rg, $cpf, $cns, $celular, $endereco, $numero, $bairro, $cidade, $cep, $id_situacao, $id_unidade_usf, $modified, $id);
+            if ($stmt->execute()) {
+                return true;
+            } else {
+                return false;
+            }
+        } catch (Exception $e) {
+            echo "Erro ao atualizar paciente: " . $e->getMessage();
+            return false;
+        }
+    }
+
+    // Demais métodos...
+}

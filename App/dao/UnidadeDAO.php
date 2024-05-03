@@ -10,28 +10,11 @@ class UnidadeDAO
         $this->conexao = new Banco();
     }
 
-    // Criar unidades
-    public function postUnidade($nome)
-    {
-        try {
-            $stmt = $this->conexao->getConexao()->prepare("INSERT INTO unidades(`nome_usf`) VALUES (?)");
-            $stmt->bind_param("s", $nome);
-            if ($stmt->execute() == true) {
-                return true;
-            } else {
-                return false;
-            }
-        } catch (Exception $e) {
-            echo "Erro ao criar unidade: " . $e->getMessage();
-            return false;
-        }
-    }
-
     // Lista de todas unidades
     public function getUnidade()
     {
         try {
-            $stmt = $this->conexao->getConexao()->prepare("SELECT id, nome_usf FROM unidades ORDER BY id DESC");
+            $stmt = $this->conexao->getConexao()->prepare("SELECT id, nome_usf,created FROM unidades ORDER BY id DESC LIMIT 5  ");
             $unidades = [];
             $stmt->execute();
             $result = $stmt->get_result();
@@ -42,6 +25,24 @@ class UnidadeDAO
         } catch (Exception $e) {
             echo "Erro ao listar unidades: " . $e->getMessage();
             return [];
+        }
+    }
+
+
+    // Cadastrar as unidades
+    public function postUnidade($nome,$created,$modified)
+    {
+        try {
+            $stmt = $this->conexao->getConexao()->prepare("INSERT INTO unidades(`nome_usf`,`created`,`modified`) VALUES (?,?,?)");
+            $stmt->bind_param("sss", $nome,$created,$modified);
+            if ($stmt->execute() == true) {
+                return true;
+            } else {
+                return false;
+            }
+        } catch (Exception $e) {
+            echo "Erro ao criar unidade: " . $e->getMessage();
+            return false;
         }
     }
 
@@ -78,11 +79,11 @@ class UnidadeDAO
     }
 
     // Atualizar unidade
-    public function putUnidade($nome, $id)
+    public function putUnidade($nome,$modified, $id)
     {
         try {
-            $stmt = $this->conexao->getConexao()->prepare("UPDATE unidades SET nome_usf = ? WHERE id = ?");
-            $stmt->bind_param("si", $nome, $id);
+            $stmt = $this->conexao->getConexao()->prepare("UPDATE unidades SET nome_usf = ? ,modified=? WHERE id = ?");
+            $stmt->bind_param("ssi", $nome,$modified, $id);
             if ($stmt->execute() == true) {
                 return true;
             } else {

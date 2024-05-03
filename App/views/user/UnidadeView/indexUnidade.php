@@ -10,7 +10,6 @@ $controller = new listarUnidade();
 $row = $controller->listarTodos();
 
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,7 +18,7 @@ $row = $controller->listarTodos();
     <link rel="shortcut icon" href="../../favicon.ico"/>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-    <title>Unidades USF </title>
+    <title>Unidades USF</title>
 </head>
 <body>
 <div class="container">
@@ -27,7 +26,6 @@ $row = $controller->listarTodos();
         <p class="text-right"><a href="criarUnidade.php" class="btn btn-success">+ Novo Cadastro</a></p>
         <a href="../../home.php" class="btn btn-primary" style="margin-bottom: 25px;">Fechar</a>
     </header>
-    <!-- Loop para cada paciente -->
     <?php foreach ($row as $value): ?>
         <div class="card">
             <div class="card-header">Unidade</div>
@@ -51,6 +49,7 @@ $row = $controller->listarTodos();
                    href="../../../controllers/Unidade/UnidadeDeletarController.php?id=<?php echo $value['id']; ?>">Excluir</a>
             </div>
         </div>
+        <br> <!-- Adicione uma quebra de linha para separar os botões do próximo formulário -->
         <br>
     <?php endforeach; ?>
 </div>
