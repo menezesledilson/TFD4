@@ -124,7 +124,19 @@ foreach ($rowSituacao as $situacao) {
                         </select>
                     </div>
                 </div>
-
+                <!--Quarto coluna-->
+                <div class="row mb-3">
+                    <div class="col-md-3">
+                        <label>Embarque:</label>
+                        <input type="text" class="form-control form-control-sm" name="embarque"
+                               value="<?php echo !empty($editaPaciente->getEmbarque()) ? $editaPaciente->getEmbarque() : ''; ?>">
+                    </div>
+                    <div class="col-md-3">
+                        <label>Referência:</label>
+                        <input type="text" class="form-control form-control-sm" name="referencia"
+                               value="<?php echo !empty($editaPaciente->getReferencia()) ? $editaPaciente->getReferencia() : ''; ?>">
+                    </div>
+                </div>
             </div>
         </div>
         <div class="row mt-3">

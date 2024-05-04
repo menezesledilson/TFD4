@@ -61,7 +61,7 @@ if ($rows)
                         <p><strong>Celular:</strong> <?php echo $row['celular']; ?></p>
                         <p><strong>Endereço:</strong> <?php echo $row['endereco']; ?></p>
                         <p><strong>Número:</strong> <?php echo $row['numero']; ?></p>
-                        <p><strong>Ponto de embarque: </strong><?php echo $row['embarque']; ?></p>
+                        <p><strong>Embarque: </strong><?php echo $row['embarque']; ?></p>
                         <p><strong>Referência: </strong><?php echo $row['referencia']; ?></p>
                     </div>
                     <div class="col-md-4">

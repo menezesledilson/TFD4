@@ -37,52 +37,62 @@ if (isset($_GET['id'])) {
                 <div class="card">
                     <div class="card-header">Prontuário</div>
                     <div class="card-body">
-                        <div class="row mb-3">
+                        <div class="row mb-4">
                             <div class="col-md-3">
-                                <span><h5><label>Nome:</label> <?php echo $rows['nome']; ?></h5></span>
+                                <span><strong>Nome:</strong> <?php echo $rows['nome']; ?></span>
+                            </div>
+                            <div class="col-md-3">
+                                <span><strong>Situação: </strong> <?php echo $rows['nome_situacao']; ?></span>
+                            </div>
+                            <div class="col-md-3">
+                                <span><strong>USF: </strong> <?php echo $rows['nome_usf']; ?></span>
                             </div>
                         </div>
                         <!--Segundo bloco-->
-                        <div class="row mb-4">
+                        <div class="row mb-3">
                             <div class="col-md-3">
-                                <span><label>Situação: </label> <?php echo $rows['nome_situacao']; ?></span>
+                                <span><strong>CPF: </strong> <?php echo $rows['cpf']; ?></span>
                             </div>
                             <div class="col-md-3">
-                                <span><label>CNS: </label> <?php echo $rows['cns']; ?></span>
+                                <span><strong>RG: </strong> <?php echo $rows['rg']; ?></span>
                             </div>
                             <div class="col-md-3">
-                                <span><label>CPF: </label> <?php echo $rows['cpf']; ?></span>
-                            </div>
-                            <div class="col-md-3">
-                                <span><label>RG: </label> <?php echo $rows['rg']; ?></span>
+                                <span><strong>CNS: </strong> <?php echo $rows['cns']; ?></span>
                             </div>
                         </div>
-
                         <!--Terceiro bloco-->
-                        <div class="row mb-4">
+                        <div class="row mb-3">
                             <div class="col-md-3">
-                                <span><label>Celular: </label> <?php echo $rows['celular']; ?></span>
+                                <span><strong>Celular: </strong> <?php echo $rows['celular']; ?></span>
                             </div>
-                            <div class="col-md-4">
-                                <span><label>Unidade de Saúde: </label> <?php echo $rows['nome_usf']; ?></span>
+                            <div class="col-md-3">
+                                <span><strong>Endereço: </strong> <?php echo $rows['endereco']; ?></span>
                             </div>
-                            <div class="col-md-4">
-                                <span><label>Endereço: </label> <?php echo $rows['endereco']; ?></span>
+                            <div class="col-md-3">
+                                <span><strong>Cidade: </strong> <?php echo $rows['cidade']; ?></span>
                             </div>
                         </div>
                         <!--Quarto bloco-->
                         <div class="row mb-3">
                             <div class="col-md-3">
-                                <span><label>Número: </label> <?php echo $rows['numero']; ?></span>
+                                <span><strong>Número: </strong> <?php echo $rows['numero']; ?></span>
                             </div>
                             <div class="col-md-3">
-                                <span><label>Bairro: </label> <?php echo $rows['bairro']; ?></span>
+                                <span><strong>Bairro: </strong> <?php echo $rows['bairro']; ?></span>
+                            </div>
+
+                            <div class="col-md-3">
+                                <span><strong>CEP: </strong> <?php echo $rows['cep']; ?></span>
+                            </div>
+
+                        </div>
+                        <div class="row mb-3">
+                            <!--Quinto bloco-->
+                            <div class="col-md-3">
+                                <span><strong>Embarque: </strong> <?php echo $rows['embarque']; ?></span>
                             </div>
                             <div class="col-md-3">
-                                <span><label>Cidade: </label> <?php echo $rows['cidade']; ?></span>
-                            </div>
-                            <div class="col-md-3">
-                                <span><label>CEP: </label> <?php echo $rows['cep']; ?></span>
+                                <span><strong>Referência: </strong> <?php echo $rows['referencia']; ?></span>
                             </div>
                         </div>
                     </div>

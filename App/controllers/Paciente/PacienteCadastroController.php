@@ -7,6 +7,7 @@ class cadastrarPacienteController
     public function __construct()
     {
         $this->cadastro = new Paciente();
+        $this->cadastrar();
     }
 
     public function cadastrar()
@@ -22,12 +23,15 @@ class cadastrarPacienteController
             $bairro = isset($_POST['bairro']) ? $_POST['bairro'] : '';
             $cidade = isset($_POST['cidade']) ? $_POST['cidade'] : '';
             $cep = isset($_POST['cep']) ? $_POST['cep'] : '';
+
+            $embarque = isset($_POST['embarque']) ? $_POST['embarque'] : '';
+            $referencia = isset($_POST['referencia']) ? $_POST['referencia'] : '';
             $id_unidade_usf = isset($_POST['id_unidade_usf']) ? $_POST['id_unidade_usf'] : null;
             $id_situacao = isset($_POST['id_situacao']) ? $_POST['id_situacao'] : null;
 
             // Validação dos dados, se necessário...
 
-            $result = $this->cadastro->cadastrarPaciente($nome, $rg, $cpf, $cns, $celular, $endereco, $numero, $bairro, $cidade, $cep, $id_situacao, $id_unidade_usf);
+            $result = $this->cadastro->cadastrarPaciente($nome, $rg, $cpf, $cns, $celular, $endereco, $numero, $bairro, $cidade, $cep,$embarque,$referencia, $id_situacao, $id_unidade_usf);
             if ($result >= 1) {
                 echo "<script>alert('Registro incluído com sucesso!');document.location='../../views/user/PacienteView/indexPaciente.php'</script>";
             } else {
@@ -38,6 +42,5 @@ class cadastrarPacienteController
 }
 
 // Instanciando e chamando o método
-$cadastrarPacienteController = new CadastrarPacienteController();
-$cadastrarPacienteController->cadastrar();
+new CadastrarPacienteController();
 ?>

@@ -80,7 +80,7 @@ foreach ($row_situacao as $situacao) {
                         <input type="text" class="form-control form-control-sm" name="cep" placeholder="CEP">
                     </div>
                     <div class="col-md-3">
-                        <label>Ponto de embarque:</label>
+                        <label>Embarque:</label>
                         <input type="text" class="form-control form-control-sm" name="embarque" placeholder="Ponto de embarque">
                     </div>
                     <div class="col-md-3">

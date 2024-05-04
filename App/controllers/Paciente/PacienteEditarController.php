@@ -15,6 +15,8 @@ class editarPaciente
     private $bairro;
     private $cidade;
     private $cep;
+    private $embarque;
+    private $referencia;
     private $id_situacao;
     private $id_unidade_usf;
 
@@ -40,17 +42,19 @@ class editarPaciente
             $this->bairro = $row['bairro'];
             $this->cidade = $row['cidade'];
             $this->cep = $row['cep'];
+            $this->embarque = $row['embarque'];
+            $this->referencia = $row['referencia'];
             $this->id_situacao = $row['id_situacao'];
             $this->id_unidade_usf = $row['id_unidade_usf'];
         }
     }
 
-    public function editarFormulario($nome, $rg, $cpf, $cns, $celular, $endereco, $numero, $bairro, $cidade, $cep, $id_unidade_usf, $id_situacao, $id)
+    public function editarFormulario($nome, $rg, $cpf, $cns, $celular, $endereco, $numero, $bairro, $cidade, $cep,$embarque,$referencia, $id_unidade_usf, $id_situacao, $id)
     {
         // Verifica se o ID da unidade de saúde e da situação não está vazio
         if (!empty($id_unidade_usf) && !empty($id_situacao)) {
             // Chama a função da classe de modelo para atualizar os dados do paciente no banco de dados
-            if ($this->editar->atualizarPaciente($nome, $rg, $cpf, $cns, $celular, $endereco, $numero, $bairro, $cidade, $cep, $id_situacao, $id_unidade_usf, $id) == TRUE) {
+            if ($this->editar->atualizarPaciente($nome, $rg, $cpf, $cns, $celular, $endereco, $numero, $bairro, $cidade, $cep,$embarque,$referencia, $id_situacao, $id_unidade_usf, $id) == TRUE) {
                 echo "<script>alert('Registro atualizado com sucesso!');document.location='./indexPaciente.php'</script>";
             } else {
                 echo "<script>alert('Erro ao gravar registro!');history.back()</script>";
@@ -106,6 +110,18 @@ class editarPaciente
     {
         return $this->cep;
     }
+
+    public function getEmbarque()
+    {
+        return $this->embarque;
+    }
+
+    public function getReferencia()
+    {
+        return $this->referencia;
+    }
+
+
     public function getIdSituacao()
     {
         return $this->id_situacao;
@@ -118,7 +134,7 @@ class editarPaciente
 $id = filter_input(INPUT_GET, 'id');
 $editaPaciente = new editarPaciente($id);
 if (isset($_POST['submit'])) {
-    $editaPaciente->editarFormulario($_POST['nome'], $_POST['rg'], $_POST['cpf'], $_POST['cns'], $_POST['celular'], $_POST['endereco'], $_POST['numero'], $_POST['bairro'], $_POST['cidade'], $_POST['cep'], $_POST['id_unidade_usf'], $_POST['id_situacao'], $_POST['id']);
+    $editaPaciente->editarFormulario($_POST['nome'], $_POST['rg'], $_POST['cpf'], $_POST['cns'], $_POST['celular'], $_POST['endereco'], $_POST['numero'], $_POST['bairro'], $_POST['cidade'], $_POST['cep'],$_POST['embarque'],$_POST['referencia'], $_POST['id_unidade_usf'], $_POST['id_situacao'], $_POST['id']);
 }
 
 

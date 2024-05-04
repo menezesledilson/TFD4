@@ -19,155 +19,244 @@ class Acompanhante extends Banco
     private $created;
     private $modified;
 
-    public function getId()
-    {
-        return $this->id;
-    }
-
+    /**
+     * @param mixed $id
+     */
     public function setId($id): void
     {
         $this->id = $id;
     }
 
-    public function getNome()
-    {
-        return $this->nome;
-    }
-
+    /**
+     * @param mixed $nome
+     */
     public function setNome($nome): void
     {
         $this->nome = $nome;
     }
 
-    public function getRg()
-    {
-        return $this->rg;
-    }
-
+    /**
+     * @param mixed $rg
+     */
     public function setRg($rg): void
     {
         $this->rg = $rg;
     }
 
-    public function getCpf()
-    {
-        return $this->cpf;
-    }
-
+    /**
+     * @param mixed $cpf
+     */
     public function setCpf($cpf): void
     {
         $this->cpf = $cpf;
     }
 
-    public function getCelular()
-    {
-        return $this->celular;
-    }
-
+    /**
+     * @param mixed $celular
+     */
     public function setCelular($celular): void
     {
         $this->celular = $celular;
     }
 
-    public function getEndereco()
-    {
-        return $this->endereco;
-    }
-
+    /**
+     * @param mixed $endereco
+     */
     public function setEndereco($endereco): void
     {
         $this->endereco = $endereco;
     }
 
-    public function getNumero()
-    {
-        return $this->numero;
-    }
-
+    /**
+     * @param mixed $numero
+     */
     public function setNumero($numero): void
     {
         $this->numero = $numero;
     }
 
-    public function getBairro()
-    {
-        return $this->bairro;
-    }
-
+    /**
+     * @param mixed $bairro
+     */
     public function setBairro($bairro): void
     {
         $this->bairro = $bairro;
     }
 
-    public function getCidade()
-    {
-        return $this->cidade;
-    }
-
+    /**
+     * @param mixed $cidade
+     */
     public function setCidade($cidade): void
     {
         $this->cidade = $cidade;
     }
 
-    public function getCep()
-    {
-        return $this->cep;
-    }
-
+    /**
+     * @param mixed $cep
+     */
     public function setCep($cep): void
     {
         $this->cep = $cep;
     }
 
-    public function getEmbarque()
-    {
-        return $this->embarque;
-    }
-
+    /**
+     * @param mixed $embarque
+     */
     public function setEmbarque($embarque): void
     {
         $this->embarque = $embarque;
     }
 
-    public function getReferencia()
-    {
-        return $this->referencia;
-    }
-
+    /**
+     * @param mixed $referencia
+     */
     public function setReferencia($referencia): void
     {
         $this->referencia = $referencia;
     }
 
-
-    public function getCreated()
+    /**
+     * @param mixed $id_situacao
+     */
+    public function setIdSituacao($id_situacao): void
     {
-        return $this->created;
+        $this->id_situacao = $id_situacao;
     }
 
+    /**
+     * @param mixed $created
+     */
     public function setCreated($created): void
     {
         $this->created = $created;
     }
 
-    public function getModified()
-    {
-        return $this->modified;
-    }
-
+    /**
+     * @param mixed $modified
+     */
     public function setModified($modified): void
     {
         $this->modified = $modified;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getNome()
+    {
+        return $this->nome;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getRg()
+    {
+        return $this->rg;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCpf()
+    {
+        return $this->cpf;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCelular()
+    {
+        return $this->celular;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getEndereco()
+    {
+        return $this->endereco;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getNumero()
+    {
+        return $this->numero;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getBairro()
+    {
+        return $this->bairro;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCidade()
+    {
+        return $this->cidade;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCep()
+    {
+        return $this->cep;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getEmbarque()
+    {
+        return $this->embarque;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getReferencia()
+    {
+        return $this->referencia;
+    }
+
+    /**
+     * @return mixed
+     */
     public function getIdSituacao()
     {
         return $this->id_situacao;
     }
 
-    public function setIdSituacao($id_situacao): void
+    /**
+     * @return mixed
+     */
+    public function getCreated()
     {
-        $this->id_situacao = $id_situacao;
+        return $this->created;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getModified()
+    {
+        return $this->modified;
     }
 
 
