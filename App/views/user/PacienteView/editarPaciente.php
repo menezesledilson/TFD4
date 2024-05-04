@@ -69,7 +69,6 @@ foreach ($rowSituacao as $situacao) {
                         <label>CNS:</label>
                         <input type="text" class="form-control form-control-sm" name="cns"
                                value="<?php echo isset($editaPaciente) ? $editaPaciente->getCns() : ''; ?>">
-
                     </div>
                 </div>
                 <!--Segunda coluna-->
@@ -83,17 +82,16 @@ foreach ($rowSituacao as $situacao) {
                         <label>Endereço:</label>
                         <input type="text" class="form-control form-control-sm" name="endereco"
                                value="<?php echo !empty($editaPaciente->getEndereco()) ? $editaPaciente->getEndereco() : ''; ?>">
-
                     </div>
                     <div class="col-md-3">
                         <label>Número:</label>
                         <input type="text" class="form-control form-control-sm" name="numero"
-                               value="<?php echo !empty($editaPaciente->getNumero()) ? $editaPaciente->getNumero() : ''; ?>">
+                        value="<?php echo !empty($editaPaciente->getNumero()) ? $editaPaciente->getNumero() : ''; ?>">
                     </div>
                     <div class="col-md-3">
                         <label>Bairro:</label>
                         <input type="text" class="form-control form-control-sm" name="bairro"
-                               value="<?php echo !empty($editaPaciente->getBairro()) ? $editaPaciente->getBairro() : ''; ?>">
+                        value="<?php echo !empty($editaPaciente->getBairro()) ? $editaPaciente->getBairro() : ''; ?>">
                     </div>
                 </div>
                 <!--Terceira coluna-->

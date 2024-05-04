@@ -11,14 +11,14 @@ class pacienteDAO
     }
 
     // Cadastrar Paciente
-    public function postPaciente($nome, $rg, $cpf, $cns, $celular, $endereco, $numero, $bairro, $cidade, $cep,$embarque,$referencia,$id_situacao, $id_unidade_usf,$created,$modified)
+    public function postPaciente($nome, $rg, $cpf, $cns, $celular, $endereco, $numero, $bairro, $cidade, $cep,$embarque,$referencia, $id_situacao, $id_unidade_usf,$created, $modified)
     {
         try {
             $stmt = $this->conexao->getConexao()->prepare("INSERT INTO pacientes (`nome`, `rg`, `cpf`, `cns`, `celular`, `endereco`, `numero`, `bairro`, `cidade`, `cep`,`embarque`,`referencia`, `id_situacao`, `id_unidade_usf`,`created`,`modified`) VALUES (?,?,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?,?)");
             if (!$stmt) {
                 throw new Exception("Erro ao preparar a consulta: " . $this->conexao->getConexao()->error);
             }
-            $stmt->bind_param("ssssssssssssssss", $nome, $rg, $cpf, $cns, $celular, $endereco, $numero, $bairro, $cidade, $cep,$embarque,$referencia,$id_situacao, $id_unidade_usf, $created, $modified);
+            $stmt->bind_param("ssssssssssssssss", $nome, $rg, $cpf, $cns, $celular, $endereco, $numero, $bairro, $cidade, $cep,$embarque,$referencia, $id_situacao, $id_unidade_usf,$created, $modified);
             if ($stmt->execute()) {
                 return true;
             } else {
@@ -72,14 +72,14 @@ class pacienteDAO
     }
 
     // Atualizar paciente
-    public function putPaciente($nome, $rg, $cpf, $cns, $celular, $endereco, $numero, $bairro, $cidade, $cep,$embarque,$referencia,$id_situacao, $id_unidade_usf,$modified, $id)
+    public function putPaciente($nome, $rg, $cpf, $cns, $celular, $endereco, $numero, $bairro, $cidade, $cep,$embarque,$referencia, $id_situacao, $id_unidade_usf,$modified, $id)
     {
         try {
-            $stmt = $this->conexao->getConexao()->prepare("UPDATE pacientes AS p INNER JOIN situacoes AS s ON p.id_situacao = s.id INNER JOIN unidades AS u ON p.id_unidade_usf = u.id SET p.nome = ?, p.rg = ?, p.cpf = ?, p.cns = ?, p.celular = ?, p.endereco = ?, p.numero = ?, p.bairro = ?, p.cidade = ?, p.cep = ?,p.embarque=?,p.referencia=?, p.id_situacao = ?, p.id_unidade_usf = ?,p.modified=? WHERE p.id = ?");
+            $stmt = $this->conexao->getConexao()->prepare("UPDATE pacientes AS p INNER JOIN situacoes AS s ON p.id_situacao = s.id INNER JOIN unidades AS u ON p.id_unidade_usf = u.id SET p.nome = ?, p.rg = ?, p.cpf = ?, p.cns = ?, p.celular = ?, p.endereco = ?, p.numero = ?, p.bairro = ?, p.cidade = ?, p.cep = ?,p.embarque=?,p.referencia=?, p.id_situacao = ?, p.id_unidade_usf = ?,p.modified=?  WHERE p.id = ?");
             if (!$stmt) {
                 throw new Exception("Erro ao preparar a consulta: " . $this->conexao->getConexao()->error);
             }
-            $stmt->bind_param("sssssssssssssssi", $nome, $rg, $cpf, $cns, $celular, $endereco, $numero, $bairro, $cidade, $cep,$embarque,$referencia,$id_situacao, $id_unidade_usf,$modified, $id);
+            $stmt->bind_param("sssssssssssssssi", $nome, $rg, $cpf, $cns, $celular, $endereco, $numero, $bairro, $cidade, $cep,$embarque,$referencia, $id_situacao, $id_unidade_usf,$modified, $id);
             if ($stmt->execute()) {
                 return true;
             } else {

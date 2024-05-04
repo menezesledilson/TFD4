@@ -15,8 +15,10 @@ class editarPaciente
     private $bairro;
     private $cidade;
     private $cep;
+
     private $embarque;
     private $referencia;
+
     private $id_situacao;
     private $id_unidade_usf;
 
@@ -44,6 +46,7 @@ class editarPaciente
             $this->cep = $row['cep'];
             $this->embarque = $row['embarque'];
             $this->referencia = $row['referencia'];
+
             $this->id_situacao = $row['id_situacao'];
             $this->id_unidade_usf = $row['id_unidade_usf'];
         }
@@ -54,7 +57,7 @@ class editarPaciente
         // Verifica se o ID da unidade de saúde e da situação não está vazio
         if (!empty($id_unidade_usf) && !empty($id_situacao)) {
             // Chama a função da classe de modelo para atualizar os dados do paciente no banco de dados
-            if ($this->editar->atualizarPaciente($nome, $rg, $cpf, $cns, $celular, $endereco, $numero, $bairro, $cidade, $cep,$embarque,$referencia, $id_situacao, $id_unidade_usf, $id) == TRUE) {
+            if ($this->editar->atualizarPaciente($nome, $rg, $cpf, $cns, $celular, $endereco, $numero, $bairro, $cidade, $cep,$embarque,$referencia,$id_situacao, $id_unidade_usf, $id) == TRUE) {
                 echo "<script>alert('Registro atualizado com sucesso!');document.location='./indexPaciente.php'</script>";
             } else {
                 echo "<script>alert('Erro ao gravar registro!');history.back()</script>";
@@ -111,16 +114,15 @@ class editarPaciente
         return $this->cep;
     }
 
-    public function getEmbarque()
-    {
-        return $this->embarque;
-    }
-
     public function getReferencia()
     {
         return $this->referencia;
     }
 
+    public function getEmbarque()
+    {
+        return $this->embarque;
+    }
 
     public function getIdSituacao()
     {

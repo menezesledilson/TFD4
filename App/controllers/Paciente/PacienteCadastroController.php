@@ -7,7 +7,6 @@ class cadastrarPacienteController
     public function __construct()
     {
         $this->cadastro = new Paciente();
-        $this->cadastrar();
     }
 
     public function cadastrar()
@@ -26,6 +25,7 @@ class cadastrarPacienteController
 
             $embarque = isset($_POST['embarque']) ? $_POST['embarque'] : '';
             $referencia = isset($_POST['referencia']) ? $_POST['referencia'] : '';
+
             $id_unidade_usf = isset($_POST['id_unidade_usf']) ? $_POST['id_unidade_usf'] : null;
             $id_situacao = isset($_POST['id_situacao']) ? $_POST['id_situacao'] : null;
 
@@ -42,5 +42,6 @@ class cadastrarPacienteController
 }
 
 // Instanciando e chamando o método
-new CadastrarPacienteController();
+$cadastrarPacienteController = new CadastrarPacienteController();
+$cadastrarPacienteController->cadastrar();
 ?>

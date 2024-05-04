@@ -95,6 +95,15 @@ foreach ($row_unidades as $unidade) {
                         <label>CEP:</label>
                         <input type="text" class="form-control form-control-sm" name="cep" placeholder="CEP">
                     </div>
+
+                    <div class="col-md-3">
+                        <label>Embarque:</label>
+                        <input type="text" class="form-control form-control-sm" name="embarque" placeholder="Ponto de embarque">
+                    </div>
+                    <div class="col-md-3">
+                        <label>Referência:</label>
+                        <input type="text" class="form-control form-control-sm" name="referencia" placeholder="Referência">
+                    </div>
                     <div class="col-md-3">
                         <label>Unidade de Saúde:</label>
                         <select class="form-control" name="id_unidade_usf">

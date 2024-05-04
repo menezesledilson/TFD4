@@ -13,7 +13,6 @@ class Paciente extends Banco
     private $bairro;
     private $cidade;
     private $cep;
-
     private $embarque;
     private $referencia;
     private $id_situacao;
@@ -21,141 +20,10 @@ class Paciente extends Banco
     private $created;
     private $modified;
 
-    /**
-     * @param mixed $id
-     */
-    public function setId($id): void
-    {
-        $this->id = $id;
-    }
 
-    /**
-     * @param mixed $nome
-     */
-    public function setNome($nome): void
-    {
-        $this->nome = $nome;
-    }
 
-    /**
-     * @param mixed $rg
-     */
-    public function setRg($rg): void
-    {
-        $this->rg = $rg;
-    }
-
-    /**
-     * @param mixed $cpf
-     */
-    public function setCpf($cpf): void
-    {
-        $this->cpf = $cpf;
-    }
-
-    /**
-     * @param mixed $cns
-     */
-    public function setCns($cns): void
-    {
-        $this->cns = $cns;
-    }
-
-    /**
-     * @param mixed $celular
-     */
-    public function setCelular($celular): void
-    {
-        $this->celular = $celular;
-    }
-
-    /**
-     * @param mixed $endereco
-     */
-    public function setEndereco($endereco): void
-    {
-        $this->endereco = $endereco;
-    }
-
-    /**
-     * @param mixed $numero
-     */
-    public function setNumero($numero): void
-    {
-        $this->numero = $numero;
-    }
-
-    /**
-     * @param mixed $bairro
-     */
-    public function setBairro($bairro): void
-    {
-        $this->bairro = $bairro;
-    }
-
-    /**
-     * @param mixed $cidade
-     */
-    public function setCidade($cidade): void
-    {
-        $this->cidade = $cidade;
-    }
-
-    /**
-     * @param mixed $cep
-     */
-    public function setCep($cep): void
-    {
-        $this->cep = $cep;
-    }
-
-    /**
-     * @param mixed $embarque
-     */
-    public function setEmbarque($embarque): void
-    {
-        $this->embarque = $embarque;
-    }
-
-    /**
-     * @param mixed $referencia
-     */
-    public function setReferencia($referencia): void
-    {
-        $this->referencia = $referencia;
-    }
-
-    /**
-     * @param mixed $id_situacao
-     */
-    public function setIdSituacao($id_situacao): void
-    {
-        $this->id_situacao = $id_situacao;
-    }
-
-    /**
-     * @param mixed $id_unidade_usf
-     */
-    public function setIdUnidadeUsf($id_unidade_usf): void
-    {
-        $this->id_unidade_usf = $id_unidade_usf;
-    }
-
-    /**
-     * @param mixed $created
-     */
-    public function setCreated($created): void
-    {
-        $this->created = $created;
-    }
-
-    /**
-     * @param mixed $modified
-     */
-    public function setModified($modified): void
-    {
-        $this->modified = $modified;
-    }
+    // declaração explícita da propriedade
+    private $pacienteDAO;
 
     /**
      * @return mixed
@@ -264,7 +132,7 @@ class Paciente extends Banco
     /**
      * @return mixed
      */
-    public function getIdSituacao()
+    public function getId_situacao()
     {
         return $this->id_situacao;
     }
@@ -272,7 +140,7 @@ class Paciente extends Banco
     /**
      * @return mixed
      */
-    public function getIdUnidadeUsf()
+    public function getId_unidade_usf()
     {
         return $this->id_unidade_usf;
     }
@@ -293,8 +161,141 @@ class Paciente extends Banco
         return $this->modified;
     }
 
-    // declaração explícita da propriedade
-    private $pacienteDAO;
+    /**
+     * @param mixed $id
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+
+    /**
+     * @param mixed $nome
+     */
+    public function setNome($nome)
+    {
+        $this->nome = $nome;
+    }
+
+    /**
+     * @param mixed $rg
+     */
+    public function setRg($rg)
+    {
+        $this->rg = $rg;
+    }
+
+    /**
+     * @param mixed $cpf
+     */
+    public function setCpf($cpf)
+    {
+        $this->cpf = $cpf;
+    }
+
+    /**
+     * @param mixed $cns
+     */
+    public function setCns($cns)
+    {
+        $this->cns = $cns;
+    }
+
+    /**
+     * @param mixed $celular
+     */
+    public function setCelular($celular)
+    {
+        $this->celular = $celular;
+    }
+
+    /**
+     * @param mixed $endereco
+     */
+    public function setEndereco($endereco)
+    {
+        $this->endereco = $endereco;
+    }
+
+    /**
+     * @param mixed $numero
+     */
+    public function setNumero($numero)
+    {
+        $this->numero = $numero;
+    }
+
+    /**
+     * @param mixed $bairro
+     */
+    public function setBairro($bairro)
+    {
+        $this->bairro = $bairro;
+    }
+
+    /**
+     * @param mixed $cidade
+     */
+    public function setCidade($cidade)
+    {
+        $this->cidade = $cidade;
+    }
+
+    /**
+     * @param mixed $cep
+     */
+    public function setCep($cep)
+    {
+        $this->cep = $cep;
+    }
+
+    /**
+     * @param mixed $embarque
+     */
+    public function setEmbarque($embarque)
+    {
+        $this->embarque = $embarque;
+    }
+
+    /**
+     * @param mixed $referencia
+     */
+    public function setReferencia($referencia)
+    {
+        $this->referencia = $referencia;
+    }
+
+    /**
+     * @param mixed $id_situacao
+     */
+    public function setId_situacao($id_situacao)
+    {
+        $this->id_situacao = $id_situacao;
+    }
+
+    /**
+     * @param mixed $id_unidade_usf
+     */
+    public function setId_unidade_usf($id_unidade_usf)
+    {
+        $this->id_unidade_usf = $id_unidade_usf;
+    }
+
+    /**
+     * @param mixed $created
+     */
+    public function setCreated($created)
+    {
+        $this->created = $created;
+    }
+
+    /**
+     * @param mixed $modified
+     */
+    public function setModified($modified)
+    {
+        $this->modified = $modified;
+    }
 
     public function __construct()
     {
