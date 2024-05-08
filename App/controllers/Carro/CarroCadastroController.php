@@ -20,12 +20,14 @@ class cadastrarCarro
         $cor = $_POST['cor'];
         $combustivel = $_POST['combustivel'];
         $vagas = $_POST['vagas'];
+        $tipo_carro = $_POST['tipo_carro'];
+        $marca = $_POST['marca'];
+        $data_vencimento =$_POST['data_vencimento'];
+        $id_seguradora = $_POST['id_seguradora'];
 
-        $result = $this->cadastro->cadastrarCarro($modelo, $placa, $renavam, $ano, $cor, $combustivel, $vagas);
-
-
-        if ($result >= 1) {
-            echo "<script> alert('Registro incluído com sucesso!');document.location='../../View/CarroView/indexCarro.php' </script>";
+        $result = $this->cadastro->cadastrarCarro($modelo, $placa, $renavam, $ano, $cor, $combustivel, $vagas,$tipo_carro,$marca,$data_vencimento,$id_seguradora);
+         if ($result >= 1) {
+            echo "<script> alert('Registro incluído com sucesso!');document.location='../../views/user/CarroView/indexCarro.php' </script>";
         } else {
             echo "<script> alert('Erro ao gravar registro');history.back() </script>)";
         }

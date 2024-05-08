@@ -10,7 +10,7 @@ $rows = $controller->listarTodos();
 if ($rows)
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -33,8 +33,7 @@ if ($rows)
                 <div class="row">
                     <div class="col-md-4">
                         <!--Verifica se $row['created'] está definido e não é nulo-->
-                        <strong>Data do
-                            cadrastro:</strong> <?php if (isset($row ['created']) && $row['created'] !== null) {
+                        <strong>Data do cadrastro:</strong> <?php if (isset($row ['created']) && $row['created'] !== null) {
                             // Converte a data para o formato brasileiro
                             $dataFormatadaCadastro = date('d/m/y H:i', strtotime($row['created']));
                             // Exibe a data formatada

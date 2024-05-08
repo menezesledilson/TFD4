@@ -11,11 +11,11 @@ class CarroDAO
     }
 
     // Cadastrar os Carros
-    public function postCarro($modelo, $placa, $renavam, $ano, $cor, $combustivel, $vagas)
+    public function postCarro($modelo, $placa, $renavam, $ano, $cor, $combustivel, $vagas, $tipo_carro, $marca, $data_vencimento, $id_seguradora)
     {
         try {
-            $stmt = $this->conexao->getConexao()->prepare("INSERT INTO carros(`modelo`,`placa`,`renavam`,`ano`,`cor`,`combustivel`,`vagas`) VALUES(?,?,?,?,?,?,?)");
-            $stmt->bind_param("sssssss", $modelo, $placa, $renavam, $ano, $cor, $combustivel, $vagas);
+            $stmt = $this->conexao->getConexao()->prepare("INSERT INTO carros(`modelo`,`placa`,`renavam`,`ano`,`cor`,`combustivel`,`vagas`,`tipo_carro`,`marca`,`data_vencimento`,`id_seguradora`) VALUES(?,?,?,?,?,?,?,?,?,?,?)");
+            $stmt->bind_param("sssssssssss", $modelo, $placa, $renavam, $ano, $cor, $combustivel, $vagas, $tipo_carro, $marca, $data_vencimento, $id_seguradora);
             if ($stmt->execute()) {
                 return true;
             } else {
@@ -31,7 +31,10 @@ class CarroDAO
     public function getCarro()
     {
         try {
-            $stmt = $this->conexao->getConexao()->prepare("SELECT * FROM carros ORDER BY id DESC");
+            $stmt = $this->conexao->getConexao()->prepare("SELECT c.*, s.nome
+                                                           FROM carros  c
+                                                           INNER JOIN seguradoras s ON c.id_seguradora = s.id
+                                                           ORDER BY c.id DESC");
             $stmt->execute();
             $result = $stmt->get_result();
             $carros = [];
@@ -61,11 +64,11 @@ class CarroDAO
     }
 
     // Atualizar o carro
-    public function putCarro($modelo, $placa, $renavam, $ano, $cor, $combustivel, $vagas, $id)
+    public function putCarro($modelo, $placa, $renavam, $ano, $cor, $combustivel, $vagas, $tipo_carro, $marca, $data_vencimento, $id_seguradora, $modified, $id)
     {
         try {
-            $stmt = $this->conexao->getConexao()->prepare("UPDATE carros SET modelo=?, placa=?, renavam=?, ano=?, cor=?, combustivel=?, vagas=? WHERE id=?");
-            $stmt->bind_param("sssssssi", $modelo, $placa, $renavam, $ano, $cor, $combustivel, $vagas, $id);
+            $stmt = $this->conexao->getConexao()->prepare("UPDATE carros SET modelo=?, placa=?, renavam=?, ano=?, cor=?, combustivel=?, vagas=?, tipo_carro=?, marca=?, data_vencimento=?, id_seguradora=?, modified=? WHERE id=?");
+            $stmt->bind_param("ssssssssssisi", $modelo, $placa, $renavam, $ano, $cor, $combustivel, $vagas, $tipo_carro, $marca, $data_vencimento, $id_seguradora, $modified, $id);
             if ($stmt->execute()) {
                 return true;
             } else {

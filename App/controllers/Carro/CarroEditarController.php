@@ -13,6 +13,8 @@ class editarVeiculo
     private $combustivel;
     private $vagas;
 
+    private $id_seguradora;
+
     public function __CONSTRUCT($id)
     {
         $this->editar = new Carro();
@@ -32,12 +34,13 @@ class editarVeiculo
             $this->cor = $row['cor'];
             $this->combustivel = $row['combustivel'];
             $this->vagas = $row['vagas'];
+            $this->id_seguradora = $row['id_seguradora'];
         }
     }
 
-    public function editarFormulario($modelo, $placa, $renavam, $ano, $cor, $combustivel, $vagas, $id)
+    public function editarFormulario($modelo, $placa, $renavam, $ano, $cor, $combustivel, $vagas,$id_seguradora, $id)
     {
-        if ($this->editar->atualizaCarro($modelo, $placa, $renavam, $ano, $cor, $combustivel, $vagas, $id) == TRUE) {
+        if ($this->editar->atualizaCarro($modelo, $placa, $renavam, $ano, $cor, $combustivel, $vagas,$id_seguradora, $id) == TRUE) {
             echo "<script>alert('Registro atualizado com sucesso!');document.location='./indexCarro.php'</script>";
         } else {
             echo "<script>alert('Erro ao gravar registro!');history.back()</script>";
@@ -84,12 +87,21 @@ class editarVeiculo
         return $this->vagas;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getIdSeguradora()
+    {
+        return $this->id_seguradora;
+    }
+
+
 }
 
 $id = filter_input(INPUT_GET, 'id');
 $editarCarro = new editarVeiculo($id);
 if (isset($_POST['submit'])) {
-    $editarCarro->editarFormulario($_POST['modelo'],$_POST['placa'],$_POST['renavam'],$_POST['ano'],$_POST['cor'],$_POST['combustivel'],$_POST['vagas'], $_POST['id']);
+    $editarCarro->editarFormulario($_POST['modelo'],$_POST['placa'],$_POST['renavam'],$_POST['ano'],$_POST['cor'],$_POST['combustivel'],$_POST['vagas'], $_POST['id_seguradora'],$_POST['id']);
 }
 
 ?>
