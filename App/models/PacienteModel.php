@@ -13,160 +13,289 @@ class Paciente extends Banco
     private $bairro;
     private $cidade;
     private $cep;
+    private $embarque;
+    private $referencia;
     private $id_situacao;
     private $id_unidade_usf;
     private $created;
+    private $modified;
 
+
+
+    // declaração explícita da propriedade
+    private $pacienteDAO;
+
+    /**
+     * @return mixed
+     */
     public function getId()
     {
         return $this->id;
     }
 
-    public function setId($id)
-    {
-        $this->id = $id;
-    }
-
-    // Métodos Set
-    public function setNome($string)
-    {
-        $this->nome = $string;
-    }
-
-    public function setRG($string)
-    {
-        $this->rg = $string;
-    }
-
-    public function setCPF($string)
-    {
-        $this->cpf = $string;
-    }
-
-    public function setCNS($string)
-    {
-        $this->cns = $string;
-    }
-
-    public function setCelular($string)
-    {
-        $this->celular = $string;
-    }
-
-    public function setEndereco($string)
-    {
-        $this->endereco = $string;
-    }
-
-    public function setNumero($string)
-    {
-        $this->numero = $string;
-    }
-
-    public function setBairro($string)
-    {
-        $this->bairro = $string;
-    }
-
-    public function setCidade($string)
-    {
-        $this->cidade = $string;
-    }
-
-    public function setCEP($string)
-    {
-        $this->cep = $string;
-    }
-
-    public function setIdSituacao($int)
-    {
-        $this->id_situacao = $int;
-    }
-
-    public function setIdUnidadeUSF($int)
-    {
-        $this->id_unidade_usf = $int;
-    }
-
-    public function setCreated($datetime)
-    {
-        $this->created = $datetime;
-    }
-
-    public function setModified($datetime)
-    {
-        $this->modified = $datetime;
-    }
-
-    // Métodos Get
-
+    /**
+     * @return mixed
+     */
     public function getNome()
     {
         return $this->nome;
     }
 
-    public function getRG()
+    /**
+     * @return mixed
+     */
+    public function getRg()
     {
         return $this->rg;
     }
 
-    public function getCPF()
+    /**
+     * @return mixed
+     */
+    public function getCpf()
     {
         return $this->cpf;
     }
 
-    public function getCNS()
+    /**
+     * @return mixed
+     */
+    public function getCns()
     {
         return $this->cns;
     }
 
+    /**
+     * @return mixed
+     */
     public function getCelular()
     {
         return $this->celular;
     }
 
+    /**
+     * @return mixed
+     */
     public function getEndereco()
     {
         return $this->endereco;
     }
 
+    /**
+     * @return mixed
+     */
     public function getNumero()
     {
         return $this->numero;
     }
 
+    /**
+     * @return mixed
+     */
     public function getBairro()
     {
         return $this->bairro;
     }
 
+    /**
+     * @return mixed
+     */
     public function getCidade()
     {
         return $this->cidade;
     }
 
-    public function getCEP()
+    /**
+     * @return mixed
+     */
+    public function getCep()
     {
         return $this->cep;
     }
 
-    public function getIdSituacao()
+    /**
+     * @return mixed
+     */
+    public function getEmbarque()
+    {
+        return $this->embarque;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getReferencia()
+    {
+        return $this->referencia;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getId_situacao()
     {
         return $this->id_situacao;
     }
 
-    public function getIdUnidadeUSF()
+    /**
+     * @return mixed
+     */
+    public function getId_unidade_usf()
     {
         return $this->id_unidade_usf;
     }
 
+    /**
+     * @return mixed
+     */
     public function getCreated()
     {
         return $this->created;
     }
 
-    // declaração explícita da propriedade
-    private $pacienteDAO;
+    /**
+     * @return mixed
+     */
+    public function getModified()
+    {
+        return $this->modified;
+    }
+
+    /**
+     * @param mixed $id
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+
+    /**
+     * @param mixed $nome
+     */
+    public function setNome($nome)
+    {
+        $this->nome = $nome;
+    }
+
+    /**
+     * @param mixed $rg
+     */
+    public function setRg($rg)
+    {
+        $this->rg = $rg;
+    }
+
+    /**
+     * @param mixed $cpf
+     */
+    public function setCpf($cpf)
+    {
+        $this->cpf = $cpf;
+    }
+
+    /**
+     * @param mixed $cns
+     */
+    public function setCns($cns)
+    {
+        $this->cns = $cns;
+    }
+
+    /**
+     * @param mixed $celular
+     */
+    public function setCelular($celular)
+    {
+        $this->celular = $celular;
+    }
+
+    /**
+     * @param mixed $endereco
+     */
+    public function setEndereco($endereco)
+    {
+        $this->endereco = $endereco;
+    }
+
+    /**
+     * @param mixed $numero
+     */
+    public function setNumero($numero)
+    {
+        $this->numero = $numero;
+    }
+
+    /**
+     * @param mixed $bairro
+     */
+    public function setBairro($bairro)
+    {
+        $this->bairro = $bairro;
+    }
+
+    /**
+     * @param mixed $cidade
+     */
+    public function setCidade($cidade)
+    {
+        $this->cidade = $cidade;
+    }
+
+    /**
+     * @param mixed $cep
+     */
+    public function setCep($cep)
+    {
+        $this->cep = $cep;
+    }
+
+    /**
+     * @param mixed $embarque
+     */
+    public function setEmbarque($embarque)
+    {
+        $this->embarque = $embarque;
+    }
+
+    /**
+     * @param mixed $referencia
+     */
+    public function setReferencia($referencia)
+    {
+        $this->referencia = $referencia;
+    }
+
+    /**
+     * @param mixed $id_situacao
+     */
+    public function setId_situacao($id_situacao)
+    {
+        $this->id_situacao = $id_situacao;
+    }
+
+    /**
+     * @param mixed $id_unidade_usf
+     */
+    public function setId_unidade_usf($id_unidade_usf)
+    {
+        $this->id_unidade_usf = $id_unidade_usf;
+    }
+
+    /**
+     * @param mixed $created
+     */
+    public function setCreated($created)
+    {
+        $this->created = $created;
+    }
+
+    /**
+     * @param mixed $modified
+     */
+    public function setModified($modified)
+    {
+        $this->modified = $modified;
+    }
 
     public function __construct()
     {
@@ -174,9 +303,11 @@ class Paciente extends Banco
     }
 
     //método para cadastrar o paciente
-    public function cadastrarPaciente($nome, $rg, $cpf, $cns, $celular, $endereco, $numero, $bairro, $cidade, $cep, $id_situacao, $id_unidade_usf)
+    public function cadastrarPaciente($nome, $rg, $cpf, $cns, $celular, $endereco, $numero, $bairro, $cidade, $cep,$embarque,$referencia, $id_situacao, $id_unidade_usf)
     {
-        return $this->pacienteDAO->postPaciente($nome, $rg, $cpf, $cns, $celular, $endereco, $numero, $bairro, $cidade, $cep, $id_situacao, $id_unidade_usf, date('Y-m-d H:i:s'));
+        // Formate a data e hora no formato MySQL padrão
+        $dataHoraAtual = date('Y-m-d H:i:s');
+        return $this->pacienteDAO->postPaciente($nome, $rg, $cpf, $cns, $celular, $endereco, $numero, $bairro, $cidade, $cep,$embarque,$referencia, $id_situacao, $id_unidade_usf,$dataHoraAtual,$dataHoraAtual);
     }
 
     //método para listar o paciente
@@ -196,9 +327,11 @@ class Paciente extends Banco
         return $this->pacienteDAO->deletePaciente($id);
     }
     //Atualizar a informação do motorista
-    public function atualizarPaciente($nome, $rg, $cpf, $cns, $celular, $endereco, $numero, $bairro, $cidade, $cep, $id_situacao,$id_unidade_usf, $id)
+    public function atualizarPaciente($nome, $rg, $cpf, $cns, $celular, $endereco, $numero, $bairro, $cidade, $cep,$embarque,$referencia, $id_situacao,$id_unidade_usf, $id)
     {
-        return $this->pacienteDAO->putPaciente($nome, $rg, $cpf, $cns, $celular, $endereco, $numero, $bairro, $cidade, $cep, $id_situacao,$id_unidade_usf,$id);
+        // Formate a data e hora no formato MySQL padrão
+        $dataHoraAtual = date('Y-m-d H:i:s');
+        return $this->pacienteDAO->putPaciente($nome, $rg, $cpf, $cns, $celular, $endereco, $numero, $bairro, $cidade, $cep,$embarque,$referencia, $id_situacao,$id_unidade_usf,$dataHoraAtual,$id);
     }
 
     //pesquisa paciente

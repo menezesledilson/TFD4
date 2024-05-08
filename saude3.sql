@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Tempo de geração: 03/05/2024 às 12:35
--- Versão do servidor: 8.2.0
--- Versão do PHP: 8.2.13
+-- Tempo de geração: 04/05/2024 às 16:31
+-- Versão do servidor: 8.3.0
+-- Versão do PHP: 8.2.18
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -38,54 +38,24 @@ CREATE TABLE IF NOT EXISTS `acompanhantes` (
   `bairro` varchar(60) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `cidade` varchar(60) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `cep` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `embarque` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `referencia` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `id_situacao` int NOT NULL,
   `celular` varchar(15) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `created` datetime NOT NULL,
   `modified` datetime DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  PRIMARY KEY (`id`),
+  KEY `id_situacao` (`id_situacao`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Despejando dados para a tabela `acompanhantes`
 --
 
-INSERT INTO `acompanhantes` (`id`, `nome`, `rg`, `cpf`, `endereco`, `numero`, `bairro`, `cidade`, `cep`, `celular`, `created`, `modified`) VALUES
-(4, 'Jones Silva', '117914666', '117914666', 'Rua Antonio Mello', '25', 'Baixada', 'Nova Friburgo', '445568-00', '22998141030', '0000-00-00 00:00:00', NULL),
-(5, 'Ana Maria Almeida', '12345678910', '12345678910', 'Rua Olindina Ferreira da Cunha Silva', '1', 'Centro', 'Nova Friburgo', '12345678', '123456789', '0000-00-00 00:00:00', NULL),
-(6, 'Ana Maria Almeida', '117914666', '123456', 'Rua Olindina Ferreira da Cunha Silva', '153', 'Centro', 'Nova Friburgo', '28605-030', '22 2555-4192', '0000-00-00 00:00:00', NULL),
-(7, 'Ana Maria Almeida2', '123456', '123457', 'Oscar', '01', 'Centro', 'Pirape', '', '123489', '0000-00-00 00:00:00', NULL),
-(8, 'Nikola Tesla Frauches', '123456', '123457', 'Oscar', '01', 'Centro', 'Pirapetinga', '', '', '0000-00-00 00:00:00', NULL),
-(9, 'Ledilson', '12345', '12324', 'Oscar', '12', 'Centro', 'Pirape', '12345678', '123456789', '0000-00-00 00:00:00', NULL),
-(10, 'Ana Maria Almeida Filha', '117914666', '12345678910', 'Rua Olindina Ferreira da Cunha Silva', '153', 'Centro', 'Belo Horizonte', '28605-030', '', '0000-00-00 00:00:00', NULL);
-
--- --------------------------------------------------------
-
---
--- Estrutura para tabela `carros`
---
-
-DROP TABLE IF EXISTS `carros`;
-CREATE TABLE IF NOT EXISTS `carros` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `modelo` varchar(50) CHARACTER SET latin1 NOT NULL,
-  `placa` varchar(10) CHARACTER SET latin1 NOT NULL,
-  `renavam` varchar(15) CHARACTER SET latin1 NOT NULL,
-  `ano` year NOT NULL,
-  `cor` varchar(10) CHARACTER SET latin1 NOT NULL,
-  `combustivel` varchar(15) CHARACTER SET latin1 NOT NULL,
-  `vagas` int NOT NULL,
-  `created` datetime NOT NULL,
-  `modified` datetime DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Despejando dados para a tabela `carros`
---
-
-INSERT INTO `carros` (`id`, `modelo`, `placa`, `renavam`, `ano`, `cor`, `combustivel`, `vagas`, `created`, `modified`) VALUES
-(3, 'Cronos', 'LRP 0010', '10203040', '2023', 'Prata', 'FLEX', 4, '0000-00-00 00:00:00', NULL),
-(4, 'Onix Sedan', 'HZN 0011', '10203040', '2022', 'Prata', 'FLEX', 4, '0000-00-00 00:00:00', NULL),
-(5, 'Virtuss', 'HXN 0012', '10203040', '2021', 'Branco', 'Gasolina', 4, '0000-00-00 00:00:00', NULL);
+INSERT INTO `acompanhantes` (`id`, `nome`, `rg`, `cpf`, `endereco`, `numero`, `bairro`, `cidade`, `cep`, `embarque`, `referencia`, `id_situacao`, `celular`, `created`, `modified`) VALUES
+(1, 'Jones Silva Frauches', '22334455667', '', '', '', '', '', '', 'Rodoviaria10', 'Padaria', 1, '', '2024-05-04 10:57:31', '2024-05-04 10:57:39'),
+(2, 'Jones', '', '', '', '', '', '', '', 'Rodoviaria', 'Padaria Pop Pão', 1, '', '2024-05-04 11:03:23', '2024-05-04 11:03:23'),
+(3, 'Jones Silva Frauches', '', '', '', '', '', '', '', 'Rodoviaria Progressoa', 'Padaria Pop Pão', 2, '', '2024-05-04 12:54:32', '2024-05-04 12:54:45');
 
 -- --------------------------------------------------------
 
@@ -186,21 +156,26 @@ CREATE TABLE IF NOT EXISTS `pacientes` (
   `bairro` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `cidade` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `cep` varchar(8) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `embarque` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `referencia` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `id_situacao` int NOT NULL,
   `id_unidade_usf` int NOT NULL,
   `created` datetime NOT NULL,
+  `modified` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `id_situacao` (`id_situacao`),
   KEY `id_unidade_usf` (`id_unidade_usf`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Despejando dados para a tabela `pacientes`
 --
 
-INSERT INTO `pacientes` (`id`, `nome`, `rg`, `cpf`, `cns`, `celular`, `endereco`, `numero`, `bairro`, `cidade`, `cep`, `id_situacao`, `id_unidade_usf`, `created`) VALUES
-(1, 'Ana Maria Almeida', '117914666', '12345678910', '994257171030001', '123456789', 'Rua Olindina Ferreira da Cunha Silva', '153', 'Centro', 'Nova Friburgo', '28605-03', 1, 15, '0000-00-00 00:00:00'),
-(2, 'Ledilson Menezes', '123456', '1234567', '994257171030001', '123456789', 'Oscar', '12', 'Centro', 'Pirape', '12345678', 1, 15, '0000-00-00 00:00:00');
+INSERT INTO `pacientes` (`id`, `nome`, `rg`, `cpf`, `cns`, `celular`, `endereco`, `numero`, `bairro`, `cidade`, `cep`, `embarque`, `referencia`, `id_situacao`, `id_unidade_usf`, `created`, `modified`) VALUES
+(1, 'Ana Maria Almeida', '117914666', '12345678910', '994257171030001', '123456789', 'Rua Olindina Ferreira da Cunha Silva', '153', 'Centro', 'Nova Friburgo', '28605-03', '', NULL, 1, 15, '0000-00-00 00:00:00', NULL),
+(2, 'Ledilson Menezes', '123456', '1234567', '994257171030001', '123456789', 'Oscar', '12', 'Centro', 'Pirape', '12345678', '', NULL, 1, 15, '0000-00-00 00:00:00', NULL),
+(3, 'Jones Silva Frauches', '', '', '', '', '', '', '', '', '', '', NULL, 1, 15, '0000-00-00 00:00:00', NULL),
+(4, 'Jones Silva Frauches', '', '', '', '', '', '', '', '', '', 'Rodoviaria', 'Padaria Pop Pão', 1, 5, '2024-05-04 13:20:05', '2024-05-04 13:30:55');
 
 -- --------------------------------------------------------
 
@@ -254,6 +229,12 @@ INSERT INTO `unidades` (`id`, `nome_usf`, `created`, `modified`) VALUES
 --
 -- Restrições para tabelas despejadas
 --
+
+--
+-- Restrições para tabelas `acompanhantes`
+--
+ALTER TABLE `acompanhantes`
+  ADD CONSTRAINT `acompanhantes_ibfk_1` FOREIGN KEY (`id_situacao`) REFERENCES `situacoes` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Restrições para tabelas `pacientes`

@@ -1,6 +1,6 @@
 <?php
 // Incluir o arquivo PacienteListarController.php para acessar a classe listaDeUnidade
-require_once("../../../controllers/Acompanhate/AcompanhanteListarController.php");
+require_once("../../../controllers/Acompanhante/AcompanhanteListarController.php");
 
 // Criar uma instância da classe listaDeUnidade para acessar os métodos
 $controller = new AcompanhanteListarController();
@@ -32,30 +32,47 @@ if ($rows)
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-4">
+                        <!--Verifica se $row['created'] está definido e não é nulo-->
+                        <strong>Data do cadrastro:</strong> <?php if (isset($row ['created']) && $row['created'] !== null) {
+                            // Converte a data para o formato brasileiro
+                            $dataFormatadaCadastro = date('d/m/y H:i', strtotime($row['created']));
+                            // Exibe a data formatada
+                            echo $dataFormatadaCadastro;
+                        } else {
+                            echo "Data não disponível";
+                        } ?> </p>
+                        <!--Verifica se $row['modified'] está definido e não é nulo-->
+                        <p><strong>Data de alteração:</strong> <?php if (isset($row['modified']) && $row['modified'] !== null) {
+
+                                // Converte a data para o formato brasileiro
+                                $dataFormatada = date('d/m/y H:i', strtotime($row['modified']));
+
+                                // Exibe a data formatada
+                                echo $dataFormatada;
+                            } else {
+                                echo "Data não disponível";
+                            } ?></p>
                         <p><strong>Nome:</strong> <?php echo $row['nome']; ?></p>
                         <p><strong>RG:</strong> <?php echo $row['rg']; ?></p>
                         <p><strong>CPF:</strong> <?php echo $row['cpf']; ?></p>
                     </div>
                     <div class="col-md-4">
+
                         <p><strong>Celular:</strong> <?php echo $row['celular']; ?></p>
                         <p><strong>Endereço:</strong> <?php echo $row['endereco']; ?></p>
                         <p><strong>Número:</strong> <?php echo $row['numero']; ?></p>
+                        <p><strong>Embarque: </strong><?php echo $row['embarque']; ?></p>
+                        <p><strong>Referência: </strong><?php echo $row['referencia']; ?></p>
                     </div>
                     <div class="col-md-4">
+                        <p><strong>Situação:</strong> <?php echo $row['nome_situacao']; ?></p>
                         <p><strong>Bairro:</strong> <?php echo $row['bairro']; ?></p>
                         <p><strong>Cidade:</strong> <?php echo $row['cidade']; ?></p>
                         <p><strong>Cep:</strong> <?php echo $row['cep']; ?></p>
                     </div>
-                    <div class="col-md-4">
-                        <p><strong>Ponto de embarque:</strong></p>
-                    </div>
-                    <div class="col-md-4">
-                        <p><strong>Referência:</strong></p>
-                    </div>
                 </div>
             </div>
         </div>
-
         <br>
         <div class="col-md-3">
             <div class="col-md-3 text-right">
@@ -63,7 +80,7 @@ if ($rows)
                     <a href="editarAcompanhante.php?id=<?php echo $row['id']; ?>" class="btn btn-primary"
                        style="margin-left: 5px; margin-right: 5px;">Editar</a>
                     <a class="btn btn-danger"
-                       href="../../../controllers/Acompanhate/AcompanhanteDeletarController.php?id=<?php echo $row['id']; ?>">Excluir</a>
+                       href="../../../controllers/Acompanhante/AcompanhanteDeletarController.php?id=<?php echo $row['id']; ?>">Excluir</a>
                 </div>
             </div>
         </div>

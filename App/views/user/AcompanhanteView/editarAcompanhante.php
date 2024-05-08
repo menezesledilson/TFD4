@@ -1,3 +1,20 @@
+<?php
+require_once("../../../controllers/Acompanhante/AcompanhanteEditarController.php");
+
+// Atualizar a lista de situações
+require_once("../../../controllers/Situacao/SituacaoListarController.php");
+$controllerSituacao = new listarSituacao();
+$rowSituacao = $controllerSituacao->listarTodos();
+
+// Armazenar o HTML das opções de situação
+$optionsSituacaoHtml = "";
+foreach ($rowSituacao as $situacao) {
+    $selected = ($editaAcompanhante->getIdSituacao() == $situacao['id']) ? 'selected' : '';
+    $optionsSituacaoHtml .= '<option value="' . $situacao['id'] . '" ' . $selected . '>' . $situacao['nome_situacao'] . '</option>';
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,7 +27,7 @@
     <title>Atualizar Acompanhante</title>
 </head>
 <body>
-<?php require_once("../../../controllers/Acompanhate/AcompanhanteEditarController.php"); ?>
+
 <div class="container">
     <header class="d-flex justify-content-between- my-4">
         <div class="ms-auto">
@@ -38,6 +55,13 @@
                                value="<?php echo !empty($editaAcompanhante->getCpf()) ? $editaAcompanhante->getCpf() : ''; ?>">
                     </div>
                     <div class="col-md-3">
+                        <label>Situação:</label>
+                        <select class="form-control" name="id_situacao">
+                            <option value="">Selecione</option>
+                            <?php echo $optionsSituacaoHtml ?>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
                         <label>Celular:</label>
                         <input type="text" class="form-control form-control-sm" name="celular"
                                value="<?php echo !empty($editaAcompanhante->getCelular()) ? $editaAcompanhante->getCelular() : ''; ?>">
@@ -50,40 +74,47 @@
                     <div class="col-md-3">
                         <label>Número:</label>
                         <input type="text" class="form-control form-control-sm" name="numero"
-                               value="<?php echo !empty($editaAcompanhante->getNumero()) ? $editaAcompanhante->getNumero(): ''; ?>">
+                               value="<?php echo !empty($editaAcompanhante->getNumero()) ? $editaAcompanhante->getNumero() : ''; ?>">
                     </div>
                     <div class="col-md-3">
                         <label>Bairro:</label>
                         <input type="text" class="form-control form-control-sm" name="bairro"
-                               value="<?php echo !empty($editaAcompanhante->getBairro()) ? $editaAcompanhante->getBairro(): ''; ?>">
+                               value="<?php echo !empty($editaAcompanhante->getBairro()) ? $editaAcompanhante->getBairro() : ''; ?>">
                     </div>
                     <div class="col-md-3">
                         <label>Cidade:</label>
                         <input type="text" class="form-control form-control-sm" name="cidade"
-                               value="<?php echo !empty($editaAcompanhante->getCidade()) ? $editaAcompanhante->getCidade(): ''; ?>">
+                               value="<?php echo !empty($editaAcompanhante->getCidade()) ? $editaAcompanhante->getCidade() : ''; ?>">
                     </div>
                     <div class="col-md-3">
                         <label>CEP:</label>
                         <input type="text" class="form-control form-control-sm" name="cep"
-                               value="<?php echo !empty($editaAcompanhante->getCep()) ? $editaAcompanhante->getCep(): ''; ?>">
+                               value="<?php echo !empty($editaAcompanhante->getCep()) ? $editaAcompanhante->getCep() : ''; ?>">
                     </div>
                     <div class="col-md-3">
-                        <label>Ponto de embarque:</label>
-                        <input type="text" class="form-control form-control-sm" name=" "
-                               value="">
+                        <label>Embarque:</label>
+                        <input type="text" class="form-control form-control-sm" name="embarque"
+                               value="<?php echo !empty($editaAcompanhante->getEmbarque()) ? $editaAcompanhante->getEmbarque() : ''; ?>">
                     </div>
                     <div class="col-md-3">
                         <label>Referência:</label>
-                        <input type="text" class="form-control form-control-sm" name=" "
-                               value="">
+                        <input type="text" class="form-control form-control-sm" name="referencia"
+                               value="<?php echo !empty($editaAcompanhante->getReferencia()) ? $editaAcompanhante->getReferencia() : ''; ?>">
                     </div>
+
                 </div>
             </div>
-            </div>
-            <div class="mt-3">
-                <input type="hidden" name="id" value="<?php echo !empty($editaAcompanhante->getId()) ? $editaAcompanhante->getId() : ''; ?>">
-                <button type="submit" class="btn btn-primary" id="editarAcompanhante" name="submit" value="editarAcompanhante">Editar</button>
-            </div>
+        </div>
+        <div class="mt-3">
+            <!-- Adicione o campo de ID -->
+            <input type="hidden" name="id"
+                   value="<?php echo !empty($editaAcompanhante->getId()) ? $editaAcompanhante->getId() : ''; ?>">
+            <!-- Adicione o botão de editar -->
+            <button type="submit" class="btn btn-primary" id="$editaAcompanhante" name="submit"
+                    value="$editaAcompanhante">
+                Confirma
+            </button>
+        </div>
     </form>
 </div>
 </body>

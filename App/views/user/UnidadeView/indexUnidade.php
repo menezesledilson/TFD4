@@ -49,7 +49,7 @@ $row = $controller->listarTodos();
                    href="../../../controllers/Unidade/UnidadeDeletarController.php?id=<?php echo $value['id']; ?>">Excluir</a>
             </div>
         </div>
-        <br> <!-- Adicione uma quebra de linha para separar os botões do próximo formulário -->
+        <br>
         <br>
     <?php endforeach; ?>
 </div>

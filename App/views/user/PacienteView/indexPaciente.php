@@ -32,19 +32,41 @@ if ($rows)
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-4">
-                        <p><strong>Data do cadastro: </strong>
+                        <!--Verifica se $row['created'] está definido e não é nulo-->
+                        <strong>Data do
+                            cadrastro:</strong> <?php if (isset($row ['created']) && $row['created'] !== null) {
+                            // Converte a data para o formato brasileiro
+                            $dataFormatadaCadastro = date('d/m/y H:i', strtotime($row['created']));
+                            // Exibe a data formatada
+                            echo $dataFormatadaCadastro;
+                        } else {
+                            echo "Data não disponível";
+                        } ?> </p>
+                        <!--Verifica se $row['modified'] está definido e não é nulo-->
+                        <p><strong>Data de
+                                alteração:</strong> <?php if (isset($row['modified']) && $row['modified'] !== null) {
+
+                                // Converte a data para o formato brasileiro
+                                $dataFormatada = date('d/m/y H:i', strtotime($row['modified']));
+
+                                // Exibe a data formatada
+                                echo $dataFormatada;
+                            } else {
+                                echo "Data não disponível";
+                            } ?></p>
                         <p><strong>Nome:</strong> <?php echo $row['nome']; ?></p>
-                        <p><strong>CNS:</strong> <?php echo $row['cns']; ?></p>
+                        <p><strong>Situação:</strong> <?php echo $row['nome_situacao']; ?></p>
                         <p><strong>Celular:</strong> <?php echo $row['celular']; ?></p>
                     </div>
                     <div class="col-md-4">
-                        <p><strong>Data da alteração:</strong>
+                        <p><strong>CNS:</strong> <?php echo $row['cns']; ?></p>
                         <p><strong>CPF:</strong> <?php echo $row['cpf']; ?></p>
                         <p><strong>RG:</strong> <?php echo $row['rg']; ?></p>
+                        <p><strong>USF:</strong> <?php echo $row['nome_usf']; ?></p>
                     </div>
                     <div class="col-md-4">
-                        <p><strong>USF:</strong> <?php echo $row['nome_usf']; ?></p>
-                        <p><strong>Situação:</strong> <?php echo $row['nome_situacao']; ?></p>
+                        <p><strong>Embarque:</strong> <?php echo $row['embarque']; ?></p>
+                        <p><strong>Referência:</strong> <?php echo $row['referencia']; ?></p>
                     </div>
                     <div class="col-md-3">
                         <div style="text-align: center; margin-bottom: 15px;">

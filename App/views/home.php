@@ -52,7 +52,7 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         <a class="dropdown-item" href="user/CarroView/indexCarro.php">Carros</a>
-
+                        <a class="dropdown-item" href="user/SeguradoraView/indexSeguradora.php">Seguradora</a>
                     </div>
                 </li>
                 <li class="nav-item dropdown">

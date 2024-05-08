@@ -14,26 +14,29 @@ class AcompanhanteDAO
     public function getAcompanhante()
     {
         try {
-            $stmt = $this->conexao->getConexao()->prepare("SELECT * FROM acompanhantes ORDER BY id DESC");
+            $stmt = $this->conexao->getConexao()->prepare("SELECT a.*, s.nome_situacao 
+                                                           FROM acompanhantes a
+                                                           INNER JOIN situacoes s ON a.id_situacao = s.id
+                                                           ORDER BY a.id DESC");
+            if (!$stmt) {
+                throw new Exception("Erro ao preparar a consulta: " . $this->conexao->getConexao()->error);
+            }
             $stmt->execute();
             $result = $stmt->get_result();
-            $acompanhantes = [];
-            while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
-                $acompanhantes[] = $row;
-            }
+            $acompanhantes = $result->fetch_all(MYSQLI_ASSOC);
             return $acompanhantes;
         } catch (Exception $e) {
-            echo "Erro ao listar acompanhantes: " . $e->getMessage();
+            echo "Erro ao listar pacientes: " . $e->getMessage();
             return [];
         }
     }
 
     // Cadastrar acompanhante
-    public function postAcompanhante($nome, $rg, $cpf, $telefone, $endereco, $numero, $bairro, $cidade, $cep)
+    public function postAcompanhante($nome, $rg, $cpf, $telefone, $endereco, $numero, $bairro, $cidade, $cep,$embarque,$referencia, $id_situacao, $created, $modified)
     {
         try {
-            $stmt = $this->conexao->getConexao()->prepare("INSERT INTO acompanhantes (`nome`, `rg`, `cpf`, `celular`, `endereco`, `numero`, `bairro`, `cidade`, `cep`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
-            $stmt->bind_param("sssssssss", $nome, $rg, $cpf, $telefone, $endereco, $numero, $bairro, $cidade, $cep);
+            $stmt = $this->conexao->getConexao()->prepare("INSERT INTO acompanhantes (`nome`, `rg`, `cpf`, `celular`, `endereco`, `numero`, `bairro`, `cidade`, `cep`,`embarque`,`referencia`, `id_situacao`,`created`,`modified`) VALUES (?,?,?,?,?, ?, ?, ?, ?, ?, ?, ?, ?,?)");
+            $stmt->bind_param("ssssssssssssss", $nome, $rg, $cpf, $telefone, $endereco, $numero, $bairro, $cidade, $cep,$embarque,$referencia, $id_situacao, $created, $modified);
             if ($stmt->execute()) {
                 return true;
             } else {
@@ -49,23 +52,39 @@ class AcompanhanteDAO
     public function localizarAcompanhante($id)
     {
         try {
-            $stmt = $this->conexao->getConexao()->prepare("SELECT * FROM acompanhantes WHERE id=?");
+            $stmt = $this->conexao->getConexao()->prepare("SELECT a.*, s.nome_situacao
+                                                           FROM acompanhantes a
+                                                           INNER JOIN situacoes s ON a.id_situacao = s.id
+                                                           WHERE a.id = ?");
+            if (!$stmt) {
+                throw new Exception("Erro ao preparar a consulta: " . $this->conexao->getConexao()->error);
+            }
             $stmt->bind_param("i", $id);
             $stmt->execute();
             $result = $stmt->get_result();
-            return $result->fetch_array(MYSQLI_ASSOC);
+            if ($result && $result->num_rows > 0) {
+                return $result->fetch_assoc();
+            } else {
+                return null;
+            }
         } catch (Exception $e) {
-            echo "Erro ao localizar acompanhante: " . $e->getMessage();
+            echo "Erro ao buscar paciente por ID: " . $e->getMessage();
             return null;
         }
     }
 
     // Atualizar acompanhante
-    public function putAcompanhante($nome, $rg, $cpf, $celular, $endereco, $numero, $bairro, $cidade, $cep, $id)
+    public function putAcompanhante($nome, $rg, $cpf, $celular, $endereco, $numero, $bairro, $cidade, $cep,$embarque,$referencia, $id_situacao, $modified, $id)
     {
         try {
-            $stmt = $this->conexao->getConexao()->prepare("UPDATE acompanhantes SET nome=?, rg=?, cpf=?, celular=?, endereco=?,numero=?, bairro=?, cidade =?, cep=?  WHERE id=?");
-            $stmt->bind_param("sssssssssi", $nome, $rg, $cpf, $celular, $endereco, $numero, $bairro, $cidade, $cep, $id);
+            $stmt = $this->conexao->getConexao()->prepare("UPDATE acompanhantes AS a 
+                                                       INNER JOIN situacoes AS s ON a.id_situacao = s.id 
+                                                       SET a.nome=?, a.rg=?, a.cpf=?, a.celular=?, a.endereco=?, a.numero=?, a.bairro=?, a.cidade=?, a.cep=?,a.embarque=?,a.referencia=?, a.id_situacao=?, a.modified=? 
+                                                       WHERE a.id=?");
+            if (!$stmt) {
+                throw new Exception("Erro ao preparar a consulta: " . $this->conexao->getConexao()->error);
+            }
+            $stmt->bind_param("sssssssssssssi", $nome, $rg, $cpf, $celular, $endereco, $numero, $bairro, $cidade, $cep,$embarque,$referencia, $id_situacao, $modified, $id);
             if ($stmt->execute()) {
                 return true;
             } else {
@@ -76,6 +95,7 @@ class AcompanhanteDAO
             return false;
         }
     }
+
 
     // Deletar acompanhante
     public function deleteAcompanhante($id)

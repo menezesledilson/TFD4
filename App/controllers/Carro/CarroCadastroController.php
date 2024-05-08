@@ -1,5 +1,5 @@
 <?php
-require_once("../../Model/CarroModel.php");
+require_once("../../Models/CarroModel.php");
 
 class cadastrarCarro
 {

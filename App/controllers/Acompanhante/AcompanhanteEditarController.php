@@ -15,6 +15,10 @@ class editarAcompanhante
     private $bairro;
     private $cidade;
     private $cep;
+    private $embarque;
+    private $referencia;
+
+    private $id_situacao;
 
     // Construtor da classe
     public function __construct($id)
@@ -38,19 +42,27 @@ class editarAcompanhante
             $this->bairro = $row['bairro'];
             $this->cidade = $row['cidade'];
             $this->cep = $row['cep'];
+            $this->embarque = $row['embarque'];
+            $this->referencia = $row['referencia'];
+            $this->id_situacao = $row['id_situacao'];
         }
     }
 
     // Método para editar o formulário
-    public function editarFormulario($nome, $rg, $cpf, $celular, $endereco, $numero, $bairro, $cidade, $cep, $id)
+    public function editarFormulario($nome, $rg, $cpf, $celular, $endereco, $numero, $bairro, $cidade, $cep,$emabarque,$referencia,$id_situacao, $id)
     {
-        // Chama a função da classe de modelo para atualizar os dados do paciente no banco de dados
-        if ($this->editar->atualizarAcompanhante($nome, $rg, $cpf, $celular, $endereco, $numero, $bairro, $cidade, $cep,  $id) == TRUE) {
-            // Redirecionamento após a atualização bem-sucedida
-            header("Location: ./indexAcompanhante.php");
-            exit(); // Certifique-se de que nenhum código adicional seja executado após o redirecionamento
-        } else {
-            echo "<script>alert('Erro ao gravar registro!');history.back()</script>";
+        if (!empty($id_situacao)) {
+            // Chama a função da classe de modelo para atualizar os dados do paciente no banco de dados
+            if ($this->editar->atualizarAcompanhante($nome, $rg, $cpf, $celular, $endereco, $numero, $bairro, $cidade, $cep,$emabarque,$referencia, $id_situacao, $id) == TRUE) {
+                // Redirecionamento após a atualização bem-sucedida
+                header("Location: ./indexAcompanhante.php");
+                exit(); // Certifique-se de que nenhum código adicional seja executado após o redirecionamento
+            } else {
+                echo "<script>alert('Erro ao gravar registro!');history.back()</script>";
+            }
+        }else {
+            // Se o ID da unidade de saúde ou da situação estiver vazio, exiba uma mensagem de erro
+            echo "<script>alert('Por favor, selecione a situação!');history.back()</script>";
         }
     }
 
@@ -104,12 +116,24 @@ class editarAcompanhante
     {
         return $this->cep;
     }
+    public function getEmbarque()
+    {
+        return $this->embarque;
+    }
+    public function getReferencia()
+    {
+        return $this->referencia;
+    }
+    public function getIdSituacao()
+    {
+        return $this->id_situacao;
+    }
 }
 
 // Processamento do formulário quando enviado
 $id = filter_input(INPUT_GET,'id');
-     $editaAcompanhante = new EditarAcompanhante($id);
+     $editaAcompanhante = new editarAcompanhante($id);
      if(isset($_POST['submit'])){
-    $editaAcompanhante->editarFormulario($_POST['nome'], $_POST['rg'], $_POST['cpf'], $_POST['celular'], $_POST['endereco'], $_POST['numero'], $_POST['bairro'], $_POST['cidade'], $_POST['cep'], $_POST['id']);
+    $editaAcompanhante->editarFormulario($_POST['nome'], $_POST['rg'], $_POST['cpf'], $_POST['celular'], $_POST['endereco'], $_POST['numero'], $_POST['bairro'], $_POST['cidade'], $_POST['cep'],$_POST['embarque'],$_POST['referencia'], $_POST['id_situacao'], $_POST['id']);
 }
 ?>

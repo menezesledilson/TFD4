@@ -69,7 +69,6 @@ foreach ($rowSituacao as $situacao) {
                         <label>CNS:</label>
                         <input type="text" class="form-control form-control-sm" name="cns"
                                value="<?php echo isset($editaPaciente) ? $editaPaciente->getCns() : ''; ?>">
-
                     </div>
                 </div>
                 <!--Segunda coluna-->
@@ -83,17 +82,16 @@ foreach ($rowSituacao as $situacao) {
                         <label>Endereço:</label>
                         <input type="text" class="form-control form-control-sm" name="endereco"
                                value="<?php echo !empty($editaPaciente->getEndereco()) ? $editaPaciente->getEndereco() : ''; ?>">
-
                     </div>
                     <div class="col-md-3">
                         <label>Número:</label>
                         <input type="text" class="form-control form-control-sm" name="numero"
-                               value="<?php echo !empty($editaPaciente->getNumero()) ? $editaPaciente->getNumero() : ''; ?>">
+                        value="<?php echo !empty($editaPaciente->getNumero()) ? $editaPaciente->getNumero() : ''; ?>">
                     </div>
                     <div class="col-md-3">
                         <label>Bairro:</label>
                         <input type="text" class="form-control form-control-sm" name="bairro"
-                               value="<?php echo !empty($editaPaciente->getBairro()) ? $editaPaciente->getBairro() : ''; ?>">
+                        value="<?php echo !empty($editaPaciente->getBairro()) ? $editaPaciente->getBairro() : ''; ?>">
                     </div>
                 </div>
                 <!--Terceira coluna-->
@@ -124,7 +122,19 @@ foreach ($rowSituacao as $situacao) {
                         </select>
                     </div>
                 </div>
-
+                <!--Quarto coluna-->
+                <div class="row mb-3">
+                    <div class="col-md-3">
+                        <label>Embarque:</label>
+                        <input type="text" class="form-control form-control-sm" name="embarque"
+                               value="<?php echo !empty($editaPaciente->getEmbarque()) ? $editaPaciente->getEmbarque() : ''; ?>">
+                    </div>
+                    <div class="col-md-3">
+                        <label>Referência:</label>
+                        <input type="text" class="form-control form-control-sm" name="referencia"
+                               value="<?php echo !empty($editaPaciente->getReferencia()) ? $editaPaciente->getReferencia() : ''; ?>">
+                    </div>
+                </div>
             </div>
         </div>
         <div class="row mt-3">
