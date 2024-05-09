@@ -61,11 +61,11 @@ echo 'default:
                 <div class="row mb-3">
                     <div class="col-md-3">
                         <label>Marca:</label>
-                        <input type="text" class="form-control form-control-sm" name=" "
-                               value=" ">
+                        <input type="text" class="form-control form-control-sm" name="marca"
+                               value="<?php echo !empty($editarCarro->getMarca()) ? $editarCarro->getMarca(): ''; ?>">
                     </div>
                     <div class="col-md-3">
-                        <label>Marca:</label>
+                        <label>Modelo:</label>
                         <input type="text" class="form-control form-control-sm" name="modelo"
                                value="<?php echo !empty($editarCarro->getModelo()) ? $editarCarro->getModelo() : ''; ?>">
                     </div>
@@ -91,13 +91,13 @@ echo 'default:
                     </div>
                     <div class="col-md-3">
                         <label>Tipo Carro:</label>
-                        <input type="text" class="form-control form-control-sm" name=" "
-                               value=" ">
+                        <input type="text" class="form-control form-control-sm" name="tipo_carro"
+                               value="<?php echo !empty($editarCarro->getTipoCarro()) ? $editarCarro->getTipoCarro() : ''; ?>">
                     </div>
                     <div class="col-md-3">
                         <label>Vencimento:</label>
                         <input type="date" class="form-control form-control-sm" name="data_vencimento"
-                               value="data_vencimento ">
+                               value="<?php echo !empty($editarCarro->getDataVencimento()) ? $editarCarro->getDataVencimento() : ''; ?>">
                     </div>
                     <div class="col-md-3">
                         <label>Cor:</label>

@@ -67,8 +67,11 @@ class CarroDAO
     public function putCarro($modelo, $placa, $renavam, $ano, $cor, $combustivel, $vagas, $tipo_carro, $marca, $data_vencimento, $id_seguradora, $modified, $id)
     {
         try {
-            $stmt = $this->conexao->getConexao()->prepare("UPDATE carros SET modelo=?, placa=?, renavam=?, ano=?, cor=?, combustivel=?, vagas=?, tipo_carro=?, marca=?, data_vencimento=?, id_seguradora=?, modified=? WHERE id=?");
-            $stmt->bind_param("ssssssssssisi", $modelo, $placa, $renavam, $ano, $cor, $combustivel, $vagas, $tipo_carro, $marca, $data_vencimento, $id_seguradora, $modified, $id);
+            $stmt = $this->conexao->getConexao()->prepare("UPDATE carros AS c
+                                                           INNER JOIN seguradoras AS s ON c.id_seguradora = s.id 
+                                                           SET c.modelo=?, c.placa=?, c.renavam=?, c.ano=?, c.cor=?, c.combustivel=?, c.vagas=?, c.tipo_carro=?, c.marca=?, c.data_vencimento=?, c.id_seguradora=?, c.modified=? WHERE c.id=?");
+            $stmt->bind_param("ssssssssssssi", $modelo, $placa, $renavam, $ano, $cor, $combustivel, $vagas, $tipo_carro, $marca, $data_vencimento, $id_seguradora, $modified, $id);
+
             if ($stmt->execute()) {
                 return true;
             } else {

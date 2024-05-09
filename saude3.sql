@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Tempo de geração: 04/05/2024 às 16:31
--- Versão do servidor: 8.3.0
--- Versão do PHP: 8.2.18
+-- Tempo de geração: 09/05/2024 às 00:45
+-- Versão do servidor: 8.2.0
+-- Versão do PHP: 8.2.13
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -38,24 +38,50 @@ CREATE TABLE IF NOT EXISTS `acompanhantes` (
   `bairro` varchar(60) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `cidade` varchar(60) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `cep` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `embarque` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `referencia` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `embarque` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `referencia` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `id_situacao` int NOT NULL,
   `celular` varchar(15) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `created` datetime NOT NULL,
   `modified` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `id_situacao` (`id_situacao`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
 
 --
--- Despejando dados para a tabela `acompanhantes`
+-- Estrutura para tabela `carros`
 --
 
-INSERT INTO `acompanhantes` (`id`, `nome`, `rg`, `cpf`, `endereco`, `numero`, `bairro`, `cidade`, `cep`, `embarque`, `referencia`, `id_situacao`, `celular`, `created`, `modified`) VALUES
-(1, 'Jones Silva Frauches', '22334455667', '', '', '', '', '', '', 'Rodoviaria10', 'Padaria', 1, '', '2024-05-04 10:57:31', '2024-05-04 10:57:39'),
-(2, 'Jones', '', '', '', '', '', '', '', 'Rodoviaria', 'Padaria Pop Pão', 1, '', '2024-05-04 11:03:23', '2024-05-04 11:03:23'),
-(3, 'Jones Silva Frauches', '', '', '', '', '', '', '', 'Rodoviaria Progressoa', 'Padaria Pop Pão', 2, '', '2024-05-04 12:54:32', '2024-05-04 12:54:45');
+DROP TABLE IF EXISTS `carros`;
+CREATE TABLE IF NOT EXISTS `carros` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `modelo` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `placa` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `renavam` varchar(15) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `ano` year NOT NULL,
+  `cor` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `combustivel` varchar(15) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `vagas` int NOT NULL,
+  `tipo_carro` varchar(80) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `marca` varchar(80) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `data_vencimento` date DEFAULT NULL,
+  `id_seguradora` int NOT NULL,
+  `created` datetime NOT NULL,
+  `modified` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `id_seguradora` (`id_seguradora`)
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Despejando dados para a tabela `carros`
+--
+
+INSERT INTO `carros` (`id`, `modelo`, `placa`, `renavam`, `ano`, `cor`, `combustivel`, `vagas`, `tipo_carro`, `marca`, `data_vencimento`, `id_seguradora`, `created`, `modified`) VALUES
+(21, 'virtus', 'KNY-4328', '0001112234', '2011', 'Prata', 'Flex', 4, 'Hacth', 'Fiat', '0000-00-00', 6, '0000-00-00 00:00:00', '2024-05-08 21:41:18'),
+(22, 'Gol', 'KNY-4328', '0001112234', '2011', 'Preto', 'Flex', 4, 'Hacth', 'Volk', '2024-05-30', 4, '0000-00-00 00:00:00', '2024-05-08 21:41:04'),
+(23, 'Uno way', 'KNY-4328', '0001112234', '2003', 'Prata', 'Flex', 4, 'Hacth', 'Fiat', '2024-05-30', 6, '0000-00-00 00:00:00', NULL);
 
 -- --------------------------------------------------------
 
@@ -70,17 +96,30 @@ CREATE TABLE IF NOT EXISTS `diarias` (
   `created` datetime NOT NULL,
   `modified` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
 
 --
--- Despejando dados para a tabela `diarias`
+-- Estrutura para tabela `especialidades`
 --
 
-INSERT INTO `diarias` (`id`, `diaria`, `created`, `modified`) VALUES
-(1, 'Diaria de alimenta', '2016-08-09 16:32:21', '2016-08-09 16:32:41'),
-(6, 'Diaria de alimenta', '0000-00-00 00:00:00', NULL),
-(7, 'Diaria de alimenta', '0000-00-00 00:00:00', NULL),
-(9, 'Diaria de alimenta', '0000-00-00 00:00:00', NULL);
+DROP TABLE IF EXISTS `especialidades`;
+CREATE TABLE IF NOT EXISTS `especialidades` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `especialidade` varchar(80) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created` datetime NOT NULL,
+  `modified` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Despejando dados para a tabela `especialidades`
+--
+
+INSERT INTO `especialidades` (`id`, `especialidade`, `created`, `modified`) VALUES
+(1, 'Pediatria', '2016-08-09 15:36:42', NULL),
+(2, 'Cardiologia', '2016-08-09 15:36:51', NULL);
 
 -- --------------------------------------------------------
 
@@ -98,18 +137,12 @@ CREATE TABLE IF NOT EXISTS `hospitais` (
   `cep` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `cidade` varchar(220) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `telefone` varchar(13) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `id_especialidade` int NOT NULL,
   `created` datetime NOT NULL,
   `modified` datetime DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Despejando dados para a tabela `hospitais`
---
-
-INSERT INTO `hospitais` (`id`, `nome`, `endereco`, `numero`, `bairro`, `cep`, `cidade`, `telefone`, `created`, `modified`) VALUES
-(1, 'Hospital de Cantagalo', 'Praça Miguel Santos', 1, 'Centro', '28.500-000', '', '', '0000-00-00 00:00:00', NULL),
-(4, 'Hospital de Cordeiro', 'Rua Olindina Ferreira da Cunha Silva', 25, 'Baixada', '28605-030', 'Paran', '32123456789', '0000-00-00 00:00:00', NULL);
+  PRIMARY KEY (`id`),
+  KEY `id_especialidade` (`id_especialidade`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -125,17 +158,7 @@ CREATE TABLE IF NOT EXISTS `motoristas` (
   `created` datetime NOT NULL,
   `modified` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Despejando dados para a tabela `motoristas`
---
-
-INSERT INTO `motoristas` (`id`, `nome`, `telefone`, `created`, `modified`) VALUES
-(1, 'Schmoo', '22 98140-8025 ', '2016-08-02 16:55:00', NULL),
-(2, 'Jones', '22 98140-8025', '0000-00-00 00:00:00', NULL),
-(7, 'Jones', '32123456789', '0000-00-00 00:00:00', NULL),
-(9, 'Jones Silva', '32123456789', '0000-00-00 00:00:00', NULL);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -156,8 +179,8 @@ CREATE TABLE IF NOT EXISTS `pacientes` (
   `bairro` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `cidade` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `cep` varchar(8) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `embarque` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `referencia` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `embarque` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `referencia` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `id_situacao` int NOT NULL,
   `id_unidade_usf` int NOT NULL,
   `created` datetime NOT NULL,
@@ -165,17 +188,34 @@ CREATE TABLE IF NOT EXISTS `pacientes` (
   PRIMARY KEY (`id`),
   KEY `id_situacao` (`id_situacao`),
   KEY `id_unidade_usf` (`id_unidade_usf`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
 
 --
--- Despejando dados para a tabela `pacientes`
+-- Estrutura para tabela `seguradoras`
 --
 
-INSERT INTO `pacientes` (`id`, `nome`, `rg`, `cpf`, `cns`, `celular`, `endereco`, `numero`, `bairro`, `cidade`, `cep`, `embarque`, `referencia`, `id_situacao`, `id_unidade_usf`, `created`, `modified`) VALUES
-(1, 'Ana Maria Almeida', '117914666', '12345678910', '994257171030001', '123456789', 'Rua Olindina Ferreira da Cunha Silva', '153', 'Centro', 'Nova Friburgo', '28605-03', '', NULL, 1, 15, '0000-00-00 00:00:00', NULL),
-(2, 'Ledilson Menezes', '123456', '1234567', '994257171030001', '123456789', 'Oscar', '12', 'Centro', 'Pirape', '12345678', '', NULL, 1, 15, '0000-00-00 00:00:00', NULL),
-(3, 'Jones Silva Frauches', '', '', '', '', '', '', '', '', '', '', NULL, 1, 15, '0000-00-00 00:00:00', NULL),
-(4, 'Jones Silva Frauches', '', '', '', '', '', '', '', '', '', 'Rodoviaria', 'Padaria Pop Pão', 1, 5, '2024-05-04 13:20:05', '2024-05-04 13:30:55');
+DROP TABLE IF EXISTS `seguradoras`;
+CREATE TABLE IF NOT EXISTS `seguradoras` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `nome` varchar(150) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `telefone` int NOT NULL,
+  `created` datetime NOT NULL,
+  `modified` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Despejando dados para a tabela `seguradoras`
+--
+
+INSERT INTO `seguradoras` (`id`, `nome`, `telefone`, `created`, `modified`) VALUES
+(1, 'Porto Seguro Cia', 2147483647, '2024-05-02 15:23:24', NULL),
+(2, 'Gente Seguradora', 2147483647, '2024-05-02 15:23:24', NULL),
+(3, 'Porto Seguro', 2147483647, '0000-00-00 00:00:00', NULL),
+(4, 'Porto Seguro Azul', 2147483647, '0000-00-00 00:00:00', NULL),
+(6, 'Tokio ', 98389378, '0000-00-00 00:00:00', NULL);
 
 -- --------------------------------------------------------
 
@@ -226,6 +266,27 @@ INSERT INTO `unidades` (`id`, `nome_usf`, `created`, `modified`) VALUES
 (14, 'Unidade Unimed Brasil 2', '2024-04-30 13:59:56', NULL),
 (15, 'Unidade Unimed Filial Campinas2', '2024-04-30 14:00:30', NULL);
 
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `viagens`
+--
+
+DROP TABLE IF EXISTS `viagens`;
+CREATE TABLE IF NOT EXISTS `viagens` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `nome` varchar(150) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `id_carro` int NOT NULL,
+  `id_motorista` int NOT NULL,
+  `id_paciente` int NOT NULL,
+  `id_acompanhante` int NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `id_acompanhante` (`id_acompanhante`),
+  KEY `id_carro` (`id_carro`),
+  KEY `id_motorista` (`id_motorista`),
+  KEY `id_paciente` (`id_paciente`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
 --
 -- Restrições para tabelas despejadas
 --
@@ -237,11 +298,32 @@ ALTER TABLE `acompanhantes`
   ADD CONSTRAINT `acompanhantes_ibfk_1` FOREIGN KEY (`id_situacao`) REFERENCES `situacoes` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
+-- Restrições para tabelas `carros`
+--
+ALTER TABLE `carros`
+  ADD CONSTRAINT `carros_ibfk_1` FOREIGN KEY (`id_seguradora`) REFERENCES `seguradoras` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Restrições para tabelas `hospitais`
+--
+ALTER TABLE `hospitais`
+  ADD CONSTRAINT `hospitais_ibfk_1` FOREIGN KEY (`id_especialidade`) REFERENCES `especialidades` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
 -- Restrições para tabelas `pacientes`
 --
 ALTER TABLE `pacientes`
   ADD CONSTRAINT `pacientes_ibfk_1` FOREIGN KEY (`id_situacao`) REFERENCES `situacoes` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `pacientes_ibfk_2` FOREIGN KEY (`id_unidade_usf`) REFERENCES `unidades` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Restrições para tabelas `viagens`
+--
+ALTER TABLE `viagens`
+  ADD CONSTRAINT `viagens_ibfk_1` FOREIGN KEY (`id_acompanhante`) REFERENCES `acompanhantes` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `viagens_ibfk_2` FOREIGN KEY (`id_carro`) REFERENCES `carros` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `viagens_ibfk_3` FOREIGN KEY (`id_motorista`) REFERENCES `motoristas` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `viagens_ibfk_4` FOREIGN KEY (`id_paciente`) REFERENCES `pacientes` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

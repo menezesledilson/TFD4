@@ -187,11 +187,11 @@ class Carro extends Banco {
         return $this->carroDAO->getCarro();
     }
     //Atualizar a informação do veículo
-    public  function atualizaCarro($modelo,$placa,$renavam,$ano,$cor,$combustivel,$vagas,$id_seguradora,$tipo_carro,$marca,$data_vencimento,$id)
+    public  function atualizaCarro($modelo,$placa,$renavam,$ano,$cor,$combustivel,$vagas,$tipo_carro,$marca,$data_vencimento,$id_seguradora,$id)
     {
         // Formate a data e hora no formato MySQL padrão
         $dataHoraAtual = date('Y-m-d H:i:s');
-        return $this->carroDAO->putCarro($modelo,$placa,$renavam,$ano,$cor,$combustivel,$vagas,$id_seguradora,$tipo_carro,$marca,$data_vencimento,$dataHoraAtual,$id);
+        return $this->carroDAO->putCarro($modelo,$placa,$renavam,$ano,$cor,$combustivel,$vagas,$tipo_carro,$marca,$data_vencimento,$id_seguradora,$dataHoraAtual,$id);
     }
 
     //Método para deletar veiculo
