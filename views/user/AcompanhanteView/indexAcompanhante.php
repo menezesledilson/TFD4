@@ -52,7 +52,7 @@ if ($rows)
                             } else {
                                 echo "Data não disponível";
                             } ?></p>
-                        <p><strong>Nome:</strong> <?php echo $row['nome_hospital']; ?></p>
+                        <p><strong>Nome:</strong> <?php echo $row['nome']; ?></p>
                         <p><strong>RG:</strong> <?php echo $row['rg']; ?></p>
                         <p><strong>CPF:</strong> <?php echo $row['cpf']; ?></p>
                     </div>

@@ -74,15 +74,19 @@
                                 <a class="dropdown-item" href="user/DiariaView/indexDiaria.php">Diária</a>
                             </div>
                         </li>
+                          <li class="nav-item active">
+                            <a class="nav-link" href="user/viagemView/indexViagem.php">Viagem <span class="sr-only">(current)</span></a>
+                        </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Sair
                             </a>
+                            
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                 <a class="dropdown-item" href="#" onclick="logout()">Sair</a>
                             </div>
                         </li>
-
+                        
                     </ul>
                 </div>
             </div>
