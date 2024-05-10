@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Tempo de geração: 09/05/2024 às 00:45
+-- Tempo de geração: 10/05/2024 às 18:22
 -- Versão do servidor: 8.2.0
 -- Versão do PHP: 8.2.13
 
@@ -30,7 +30,7 @@ SET time_zone = "+00:00";
 DROP TABLE IF EXISTS `acompanhantes`;
 CREATE TABLE IF NOT EXISTS `acompanhantes` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `nome` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `nome_acompanhante` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `rg` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `cpf` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `endereco` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -46,7 +46,14 @@ CREATE TABLE IF NOT EXISTS `acompanhantes` (
   `modified` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `id_situacao` (`id_situacao`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Despejando dados para a tabela `acompanhantes`
+--
+
+INSERT INTO `acompanhantes` (`id`, `nome_acompanhante`, `rg`, `cpf`, `endereco`, `numero`, `bairro`, `cidade`, `cep`, `embarque`, `referencia`, `id_situacao`, `celular`, `created`, `modified`) VALUES
+(1, 'Nikola Tesla Frauches Filho', '12345678910', '25461146970', 'Oscar', '', 'Conjunto Uberaba', 'Belo Horizonte', '28605-030', 'Rodoviaria10', 'Padaria Pop Pão1', 1, '', '2024-05-10 10:21:44', '2024-05-10 10:21:44');
 
 -- --------------------------------------------------------
 
@@ -107,19 +114,19 @@ CREATE TABLE IF NOT EXISTS `diarias` (
 DROP TABLE IF EXISTS `especialidades`;
 CREATE TABLE IF NOT EXISTS `especialidades` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `especialidade` varchar(80) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `nome` varchar(80) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `created` datetime NOT NULL,
   `modified` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Despejando dados para a tabela `especialidades`
 --
 
-INSERT INTO `especialidades` (`id`, `especialidade`, `created`, `modified`) VALUES
-(1, 'Pediatria', '2016-08-09 15:36:42', NULL),
-(2, 'Cardiologia', '2016-08-09 15:36:51', NULL);
+INSERT INTO `especialidades` (`id`, `nome`, `created`, `modified`) VALUES
+(2, 'Cardiologia', '2016-08-09 15:36:51', NULL),
+(4, 'Pediatra', '2024-05-09 17:12:12', '2024-05-09 17:12:12');
 
 -- --------------------------------------------------------
 
@@ -130,7 +137,7 @@ INSERT INTO `especialidades` (`id`, `especialidade`, `created`, `modified`) VALU
 DROP TABLE IF EXISTS `hospitais`;
 CREATE TABLE IF NOT EXISTS `hospitais` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `nome` varchar(150) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `nome_hospital` varchar(150) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `endereco` varchar(150) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `numero` int NOT NULL,
   `bairro` varchar(60) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -142,7 +149,14 @@ CREATE TABLE IF NOT EXISTS `hospitais` (
   `modified` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `id_especialidade` (`id_especialidade`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Despejando dados para a tabela `hospitais`
+--
+
+INSERT INTO `hospitais` (`id`, `nome_hospital`, `endereco`, `numero`, `bairro`, `cep`, `cidade`, `telefone`, `id_especialidade`, `created`, `modified`) VALUES
+(1, 'Pio XII', 'Rua Olindina Ferreira da Cunha Silva', 153, 'Centro', '28605-030', 'Nova Friburgo', '22 2555-4192', 4, '0000-00-00 00:00:00', NULL);
 
 -- --------------------------------------------------------
 
@@ -153,12 +167,19 @@ CREATE TABLE IF NOT EXISTS `hospitais` (
 DROP TABLE IF EXISTS `motoristas`;
 CREATE TABLE IF NOT EXISTS `motoristas` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `nome` varchar(150) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `nome_motorista` varchar(150) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `telefone` varchar(15) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `created` datetime NOT NULL,
   `modified` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Despejando dados para a tabela `motoristas`
+--
+
+INSERT INTO `motoristas` (`id`, `nome_motorista`, `telefone`, `created`, `modified`) VALUES
+(1, 'Roberto Carlos Almeida', '22 2555-4192', '2024-05-10 08:19:18', '2024-05-10 10:25:00');
 
 -- --------------------------------------------------------
 
@@ -169,7 +190,7 @@ CREATE TABLE IF NOT EXISTS `motoristas` (
 DROP TABLE IF EXISTS `pacientes`;
 CREATE TABLE IF NOT EXISTS `pacientes` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `nome` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `nome_paciente` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `rg` varchar(11) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `cpf` varchar(11) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `cns` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -188,7 +209,14 @@ CREATE TABLE IF NOT EXISTS `pacientes` (
   PRIMARY KEY (`id`),
   KEY `id_situacao` (`id_situacao`),
   KEY `id_unidade_usf` (`id_unidade_usf`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Despejando dados para a tabela `pacientes`
+--
+
+INSERT INTO `pacientes` (`id`, `nome_paciente`, `rg`, `cpf`, `cns`, `celular`, `endereco`, `numero`, `bairro`, `cidade`, `cep`, `embarque`, `referencia`, `id_situacao`, `id_unidade_usf`, `created`, `modified`) VALUES
+(1, 'Ana Maria Almeida', '117914666', '12345678910', '994257171030001', '123456789', 'Oscar', '153', 'Centro', 'Nova Friburgo', '12345678', 'Rodoviaria Progressoa', 'Padaria', 1, 15, '2024-05-10 10:20:57', '2024-05-10 10:20:57');
 
 -- --------------------------------------------------------
 
@@ -275,17 +303,28 @@ INSERT INTO `unidades` (`id`, `nome_usf`, `created`, `modified`) VALUES
 DROP TABLE IF EXISTS `viagens`;
 CREATE TABLE IF NOT EXISTS `viagens` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `nome` varchar(150) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `local_viagem` varchar(80) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `destino` varchar(80) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `hora_saida` time NOT NULL,
+  `data_viagem` date NOT NULL,
   `id_carro` int NOT NULL,
   `id_motorista` int NOT NULL,
   `id_paciente` int NOT NULL,
   `id_acompanhante` int NOT NULL,
+  `created` datetime NOT NULL,
   PRIMARY KEY (`id`),
   KEY `id_acompanhante` (`id_acompanhante`),
   KEY `id_carro` (`id_carro`),
   KEY `id_motorista` (`id_motorista`),
   KEY `id_paciente` (`id_paciente`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Despejando dados para a tabela `viagens`
+--
+
+INSERT INTO `viagens` (`id`, `local_viagem`, `destino`, `hora_saida`, `data_viagem`, `id_carro`, `id_motorista`, `id_paciente`, `id_acompanhante`, `created`) VALUES
+(1, 'Rio de janeiro', ' Inst. cerebro 08:horas', '03:20:13', '2024-04-01', 22, 1, 1, 1, '2024-05-09 14:23:33');
 
 --
 -- Restrições para tabelas despejadas
