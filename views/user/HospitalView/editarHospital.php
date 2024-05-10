@@ -1,3 +1,20 @@
+<?php
+require_once("../../../controllers/Hospital/HospitalEditarController.php"); 
+
+// Atualizar a lista de situações
+require_once("../../../controllers/Especialidade/EspecialidadeListarController.php");
+$controllerEspecialidade = new listarEspecialidade();
+$rowEspecialidade = $controllerEspecialidade->listarTodos();
+
+// Armazenar o HTML das opções de situação
+$optionsEspecialidadeHtml = "";
+foreach ($rowEspecialidade as $especialiadade) {
+    $selected = ($editaHospital->getIdEspecialidade() == $especialiadade['id']) ? 'selected' : '';
+    $optionsEspecialidadeHtml .= '<option value="' . $especialiadade['id'] . '" ' . $selected . '>' . $especialiadade['nome'] . '</option>';
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,7 +27,7 @@
     <title>Atualizar Hospital</title>
 </head>
 <body>
-<?php require_once("../../../controllers/Hospital/HospitalEditarController.php"); ?>
+
 <div class="container">
     <header class="d-flex justify-content-between- my-4">
         <div class="ms-auto">
@@ -24,7 +41,7 @@
                 <div class="row mb-3">
                     <div class="col-md-3">
                         <label>Nome:</label>
-                        <input type="text" class="form-control form-control-sm" name="nome"
+                        <input type="text" class="form-control form-control-sm" name="nome_hospital"
                                value="<?php echo !empty($editaHospital->getNome()) ? $editaHospital->getNome() : ''; ?>">
                     </div>
                     <div class="col-md-3">
@@ -56,6 +73,13 @@
                         <label>Telefone:</label>
                         <input type="text" class="form-control form-control-sm" name="telefone"
                                value="<?php echo !empty($editaHospital->getTelefone()) ? $editaHospital->getTelefone() : ''; ?>">
+                    </div>
+                     <div class="col-md-3">
+                        <label>Situação:</label>
+                        <select class="form-control" name="id_especialidade">
+                            <option value="">Selecione</option>
+                            <?php echo $optionsEspecialidadeHtml ?>
+                        </select>
                     </div>
                 </div>
             </div>

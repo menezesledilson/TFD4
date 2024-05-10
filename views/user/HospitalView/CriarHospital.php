@@ -1,3 +1,14 @@
+<?php
+require_once("../../../controllers/Especialidade/EspecialidadeListarController.php");
+
+$controllerEspecialidade = new listarEspecialidade();
+$row_especialidade = $controllerEspecialidade->listarTodos();
+$optionsEspecialidade_html = ""; // Variável para armazenar o HTML das opções
+
+foreach ($row_especialidade as $especialiadade) {
+    $optionsEspecialidade_html .= '<option value="' . $especialiadade['id'] . '">' . $especialiadade['nome'] . '</option>';
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,7 +36,7 @@
                 <div class="row mb-3">
                     <div class="col-md-3">
                         <label>Nome:</label>
-                        <input class="form-control form-control-sm" type="text" id="nome" name="nome"
+                        <input class="form-control form-control-sm" type="text" id="nome_hospital" name="nome_hospital"
                                placeholder="Nome do Hospital">
                     </div>
                     <div class="col-md-3">

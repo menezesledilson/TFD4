@@ -10,6 +10,7 @@ class Hospital extends Banco
     private $cep;
     private $cidade;
     private $telefone;
+    private $idEspecialidade;
     private $created;
 
     public function getId()
@@ -91,6 +92,16 @@ class Hospital extends Banco
     {
         $this->cidade = $cidade;
     }
+    
+    public function getIdEspecialidade() {
+        return $this->idEspecialidade;
+    }
+
+    public function setIdEspecialidade($idEspecialidade): void {
+        $this->idEspecialidade = $idEspecialidade;
+    }
+
+    
 
     public function getCreated()
     {
@@ -112,9 +123,9 @@ class Hospital extends Banco
 
     //método para cadastrar o Hospital
 
-    public function cadastrarHospital($nome, $endereco, $numero, $bairro, $cep, $cidade, $telefone)
+    public function cadastrarHospital($nome, $endereco, $numero, $bairro, $cep, $cidade,$telefone,$idEspecialidade)
     {
-        return $this->hospitalDAO->postHospital($nome, $endereco, $numero, $bairro, $cep, $cidade, $telefone, date('Y-m-d H:i:s'));
+        return $this->hospitalDAO->postHospital($nome, $endereco, $numero, $bairro, $cep, $cidade, $telefone,$idEspecialidade);
     }
 
     //Método para listar o Hospital
@@ -124,9 +135,9 @@ class Hospital extends Banco
     }
 
     //Método para Atualizar a informação do Hospital
-    public function atualizarHospital($nome, $endereco, $numero, $bairro, $cep, $cidade,$telefone,$id)
+    public function atualizarHospital($nome, $endereco, $numero, $bairro, $cep, $cidade,$telefone,$idEspecialidade,$id)
     {
-        return $this->hospitalDAO->putHospital($nome, $endereco, $numero, $bairro, $cep, $cidade, $telefone, $id);
+        return $this->hospitalDAO->putHospital($nome, $endereco, $numero, $bairro, $cep, $cidade, $telefone,$idEspecialidade, $id);
     }
 
     //Método para Pesquisar Hospital

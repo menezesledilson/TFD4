@@ -14,18 +14,19 @@ class cadastrarHospital
     public function cadastrarHospital()
     {
         // Verificar se o campo 'nome' está definido em $_POST
-        if (isset($_POST['nome']) && isset($_POST['endereco']) && isset($_POST['numero']) && isset($_POST['bairro']) && isset($_POST['cep']) && isset($_POST['cidade']) && isset($_POST['telefone'])) {
+        if (isset($_POST['nome_hospital']) && isset($_POST['endereco']) && isset($_POST['numero']) && isset($_POST['bairro']) && isset($_POST['cep']) && isset($_POST['cidade']) && isset($_POST['telefone']) && isset($_POST['id_especialidade'])) {
             // Campos estão definidos, podemos acessá-los
-            $nome = $_POST['nome'];
+            $nome = $_POST['nome_hospital'];
             $endereco = $_POST['endereco'];
             $numero = $_POST['numero'];
             $bairro = $_POST['bairro'];
             $cep = $_POST['cep'];
             $cidade = $_POST['cidade'];
             $telefone = $_POST['telefone'];
+            $idEspecialidade = $_POST['id_especialidade'];
 
             // Tentar cadastrar o hospital
-            $result = $this->cadastro->cadastrarHospital($nome, $endereco, $numero, $bairro, $cep, $cidade, $telefone);
+            $result = $this->cadastro->cadastrarHospital($nome, $endereco, $numero, $bairro, $cep, $cidade, $telefone,$idEspecialidade);
 
             if ($result >= 1) {
                 echo "<script>alert('Registro incluído com sucesso!'); document.location='../../views/user/HospitalView/indexHospital.php'</script>";

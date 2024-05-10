@@ -11,11 +11,11 @@ class HospitalDAO
     }
 
     // Cadastrar o hospital
-    public function postHospital($nome, $endereco, $numero, $bairro, $cep, $telefone, $cidade)
+    public function postHospital($nome, $endereco, $numero, $bairro, $cep, $cidade,$telefone,$id_especialidade )
     {
         try {
-            $stmt = $this->conexao->getConexao()->prepare("INSERT INTO hospitais(`nome`,`endereco`,`numero`, `bairro`, `cep`,`cidade`,`telefone`) VALUES (?,?,?,?,?,?,?)");
-            $stmt->bind_Param("sssssss", $nome, $endereco, $numero, $bairro, $cep, $cidade, $telefone);
+            $stmt = $this->conexao->getConexao()->prepare("INSERT INTO hospitais(`nome`,`endereco`,`numero`, `bairro`, `cep`,`cidade`,`telefone`,`id_especialidade`) VALUES (?,?,?,?,?,?,?,?)");
+            $stmt->bind_Param("ssssssss", $nome, $endereco, $numero, $bairro, $cep, $cidade, $telefone,$id_especialidade);
             if ($stmt->execute()) {
                 return true;
             } else {
@@ -61,11 +61,11 @@ class HospitalDAO
     }
 
     // Atualizar o Hospital
-    public function putHospital($nome, $endereco, $numero, $bairro, $cep, $cidade, $telefone, $id)
+    public function putHospital($nome, $endereco, $numero, $bairro, $cep, $cidade, $telefone,$id_especialidade ,$id)
     {
         try {
-            $stmt = $this->conexao->getConexao()->prepare("UPDATE hospitais SET nome=?, endereco=?, numero=?, bairro=?, cep=?, cidade=?, telefone=? WHERE id=?");
-            $stmt->bind_param("sssssssi", $nome, $endereco, $numero, $bairro, $cep, $cidade, $telefone, $id);
+            $stmt = $this->conexao->getConexao()->prepare("UPDATE hospitais SET nome_hospital=?, endereco=?, numero=?, bairro=?, cep=?, cidade=?, telefone=?,id_especialidade=? WHERE id=?");
+            $stmt->bind_param("ssssssssi", $nome, $endereco, $numero, $bairro, $cep, $cidade, $telefone,$id_especialidade, $id);
             if ($stmt->execute()) {
                 return true;
             } else {
