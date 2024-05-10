@@ -1,0 +1,20 @@
+fieldset{
+	width: 750px;
+	margin: 5px auto;
+	color: #444;
+	border: 3px solid #ccc;
+	font-family: Helvetica;
+	padding: 10px;
+}
+ 
+h5{
+	text-align: center;
+}
+ 
+.direita{
+	text-align: right;
+}
+ 
+.center{
+	text-align: center;
+}
