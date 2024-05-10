@@ -13,7 +13,7 @@ class ViagemDAO {
 // Lista de todas unidades
     public function getViagem() {
         try {
-            $stmt = $this->conexao->getConexao()->prepare("SELECT v.*, c.modelo, m.nome_motorista,p.nome_paciente,a.nome_acompanhante
+            $stmt = $this->conexao->getConexao()->prepare("SELECT v.*, c.placa, m.nome_motorista,p.nome_paciente,a.nome_acompanhante
                                                            FROM viagens v 
                                                            INNER JOIN carros c ON v.id_carro = c.id
                                                            INNER JOIN motoristas m ON v.id_motorista = m.id

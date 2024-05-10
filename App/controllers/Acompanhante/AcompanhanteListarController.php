@@ -1,6 +1,7 @@
 <?php
 require_once (__DIR__ ."/../../models/AcompanhanteModel.php");
-class AcompanhanteListarController
+
+class AcompanhanteListar 
 {
     private $listarAcompanantes;
 

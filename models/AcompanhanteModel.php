@@ -270,7 +270,7 @@ class Acompanhante extends Banco
     }
 
     //método para listar o paciente
-    public function listarAcompanhante()
+    public function listarAcompanhantes()
     {
         return $this->acompanhanteDAO->getAcompanhante();
     }

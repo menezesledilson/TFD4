@@ -18,7 +18,7 @@ $rowCarro = $controllerCarro->listarTodos();
 $optionsCarroHtml = "";
 
 foreach ($rowCarro as $carrro) {
-    $optionsCarroHtml .= '<option value="' . $carrro['id'] . '">' . $carrro['modelo'] . '</option>';
+    $optionsCarroHtml .= '<option value="' . $carrro['id'] . '">' . $carrro['placa'] . '</option>';
 }
 
 //listar Paciente
@@ -96,7 +96,7 @@ foreach ($rowAcompanhante as $acompanhante) {
                             </div>
                             <div class="col-md-1"></div>
                             <div class="col-md-2">
-                                <label>Carro:</label>
+                                <label>Placa:</label>
                                 <select class="form-control" name="id_carro">
                                     <option>Selecione</option>
                                     <?php echo $optionsCarroHtml; ?>
@@ -105,7 +105,7 @@ foreach ($rowAcompanhante as $acompanhante) {
                             </div>
                             <div class="col-md-1"></div>
                             <div class="col-md-2">
-                                <label>Placa:</label>
+                                <label>Carro:</label>
                                 <input class="form-control form-control-sm" type="text" id=" " name=" " >
                             </div>
                         </div>

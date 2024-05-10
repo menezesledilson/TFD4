@@ -3,10 +3,10 @@
 require_once("../../../controllers/Acompanhante/AcompanhanteListarController.php");
 
 // Criar uma instância da classe listaDeUnidade para acessar os métodos
-$controller = new AcompanhanteListarController();
+$controller = new listarAcompanhante();
 
 // Chamar o método listarTodos para obter os dados das unidades
-$rows = $controller->listarTodosAcompanhante();
+$rows = $controller->listarTodos();
 if ($rows)
 ?>
 <!DOCTYPE html>
