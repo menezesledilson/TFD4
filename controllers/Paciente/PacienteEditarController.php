@@ -34,7 +34,7 @@ class editarPaciente
         $row = $this->editar->pesquisaPaciente($id);
         if ($row) {
             //Localizar nome da coluna no banco de dados
-            $this->nome = $row['nome'];
+            $this->nome = $row['nome_paciente'];
             $this->rg = $row['rg'];
             $this->cpf = $row['cpf'];
             $this->cns = $row['cns'];
@@ -136,7 +136,7 @@ class editarPaciente
 $id = filter_input(INPUT_GET, 'id');
 $editaPaciente = new editarPaciente($id);
 if (isset($_POST['submit'])) {
-    $editaPaciente->editarFormulario($_POST['nome'], $_POST['rg'], $_POST['cpf'], $_POST['cns'], $_POST['celular'], $_POST['endereco'], $_POST['numero'], $_POST['bairro'], $_POST['cidade'], $_POST['cep'],$_POST['embarque'],$_POST['referencia'], $_POST['id_unidade_usf'], $_POST['id_situacao'], $_POST['id']);
+    $editaPaciente->editarFormulario($_POST['nome_paciente'], $_POST['rg'], $_POST['cpf'], $_POST['cns'], $_POST['celular'], $_POST['endereco'], $_POST['numero'], $_POST['bairro'], $_POST['cidade'], $_POST['cep'],$_POST['embarque'],$_POST['referencia'], $_POST['id_unidade_usf'], $_POST['id_situacao'], $_POST['id']);
 }
 
 

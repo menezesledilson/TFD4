@@ -1,3 +1,48 @@
+<?php
+//lista o motorista
+require_once("../../../controllers/Motorista/MotoristaListarController.php");
+
+$controllerMotorista = new listarMotorista();
+$rowMotorista = $controllerMotorista->listarTodos();
+$optionsMotoristaHtml = ""; // Variável para armazenar o HTML das opções
+
+foreach ($rowMotorista as $motorista) {
+    $optionsMotoristaHtml .= '<option value="' . $motorista['id'] . '">' . $motorista['nome_motorista'] . '</option>';
+}
+
+//lista o Carro
+require_once("../../../controllers/Carro/CarroListarController.php");
+
+$controllerCarro = new listarCarro();
+$rowCarro = $controllerCarro->listarTodos();
+$optionsCarroHtml = "";
+
+foreach ($rowCarro as $carrro) {
+    $optionsCarroHtml .= '<option value="' . $carrro['id'] . '">' . $carrro['modelo'] . '</option>';
+}
+
+//listar Paciente
+require_once("../../../controllers/Paciente/PacienteListarController.php");
+
+$controllerPaciente = new listarPaciente();
+$rowPaciente = $controllerPaciente->listarTodos();
+$optionsPacienteHtml = "";
+
+foreach ($rowPaciente as $paciente) {
+    $optionsPacienteHtml .= '<option value="' . $paciente['id'] . '">' . $paciente['nome_paciente'] . '</option>';
+}
+
+//listar Acompanhante
+require_once("../../../controllers/Acompanhante/AcompanhanteListarController.php");
+
+$controllerAcompanhante = new listarAcompanhante();
+$rowAcompanhante = $controllerAcompanhante->listarTodos();
+$optionsAcompanhanteHtml = "";
+
+foreach ($rowAcompanhante as $acompanhante) {
+    $optionsAcompanhanteHtml .= '<option value="' . $acompanhante['id'] . '">' . $acompanhante['nome_acompanhante'] . '</option>';
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -16,7 +61,7 @@
                     <a href="indexViagem.php" class="btn btn-primary">Voltar</a>
                 </div>
             </header>
-            <form method="post" action="../../../controllers/Unidade/UnidadeCadastrarController.php" id ="form" enctype="multipart/form-data">
+            <form method="post" action="../../../controllers/Viagem/ViagemCadastrarController.php" id ="form" enctype="multipart/form-data">
 
                 <div class="card">
                     <div class="card-header">Cadastro de Viagem</div>
@@ -41,20 +86,22 @@
                         </div>
 
                         <!--Segunda Coluna-->
-
                         <div class="row mb-4">
                             <div class="col-md-4">
                                 <label>Motorista:</label>
-                                <select class="form-control" name="id_situacao">
+                                <select class="form-control" name="id_motorista">
                                     <option>Selecione</option>
-                                    <?php echo $optionsSituacao_html; ?>
+                                    <?php echo $optionsMotoristaHtml; ?>
                                 </select>
-
                             </div>
                             <div class="col-md-1"></div>
                             <div class="col-md-2">
                                 <label>Carro:</label>
-                                <input class="form-control form-control-sm" type="text" id=" " name=" " >
+                                <select class="form-control" name="id_carro">
+                                    <option>Selecione</option>
+                                    <?php echo $optionsCarroHtml; ?>
+                                </select>
+
                             </div>
                             <div class="col-md-1"></div>
                             <div class="col-md-2">
@@ -67,9 +114,9 @@
                         <div class="row mb-4">
                             <div class="col-md-4">
                                 <label>Paciente:</label>
-                                 <select class="form-control" name="id_situacao">
+                                <select class="form-control" name="id_paciente">
                                     <option>Selecione</option>
-                                    <?php echo $optionsSituacao_html; ?>
+                                    <?php echo $optionsPacienteHtml; ?>  
                                 </select>
                             </div>
                             <div class="col-md-1"></div>
@@ -88,9 +135,9 @@
                         <div class="row mb-4">
                             <div class="col-md-4">
                                 <label>Acompanhante:</label>
-                                <select class="form-control" name="id_situacao">
+                                <select class="form-control" name="id_acompanhante">
                                     <option>Selecione</option>
-                                    <?php echo $optionsSituacao_html; ?>
+                                    <?php echo $optionsAcompanhanteHtml; ?>
                                 </select>
                             </div>
                             <div class="col-md-1"></div>

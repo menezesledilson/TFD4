@@ -35,7 +35,7 @@ class AcompanhanteDAO
     public function postAcompanhante($nome, $rg, $cpf, $telefone, $endereco, $numero, $bairro, $cidade, $cep,$embarque,$referencia, $id_situacao, $created, $modified)
     {
         try {
-            $stmt = $this->conexao->getConexao()->prepare("INSERT INTO acompanhantes (`nome`, `rg`, `cpf`, `celular`, `endereco`, `numero`, `bairro`, `cidade`, `cep`,`embarque`,`referencia`, `id_situacao`,`created`,`modified`) VALUES (?,?,?,?,?, ?, ?, ?, ?, ?, ?, ?, ?,?)");
+            $stmt = $this->conexao->getConexao()->prepare("INSERT INTO acompanhantes (`nome_acompanhante`, `rg`, `cpf`, `celular`, `endereco`, `numero`, `bairro`, `cidade`, `cep`,`embarque`,`referencia`, `id_situacao`,`created`,`modified`) VALUES (?,?,?,?,?, ?, ?, ?, ?, ?, ?, ?, ?,?)");
             $stmt->bind_param("ssssssssssssss", $nome, $rg, $cpf, $telefone, $endereco, $numero, $bairro, $cidade, $cep,$embarque,$referencia, $id_situacao, $created, $modified);
             if ($stmt->execute()) {
                 return true;
@@ -79,7 +79,7 @@ class AcompanhanteDAO
         try {
             $stmt = $this->conexao->getConexao()->prepare("UPDATE acompanhantes AS a 
                                                        INNER JOIN situacoes AS s ON a.id_situacao = s.id 
-                                                       SET a.nome=?, a.rg=?, a.cpf=?, a.celular=?, a.endereco=?, a.numero=?, a.bairro=?, a.cidade=?, a.cep=?,a.embarque=?,a.referencia=?, a.id_situacao=?, a.modified=? 
+                                                       SET a.nome_acompanhante=?, a.rg=?, a.cpf=?, a.celular=?, a.endereco=?, a.numero=?, a.bairro=?, a.cidade=?, a.cep=?,a.embarque=?,a.referencia=?, a.id_situacao=?, a.modified=? 
                                                        WHERE a.id=?");
             if (!$stmt) {
                 throw new Exception("Erro ao preparar a consulta: " . $this->conexao->getConexao()->error);

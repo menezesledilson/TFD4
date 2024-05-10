@@ -34,7 +34,7 @@ foreach ($row_situacao as $situacao) {
                 <div class="row mb-3">
                     <div class="col-md-3">
                         <label>Nome:</label>
-                        <input type="text" class="form-control form-control-sm" name="nome" placeholder="Nome completo">
+                        <input type="text" class="form-control form-control-sm" name="nome_acompanhante" placeholder="Nome completo">
                     </div>
                     <div class="col-md-3">
                         <label>RG:</label>

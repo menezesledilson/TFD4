@@ -14,7 +14,7 @@ class CadastrarAcompanhanteController
     public function cadastrar()
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $nome = isset($_POST['nome']) ? $_POST['nome'] : '';
+            $nome = isset($_POST['nome_acompanhante']) ? $_POST['nome_acompanhante'] : '';
             $rg = isset($_POST['rg']) ? $_POST['rg'] : '';
             $cpf = isset($_POST['cpf']) ? $_POST['cpf'] : '';
             $celular = isset($_POST['telefone']) ? $_POST['telefone'] : '';

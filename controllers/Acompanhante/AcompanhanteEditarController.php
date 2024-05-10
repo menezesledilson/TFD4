@@ -33,7 +33,7 @@ class editarAcompanhante
     {
         $row = $this->editar->pesquisaAcompanhante($id);
         if ($row) {
-            $this->nome = $row['nome'];
+            $this->nome = $row['nome_acompanhante'];
             $this->rg = $row['rg'];
             $this->cpf = $row['cpf'];
             $this->celular = $row['celular'];
@@ -134,6 +134,6 @@ class editarAcompanhante
 $id = filter_input(INPUT_GET,'id');
      $editaAcompanhante = new editarAcompanhante($id);
      if(isset($_POST['submit'])){
-    $editaAcompanhante->editarFormulario($_POST['nome'], $_POST['rg'], $_POST['cpf'], $_POST['celular'], $_POST['endereco'], $_POST['numero'], $_POST['bairro'], $_POST['cidade'], $_POST['cep'],$_POST['embarque'],$_POST['referencia'], $_POST['id_situacao'], $_POST['id']);
+    $editaAcompanhante->editarFormulario($_POST['nome_acompanhante'], $_POST['rg'], $_POST['cpf'], $_POST['celular'], $_POST['endereco'], $_POST['numero'], $_POST['bairro'], $_POST['cidade'], $_POST['cep'],$_POST['embarque'],$_POST['referencia'], $_POST['id_situacao'], $_POST['id']);
 }
 ?>

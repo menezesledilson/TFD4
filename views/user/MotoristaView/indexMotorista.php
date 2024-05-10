@@ -26,14 +26,14 @@ $row = $controller->listarTodos();
         <p class="text-right"><a href="criarMotorista.php" class="btn btn-success">+ Novo Cadastro</a></p>
         <a href="../../home.php" class="btn btn-primary" style="margin-bottom: 25px;">Fechar</a>
     </header>
-    <!-- Loop para cada paciente -->
+    
     <?php foreach ($row as $value): ?>
         <div class="card">
             <div class="card-header">Motorista</div>
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-4">
-                        <p><strong>Nome:</strong> <?php echo $value['nome']; ?></p>
+                        <p><strong>Nome:</strong> <?php echo $value['nome_motorista']; ?></p>
                         <p><strong>Telefone:</strong> <?php echo $value['telefone']; ?></p>
                     </div>
                     <div class="col-md-3">

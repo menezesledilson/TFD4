@@ -25,7 +25,7 @@
                 <div class="row mb-3">
                     <div class="col-md-3">
                         <label>Nome:</label>
-                        <input class="form-control form-control-sm" type="text" id="nome" name="nome"
+                        <input class="form-control form-control-sm" type="text" id="nome_motorista" name="nome_motorista"
                                placeholder="Nome do motorista">
                         <label>Telefone:</label>
                         <input class="form-control form-control-sm" type="text" id="telefone" name="telefone"

@@ -41,7 +41,7 @@ foreach ($rowSituacao as $situacao) {
                 <div class="row mb-3">
                     <div class="col-md-3">
                         <label>Nome:</label>
-                        <input type="text" class="form-control form-control-sm" name="nome"
+                        <input type="text" class="form-control form-control-sm" name="nome_acompanhante"
                                value="<?php echo !empty($editaAcompanhante->getNome()) ? $editaAcompanhante->getNome() : ''; ?>">
                     </div>
                     <div class="col-md-3">

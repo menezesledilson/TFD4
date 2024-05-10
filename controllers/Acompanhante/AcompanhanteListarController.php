@@ -1,18 +1,19 @@
 <?php
 require_once (__DIR__ ."/../../models/AcompanhanteModel.php");
-class AcompanhanteListarController
+
+class listarAcompanhante
 {
-    private $listarAcompanantes;
+    private $listar;
 
     public function __construct()
     {
-        $this->listarAcompanantes = new Acompanhante();
-        $this -> listarTodosAcompanhante();
+        $this->listar = new Acompanhante();
+        $this -> listarTodos();
     }
     // Armazena todos os dados na propriedade $rows
-    public function listarTodosAcompanhante()
+    public function listarTodos()
     {
-        return $this->listarAcompanantes->listarAcompanhante();
+        return $this->listar->listarAcompanhante();
     }
 }
 

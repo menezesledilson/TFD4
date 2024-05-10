@@ -1,4 +1,13 @@
- 
+<?php
+// Incluir o arquivo PacienteListarController.php para acessar a classe listaDeUnidade
+require_once("../../../controllers/Viagem/ViagemListarController.php");
+
+// Criar uma instância da classe listaDeUnidade para acessar os métodos
+$controller = new listarViagem();
+
+// Chamar o método listarTodos para obter os dados das unidades
+$row = $controller->listarTodos();
+?> 
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
@@ -7,7 +16,7 @@
         <link rel="shortcut icon" href="../../favicon.ico"/>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
               integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-        <title>Unidades USF</title>
+        <title>Lista de Viagem</title>
     </head>
     <body>
         <div class="container">
@@ -15,74 +24,73 @@
                 <p class="text-right"><a href="criarViagem.php" class="btn btn-success">+ Novo Cadastro</a></p>
                 <a href="../../home.php" class="btn btn-primary" style="margin-bottom: 25px;">Fechar</a>
             </header>
+            <?php foreach ($row as $value):?>
+                <div class="card">
+                    <div class="card-header">Viagem</div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <p><strong>Data da criação:</strong> <?php echo date('d/m/Y', strtotime($value['created'])); ?>  </p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <p><strong>Local da viagem:</strong> <?php echo $value['local_viagem']; ?>  </p>
+                            </div>
+                            <div class="col-md-4">
+                                <p><strong>Horário saída:</strong> <?php echo $value['hora_saida']; ?> </p>
+                            </div>
+                            <div class="col-md-4">
+                                <p><strong>Data:</strong> <?php echo date('d/m/Y', strtotime($value['data_viagem'])); ?> </p>
+                            </div>
+                        </div>
+                        <!--Coluna do motorisita-->
+                        <div class="row">
+                            <div class="col-md-4">
+                                <p><strong>Motorista:</strong> <?php echo $value['nome_motorista']; ?>  </p>
+                            </div>
+                            <div class="col-md-4">
+                                <p><strong>Carro:</strong> <?php echo $value['modelo']; ?> </p>
+                            </div>
+                            <div class="col-md-4">
+                                <p><strong>Placa automatico:</strong>  </p>
+                            </div>
+                        </div>
 
-            <div class="card">
-                <div class="card-header">Viagem</div>
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-md-4">
-                            <p><strong>Data da criação:</strong>  </p>
+                        <!--Coluna do Paciente-->
+                        <div class="row">
+                            <div class="col-md-4">
+                                <p><strong>Paciente:</strong> <?php echo $value['nome_paciente']; ?> </p>
+                            </div>
+                            <div class="col-md-4">
+                                <p><strong>Local embarque automatico:</strong> </p>
+                            </div>
+                            <div class="col-md-4">
+                                <p><strong>Destino/hora:</strong>  </p>
+                            </div>
+                        </div>
+
+                        <!--Coluna do Acompanhante-->
+                        <div class="row">
+                            <div class="col-md-4">
+                                <p><strong>Acompanhante:</strong> <?php echo $value['nome_acompanhante']; ?> </p>
+                            </div>
+                            <div class="col-md-4">
+                                <p><strong>Local embarque automatico:</strong> </p>
+                            </div>
+
                         </div>
                     </div>
-                    <div class="row">
-
-                        <div class="col-md-4">
-                            <p><strong>Local da viagem:</strong>  </p>
-                        </div>
-                        <div class="col-md-4">
-                            <p><strong>Horário saída:</strong> </p>
-                        </div>
-                        <div class="col-md-4">
-                            <p><strong>Data:</strong>  </p>
-                        </div>
-                    </div>
-                    <!--Coluna do motorisita-->
-                    <div class="row">
-                        <div class="col-md-4">
-                            <p><strong>Motorista:</strong>  </p>
-                        </div>
-                        <div class="col-md-4">
-                            <p><strong>Carro:</strong> </p>
-                        </div>
-                        <div class="col-md-4">
-                            <p><strong>Placa:</strong>  </p>
-                        </div>
-                    </div>
-
-                    <!--Coluna do Paciente-->
-                    <div class="row">
-                        <div class="col-md-4">
-                            <p><strong>Paciente:</strong>  </p>
-                        </div>
-                        <div class="col-md-4">
-                            <p><strong>Local embarque:</strong> </p>
-                        </div>
-                        <div class="col-md-4">
-                            <p><strong>Destino/hora:</strong>  </p>
-                        </div>
-                    </div>
-
-                    <!--Coluna do Acompanhante-->
-                    <div class="row">
-                        <div class="col-md-4">
-                            <p><strong>Acompanhante:</strong>  </p>
-                        </div>
-                        <div class="col-md-4">
-                            <p><strong>Local embarque:</strong> </p>
-                        </div>
+                </div>
+                <br>
+                <div class="col-md-6"> <!-- Terceira coluna para os botões -->
+                    <div class="btn-group justify-content-end"> <!-- Botões dentro da terceira coluna -->
 
                     </div>
                 </div>
-            </div>
-            <br>
-            <div class="col-md-6"> <!-- Terceira coluna para os botões -->
-                <div class="btn-group justify-content-end"> <!-- Botões dentro da terceira coluna -->
-
-                </div>
-            </div>
-            <br>
-            <br>
-
+                <br>
+                <br>
+            <?php endforeach; ?>
         </div>
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
                 integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

@@ -14,7 +14,7 @@ class MotoristaDAO
     public function getMotorista()
     {
         try {
-            $stmt = $this->conexao->getConexao()->prepare("SELECT id,nome,telefone, created FROM motoristas ORDER BY id DESC LIMIT 5 ");
+            $stmt = $this->conexao->getConexao()->prepare("SELECT id,nome_motorista,telefone, created FROM motoristas ORDER BY id DESC LIMIT 5 ");
             $motoristas = [];
             $stmt->execute();
             $result = $stmt->get_result();
@@ -47,7 +47,7 @@ class MotoristaDAO
     public function postMotorista($motorista, $telefone, $created,$modified)
     {
         try {
-            $stmt = $this->conexao->getConexao()->prepare("INSERT INTO motoristas(`nome`, `telefone`, `created`,`modified`) VALUES (?,?, ?,?)");
+            $stmt = $this->conexao->getConexao()->prepare("INSERT INTO motoristas(`nome_motorista`, `telefone`, `created`,`modified`) VALUES (?,?, ?,?)");
 
             // Ajuste para o tipo de dados do campo 'created' e 'modified'
             $stmt->bind_param("ssss", $motorista, $telefone, $created,$modified);

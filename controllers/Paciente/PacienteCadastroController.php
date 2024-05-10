@@ -12,7 +12,7 @@ class cadastrarPacienteController
     public function cadastrar()
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $nome = isset($_POST['nome']) ? $_POST['nome'] : '';
+            $nome = isset($_POST['nome_paciente']) ? $_POST['nome_paciente'] : '';
             $rg = isset($_POST['rg']) ? $_POST['rg'] : '';
             $cpf = isset($_POST['cpf']) ? $_POST['cpf'] : '';
             $cns = isset($_POST['cns']) ? $_POST['cns'] : '';

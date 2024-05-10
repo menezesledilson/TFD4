@@ -10,7 +10,7 @@ class cadastrarMotorista
         $this->cadastrarMotorista();
     }
     private function cadastrarMotorista(){
-        $nome = $_POST['nome'];
+        $nome = $_POST['nome_motorista'];
         $telefone = $_POST['telefone'];
 
 

@@ -22,7 +22,7 @@ class editarMotorista
         $row = $this->editar->pesquisarMotorista($id);
         if ($row) {
             //Localizar nome da coluna no banco de dados
-            $this->nome = $row['nome'];
+            $this->nome = $row['nome_motorista'];
             $this->telefone = $row['telefone'];
         } else {
             // Tratar o caso em que a pesquisa da unidade não retornou resultados ou 'nome' não está definido
@@ -55,6 +55,6 @@ class editarMotorista
     $id = filter_input(INPUT_GET, 'id');
     $editaMotorista = new editarMotorista($id);
     if(isset($_POST['submit'])){
-        $editaMotorista->editarFormulario($_POST['nome'],$_POST['telefone'],$_POST['id']);
+        $editaMotorista->editarFormulario($_POST['nome_motorista'],$_POST['telefone'],$_POST['id']);
 }
 ?>
