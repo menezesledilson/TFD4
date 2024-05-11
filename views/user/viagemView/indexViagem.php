@@ -50,10 +50,10 @@ $row = $controller->listarTodos();
                                 <p><strong>Motorista:</strong> <?php echo $value['nome_motorista']; ?>  </p>
                             </div>
                             <div class="col-md-4">
-                                <p><strong>Carro:</strong> <?php echo $value['modelo']; ?> </p>
+                                <p><strong>Placa:</strong> <?php echo $value['placa']; ?> </p>
                             </div>
                             <div class="col-md-4">
-                                <p><strong>Placa automatico:</strong>  </p>
+                                <p><strong>Carro automatico:</strong>  </p>
                             </div>
                         </div>
 
