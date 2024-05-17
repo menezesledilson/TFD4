@@ -10,6 +10,13 @@ class listarHospital
     public function listarTodos(){
         return $this->listar->listarHospitais();
     }
+      /*
+    public function contarTotalPacientes()
+    {
+        $pacientes = $this->listar->listarPacientes();
+        return count($pacientes);
+    }
+    */
  }
 
 ?>

@@ -20,6 +20,14 @@ class listarPaciente
     {
         return $this->listar->listarPacientePorId($id);
     }
+
+    /*
+    public function contarTotalPacientes()
+    {
+        $pacientes = $this->listar->listarPacientes();
+        return count($pacientes);
+    }
+    */
 }
 
 ?>

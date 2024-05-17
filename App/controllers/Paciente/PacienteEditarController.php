@@ -34,7 +34,7 @@ class editarPaciente
         $row = $this->editar->pesquisaPaciente($id);
         if ($row) {
             //Localizar nome da coluna no banco de dados
-            $this->nome = $row['nome'];
+            $this->nome = $row['nome_paciente'];
             $this->rg = $row['rg'];
             $this->cpf = $row['cpf'];
             $this->cns = $row['cns'];

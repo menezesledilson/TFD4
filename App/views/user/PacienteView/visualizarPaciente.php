@@ -39,7 +39,7 @@ if (isset($_GET['id'])) {
                     <div class="card-body">
                         <div class="row mb-4">
                             <div class="col-md-3">
-                                <span><strong>Nome:</strong> <?php echo $rows['nome']; ?></span>
+                                <span><strong>Nome:</strong> <?php echo $rows['nome_paciente']; ?></span>
                             </div>
                             <div class="col-md-3">
                                 <span><strong>Situação: </strong> <?php echo $rows['nome_situacao']; ?></span>

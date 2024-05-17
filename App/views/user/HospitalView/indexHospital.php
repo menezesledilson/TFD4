@@ -32,7 +32,7 @@ $row = $controller->listarTodos();
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-5">
-                        <p><strong>Nome:</strong> <?php echo $value['nome']; ?></p>
+                        <p><strong>Nome:</strong> <?php echo $value['nome_hospital']; ?></p>
                         <p><strong>Endereço:</strong> <?php echo $value['endereco']; ?></p>
                     </div>
                     <div class="col-md-3">
@@ -45,6 +45,9 @@ $row = $controller->listarTodos();
                     </div>
                     <div class="col-md-3">
                         <p><strong>Número:</strong> <?php echo $value['numero']; ?></p>
+                    </div>
+                    <div class="col-md-3">
+                        <p><strong>Especialidade:</strong> <?php echo $value['nome']; ?></p>
                     </div>
                 </div>
             </div>

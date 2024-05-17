@@ -3,10 +3,10 @@
 require_once("../../../controllers/Acompanhante/AcompanhanteListarController.php");
 
 // Criar uma instância da classe listaDeUnidade para acessar os métodos
-$controller = new AcompanhanteListarController();
+$controller = new listarAcompanhante();
 
 // Chamar o método listarTodos para obter os dados das unidades
-$rows = $controller->listarTodosAcompanhante();
+$rows = $controller->listarTodos();
 if ($rows)
 ?>
 <!DOCTYPE html>
@@ -52,7 +52,7 @@ if ($rows)
                             } else {
                                 echo "Data não disponível";
                             } ?></p>
-                        <p><strong>Nome:</strong> <?php echo $row['nome']; ?></p>
+                        <p><strong>Nome:</strong> <?php echo $row['nome_acompanhante']; ?></p>
                         <p><strong>RG:</strong> <?php echo $row['rg']; ?></p>
                         <p><strong>CPF:</strong> <?php echo $row['cpf']; ?></p>
                     </div>
