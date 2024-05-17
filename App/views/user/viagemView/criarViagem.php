@@ -33,17 +33,6 @@ foreach ($rowPaciente as $paciente) {
     $optionsPacienteHtml .= '<option value="' . $paciente['id'] . '" data-embarque="' . $paciente['embarque'] . '">' . $paciente['nome_paciente'] . '</option>';
 }
 
-
-//listar Acompanhante
-require_once("../../../controllers/Acompanhante/AcompanhanteListarController.php");
-
-$controllerAcompanhante = new listarAcompanhante();
-$rowAcompanhante = $controllerAcompanhante->listarTodos();
-$optionsAcompanhanteHtml = "";
-
-foreach ($rowAcompanhante as $acompanhante) {
-    $optionsAcompanhanteHtml .= '<option value="' . $acompanhante['id'] . '" data-embarque="' . $acompanhante['embarque'] . '">' . $acompanhante['nome_acompanhante'] . '</option>';
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -71,7 +60,7 @@ foreach ($rowAcompanhante as $acompanhante) {
 
                         <!--Primeiro Coluna-->
                         <div class="row mb-4">
-                            <div class="col-md-4">
+                            <div class="col-md-3">
                                 <label>Local da viagem:</label>
                                 <input class="form-control form-control-sm" type="text" id="local_viagem" name="local_viagem">
                             </div>
@@ -89,7 +78,7 @@ foreach ($rowAcompanhante as $acompanhante) {
 
                         <!-- Segunda Coluna -->
                         <div class="row mb-4">
-                            <div class="col-md-4">
+                            <div class="col-md-3">
                                 <label>Motorista:</label>
                                 <select class="form-control" name="id_motorista">
                                     <option>Selecione</option>
@@ -123,19 +112,25 @@ foreach ($rowAcompanhante as $acompanhante) {
                         </script>
                         <!--Terceira Coluna-->
                          <div class="row mb-4">
-                            <div class="col-md-4">
+                            <div class="col-md-3">
                                 <label>Paciente:</label>
                                 <select class="form-control" name="id_paciente" onchange="updateEmbarque()">
                                     <option>Selecione</option>
                                     <?php echo $optionsPacienteHtml; ?>
                                 </select>
                             </div>
+                             <div class="col-md-1"></div>
+                            <div class="col-md-3">
+                                <label>Acompanhante:</label>
+                                <input class="form-control form-control-sm" type="text" id="embarque_paciente" name="embarque_paciente" readonly>
+                            </div>
+
                             <div class="col-md-1"></div>
-                            <div class="col-md-2">
+                            <div class="col-md-3">
                                 <label>Local embarque:</label>
                                 <input class="form-control form-control-sm" type="text" id="embarque_paciente" name="embarque_paciente" readonly>
                             </div>
-                        </div>
+                                                    </div>
                         <script>
                             function updateEmbarque() {
                                 var select = document.querySelector('select[name="id_paciente"]');
@@ -147,34 +142,8 @@ foreach ($rowAcompanhante as $acompanhante) {
                                 embarqueInput.value = selectedEmbarque;
                             }
                         </script>
-                            <!--Quarto Coluna-->
+                            
                           
-                 
-                        <div class="row mb-4">
-                            <div class="col-md-4">
-                                <label>Acompanhante:</label>
-                                <select class="form-control" name="id_acompanhante" onchange="updateEmbarque()">
-                                    <option>Selecione</option>
-                                    <?php echo $optionsAcompanhanteHtml; ?>
-                                </select>
-                            </div>
-                            <div class="col-md-1"></div>
-                            <div class="col-md-2">
-                                <label>Local embarque:</label>
-                                <input class="form-control form-control-sm" type="text" id="embarque_acompanhante" name="embarque_acompanhante" readonly>
-                            </div>
-                        </div>
-                        <script>
-                            function updateEmbarque() {
-                                var select = document.querySelector('select[name="id_acompanhante"]');
-                                var selectedOption = select.options[select.selectedIndex];
-                                var embarqueInput = document.getElementById('embarque_acompanhante');
-                                var selectedEmbarque = selectedOption.getAttribute('data-embarque');
-
-                                // Atualiza o valor do campo de texto do local de embarque do acompanhante
-                                embarqueInput.value = selectedEmbarque;
-                            }
-                        </script>
                     </div>
                 </div>
                 <div class="row mt-3">
